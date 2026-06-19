@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Wishlist - Saved Arrangements | Florish</title>
+  
+  <meta name="description" content="View floral bouquets, roses, and custom plants saved to your personal Florish wishlist. Move items directly into your shopping cart.">
+  
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/darkmode.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  
+  <style>
+    .wishlist-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: var(--space-xl);
+      padding: var(--space-xxl) 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="navbar-placeholder"></div>
+
+  <div id="header-placeholder"></div>
+
+  <main class="container">
+    <div class="wishlist-grid" id="wishlist-items-grid">
+      <!-- Generated dynamically by js/wishlist.js -->
+      <div class="text-center" style="grid-column: 1 / -1; padding: 4rem;">
+        <p class="text-secondary" style="margin-bottom: var(--space-md);">You haven't saved any fresh items to your wishlist yet!</p>
+        <a href="shop.html" class="btn btn-primary">Browse Flowers Catalog</a>
+      </div>
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="js/api.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/wishlist.js"></script>
+  <script src="js/darkmode.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      fetch('components/header.html')
+        .then(res => res.text())
+        .then(html => {
+          const banner = document.getElementById('header-placeholder');
+          banner.innerHTML = html;
+          banner.querySelector('#page-title').textContent = 'My Wishlist';
+          banner.querySelector('#breadcrumb-current').textContent = 'Wishlist';
+        });
+    });
+  </script>
+</body>
+</html>

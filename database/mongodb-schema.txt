@@ -1,0 +1,127 @@
+========================================================================
+                      FLORISH DATABASE SCHEMA DEFINITIONS
+                     Collection maps, validation and indexing
+========================================================================
+
+Author: BCA Final Year Student Project
+Database: MongoDB
+ODM Layer: Mongoose
+
+------------------------------------------------------------------------
+1. USER COLLECTION ("users")
+------------------------------------------------------------------------
+Purpose: Tracks client logins, credentials, and backoffice privileges.
+
+Fields:
+  - _id             : ObjectId (Primary Key, auto-generated)
+  - name            : String (Required, trimmed)
+  - email           : String (Required, unique, regex format validation)
+  - password        : String (Required, minimum 6 characters, Bcrypt hashed)
+  - role            : String (Enum: ['user', 'admin'], default: 'user')
+  - createdAt       : Date (Timestamp)
+  - updatedAt       : Date (Timestamp)
+
+Indexes:
+  - Unique Index on { email: 1 }
+
+------------------------------------------------------------------------
+2. PRODUCT COLLECTION ("products")
+------------------------------------------------------------------------
+Purpose: Maintains floral inventory collections, catalogs, and SKUs.
+
+Fields:
+  - _id             : ObjectId (Primary Key, auto-generated)
+  - name            : String (Required, unique, trimmed)
+  - sku             : String (Required, unique, trimmed, e.g. FL-ROSE-09)
+  - category        : String (Enum: ['bouquets', 'roses', 'indoor', 'lilies'])
+  - price           : Number (Required)
+  - oldPrice        : Number (Default: null)
+  - description     : String (Required)
+  - image           : String (Default: '/uploads/default-flower.jpg')
+  - stock           : Number (Required, Default: 10)
+  - isFeatured      : Boolean (Default: false)
+  - rating          : Number (Default: 5)
+  - reviewsCount    : Number (Default: 0)
+  - createdAt       : Date (Timestamp)
+  - updatedAt       : Date (Timestamp)
+
+Indexes:
+  - Unique Index on { sku: 1 }
+  - Unique Index on { name: 1 }
+
+------------------------------------------------------------------------
+3. CART COLLECTION ("carts")
+------------------------------------------------------------------------
+Purpose: Tracks persistent items added to cart by registered clients.
+
+Fields:
+  - _id             : ObjectId (Primary Key, auto-generated)
+  - user            : ObjectId (Required, ref: 'User', unique relation)
+  - items           : Array of subdocuments:
+      * product     : ObjectId (Required, ref: 'Product')
+      * quantity    : Number (Required, minimum 1)
+  - createdAt       : Date (Timestamp)
+  - updatedAt       : Date (Timestamp)
+
+Indexes:
+  - Unique Index on { user: 1 }
+
+------------------------------------------------------------------------
+4. ORDER COLLECTION ("orders")
+------------------------------------------------------------------------
+Purpose: Finalized customer checkout orders and billing invoices.
+
+Fields:
+  - _id             : ObjectId (Primary Key, auto-generated)
+  - user            : ObjectId (Required, ref: 'User')
+  - items           : Array of subdocuments:
+      * product     : ObjectId (Required, ref: 'Product')
+      * name        : String (Required)
+      * price       : Number (Required)
+      * quantity    : Number (Required)
+  - shippingAddress : Subdocument:
+      * firstName   : String (Required)
+      * lastName    : String (Required)
+      * address     : String (Required)
+      * city        : String (Required)
+      * pincode     : String (Required)
+      * phone       : String (Required)
+      * email       : String (Required)
+  - paymentMethod   : String (Enum: ['cod', 'online'], default: 'cod')
+  - paymentStatus   : String (Enum: ['pending', 'paid', 'failed'], default: 'pending')
+  - shippingPrice   : Number (Required, default: 0.0)
+  - taxPrice        : Number (Required, default: 0.0)
+  - totalPrice      : Number (Required, default: 0.0)
+  - orderStatus     : String (Enum: ['Processing', 'Shipped', 'Delivered', 'Cancelled'], default: 'Processing')
+  - deliveredAt     : Date
+  - createdAt       : Date (Timestamp)
+  - updatedAt       : Date (Timestamp)
+
+Indexes:
+  - Index on { user: 1 }
+
+------------------------------------------------------------------------
+5. WISHLIST COLLECTION ("wishlists")
+------------------------------------------------------------------------
+Purpose: Saves favorite items lists.
+
+Fields:
+  - _id             : ObjectId (Primary Key, auto-generated)
+  - user            : ObjectId (Required, ref: 'User', unique relation)
+  - products        : Array of ObjectIds (ref: 'Product')
+
+------------------------------------------------------------------------
+6. REVIEW COLLECTION ("reviews")
+------------------------------------------------------------------------
+Purpose: Captures product feedback stars and critiques.
+
+Fields:
+  - _id             : ObjectId (Primary Key, auto-generated)
+  - product         : ObjectId (Required, ref: 'Product')
+  - user            : ObjectId (Required, ref: 'User')
+  - name            : String (Required)
+  - rating          : Number (Required, min 1, max 5)
+  - comment         : String (Required)
+
+Indexes:
+  - Compound Unique Index on { product: 1, user: 1 } (One review per client)

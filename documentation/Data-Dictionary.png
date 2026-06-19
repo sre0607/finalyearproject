@@ -1,0 +1,47 @@
+========================================================================
+                             DATA DICTIONARY
+                     Floral E-Commerce Website - Florish
+========================================================================
+
+Entity: USER
+------------------------------------------------------------------------
+Field Name     | Data Type   | Key Type | Validation / Constraints
+------------------------------------------------------------------------
+_id            | ObjectId    | PK       | Auto-generated unique ID
+name           | String      | -        | Required, trimmed, max 80 chars
+email          | String      | UK       | Required, regex email validation
+password       | String      | -        | Required, minimum 6 chars, Bcrypt
+role           | String      | -        | Enum: ['user', 'admin'], default: 'user'
+createdAt      | Date        | -        | Timestamp auto-created
+updatedAt      | Date        | -        | Timestamp auto-updated
+
+Entity: PRODUCT
+------------------------------------------------------------------------
+Field Name     | Data Type   | Key Type | Validation / Constraints
+------------------------------------------------------------------------
+_id            | ObjectId    | PK       | Auto-generated unique ID
+sku            | String      | UK       | Required, e.g. FL-ROSE-09
+name           | String      | UK       | Required, unique, trimmed
+category       | String      | -        | Enum: ['bouquets', 'roses', 'indoor', 'lilies']
+price          | Number      | -        | Required, positive decimal
+oldPrice       | Number      | -        | Optional decimal fallback
+description    | String      | -        | Required copy
+image          | String      | -        | Host link, default provided
+stock          | Number      | -        | Required, positive integer, default 10
+isFeatured     | Boolean     | -        | Default: false
+rating         | Number      | -        | Floating decimal, default 5.0
+reviewsCount   | Number      | -        | Positive integer, default 0
+
+Entity: ORDER
+------------------------------------------------------------------------
+Field Name     | Data Type   | Key Type | Validation / Constraints
+------------------------------------------------------------------------
+_id            | ObjectId    | PK       | Auto-generated unique ID
+user           | ObjectId    | FK       | Refers to User._id
+items          | Array       | -        | List of products, names, quantities
+shippingAddress| Subdocument | -        | Name, street, city, pin, phone, email
+paymentMethod  | String      | -        | Enum: ['cod', 'online'], default 'cod'
+paymentStatus  | String      | -        | Enum: ['pending', 'paid', 'failed'], default 'pending'
+totalPrice     | Number      | -        | Combined invoice price
+orderStatus    | String      | -        | Enum: ['Processing', 'Shipped', 'Delivered'], default 'Processing'
+========================================================================

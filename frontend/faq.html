@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frequently Asked Questions - Florish</title>
+  
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/darkmode.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <style>
+    .faq-item {
+      background-color: var(--surface-color);
+      border-radius: var(--radius-md);
+      padding: var(--space-md);
+      box-shadow: var(--shadow-sm);
+      margin-bottom: var(--space-md);
+      border-left: 4px solid var(--primary);
+    }
+    .faq-question {
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: var(--space-xs);
+      font-size: 1.1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="loader-placeholder"></div>
+  <div id="navbar-placeholder"></div>
+
+  <main class="container py-xxl" style="max-width: 800px; margin: 0 auto; padding-left: var(--space-md); padding-right: var(--space-md);">
+    <h1 style="color: var(--primary); margin-bottom: var(--space-lg); font-family: var(--font-secondary); text-align: center;">Frequently Asked Questions</h1>
+    
+    <div style="display: flex; flex-direction: column; gap: var(--space-md);">
+      
+      <div class="faq-item">
+        <div class="faq-question">Q: How does same-day delivery work?</div>
+        <div class="faq-answer">A: For orders placed before 1 PM local time, we offer direct doorstep delivery by that evening. Orders placed after 1 PM will be scheduled for next-day delivery.</div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question">Q: Can I schedule a delivery for a future date?</div>
+        <div class="faq-answer">A: Yes! During the checkout flow, you can specify delivery details. For advanced customizations or exact delivery timings (e.g. morning surprise), please reach out via our Help & Support form.</div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question">Q: How do I keep my flowers fresh?</div>
+        <div class="faq-answer">A: We guarantee stem freshness for at least 7 days. To maximize vase life, cut stems diagonally at a 45-degree angle under water, use clean tap water, avoid direct heat/drafts, and replace water every 2 days.</div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question">Q: What is your return or refund policy?</div>
+        <div class="faq-answer">A: Since flowers are perishable, we do not accept returns. However, if your blooms arrive damaged or fail to meet our freshness guarantee within 7 days, send us a photo via our Help center, and we will issue a replacement or full refund.</div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question">Q: Do you offer bulk discounts or corporate arrangements?</div>
+        <div class="faq-answer">A: Yes! We craft customized wedding setups and corporate office subscriptions. Drop us an inquiry using the Contact Us form, and our lead florist will reach out within 24 hours.</div>
+      </div>
+      
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="js/api.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/darkmode.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      fetch('components/loader.html')
+        .then(res => res.text())
+        .then(html => {
+          document.getElementById('loader-placeholder').innerHTML = html;
+          setTimeout(() => {
+            const loader = document.getElementById('global-loader');
+            if (loader) loader.style.opacity = '0';
+            setTimeout(() => { if(loader) loader.style.display = 'none'; }, 300);
+          }, 400);
+        });
+    });
+  </script>
+</body>
+</html>

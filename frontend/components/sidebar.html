@@ -1,0 +1,35 @@
+<!-- 
+  Sidebar.html - Shared Reusable Filters Drawer
+  Purpose: Sidebar widgets for category selection, price range sliders, and active tags.
+-->
+<div class="sidebar-widget filter-widget">
+  <h3 class="filter-title">Categories</h3>
+  <ul class="category-list" id="sidebar-categories">
+    <!-- Loaded dynamically from database -->
+    <li><a href="#" class="active" data-category="all">All Fresh Flowers <span class="badge">(0)</span></a></li>
+  </ul>
+</div>
+
+<div class="sidebar-widget filter-widget">
+  <h3 class="filter-title">Filter by Price</h3>
+  <div class="price-range-wrapper">
+    <input type="range" min="0" max="5000" value="5000" class="slider" id="price-range-slider" />
+    <div class="price-range-values">
+      <span>Range: ₹0 - ₹<span id="price-slider-value">5000</span></span>
+    </div>
+  </div>
+</div>
+
+<div class="sidebar-widget filter-widget">
+  <h3 class="filter-title">Availability</h3>
+  <div class="availability-checkboxes">
+    <label class="filter-checkbox-label">
+      <input type="checkbox" id="chk-instock" />
+      In Stock
+    </label>
+    <label class="filter-checkbox-label">
+      <input type="checkbox" id="chk-delivery" />
+      Same-Day Delivery
+    </label>
+  </div>
+</div>

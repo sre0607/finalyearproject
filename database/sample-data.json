@@ -1,0 +1,1934 @@
+{
+  "users": [
+    {
+      "name": "Administrator",
+      "email": "admin@florish.com",
+      "role": "admin",
+      "comment": "Default password is 'admin123' after seeding hashing loops."
+    },
+    {
+      "name": "Jane Doe",
+      "email": "jane@gmail.com",
+      "role": "user",
+      "comment": "Default password is 'user123' after seeding hashing loops."
+    }
+  ],
+  "products": [
+    {
+      "sku": "FL-BQT-01",
+      "name": "Blushing Romance Bouquet",
+      "category": "bouquets",
+      "price": 38.25,
+      "oldPrice": 45,
+      "stock": 15,
+      "isFeatured": true,
+      "description": "A classic round flower bouquet crafted with premium pink spray roses, white lilies, fresh baby breath, and decorative eucalyptus leaves. Wrapped beautifully in organic flax craft paper.",
+      "flowerOrigin": "Colombia",
+      "stemCount": 18,
+      "vaseSize": "Not Included (Wrapped)",
+      "deliveryTags": [
+        "Same-Day Delivery",
+        "Hand-Tied"
+      ],
+      "freshnessLabels": "7 Days Freshness Guaranteed",
+      "image": "https://images.unsplash.com/photo-1596436889106-be35e843f974?q=80&w=600"
+    },
+    {
+      "sku": "FL-BQT-02",
+      "name": "Spring Meadow Hand-Tied",
+      "category": "bouquets",
+      "price": 34.99,
+      "oldPrice": 39.99,
+      "stock": 12,
+      "isFeatured": false,
+      "description": "A rustic field-style arrangement of yellow daisies, purple speedwell, chamomile blooms, and wild herbs. Designed to capture the breezy essence of sunny pastures.",
+      "flowerOrigin": "Local Farms",
+      "stemCount": 24,
+      "vaseSize": "Not Included (Wrapped)",
+      "deliveryTags": [
+        "Next-Day Delivery",
+        "Eco-Friendly"
+      ],
+      "freshnessLabels": "8 Days Freshness Guaranteed",
+      "image": "https://images.unsplash.com/photo-1526047932273-341f2a7631f9?q=80&w=600"
+    },
+    {
+      "sku": "FL-BQT-03",
+      "name": "Wildflower Meadow Bouquet",
+      "category": "bouquets",
+      "price": 42.5,
+      "oldPrice": 50,
+      "stock": 8,
+      "isFeatured": true,
+      "description": "An eclectic, textured garden bouquet presenting ranunculus, cornflowers, larkspurs, and Queen Anne's lace. Perfect for bringing rustic charm indoors.",
+      "flowerOrigin": "Netherlands",
+      "stemCount": 20,
+      "vaseSize": "Not Included (Wrapped)",
+      "deliveryTags": [
+        "Same-Day Delivery",
+        "Premium Stems"
+      ],
+      "freshnessLabels": "7 Days Freshness Guaranteed",
+      "image": "https://images.unsplash.com/photo-1582794543139-8ac9cb0f7b11?q=80&w=600"
+    },
+    {
+      "sku": "FL-BQT-04",
+      "name": "Sunshine & Smiles Bouquet",
+      "category": "bouquets",
+      "price": 29.99,
+      "oldPrice": 34.99,
+      "stock": 20,
+      "isFeatured": false,
+      "description": "A cheerful, hand-arranged bundle of bright golden sunflowers, orange gerbera daisies, and fluffy solidago fillers. Instantly brightens any room.",
+      "flowerOrigin": "Local Farms",
+      "stemCount": 15,
+      "vaseSize": "Not Included (Wrapped)",
+      "deliveryTags": [
+        "Same-Day Delivery",
+        "Vibrant Bunch"
+      ],
+      "freshnessLabels": "6 Days Freshness Guaranteed",
+      "image": "https://images.unsplash.com/photo-1596436889106-be35e843f974?q=80&w=600"
+    },
+    {
+      "sku": "FL-BQT-05",
+      "name": "Elegance Orchid & Hydrangea Bouquet",
+      "category": "bouquets",
+      "price": 65,
+      "oldPrice": 75,
+      "stock": 6,
+      "isFeatured": true,
+      "description": "Exotic white dendrobium orchids paired with lush blue hydrangeas, wrapped in luxury mesh craft paper. A showstopping modern design.",
+      "flowerOrigin": "Thailand",
+      "stemCount": 12,
+      "vaseSize": "Not Included (Wrapped)",
+      "deliveryTags": [
+        "Next-Day Delivery",
+        "Exotic Design"
+      ],
+      "freshnessLabels": "8 Days Freshness Guaranteed",
+      "image": "https://images.unsplash.com/photo-1561181286-d3fee7d55364?q=80&w=600"
+    },
+    {
+      "sku": "FL-BQT-06",
+      "name": "Pastel Dreams Hand-Tied",
+      "category": "bouquets",
+      "price": 39.99,
+      "oldPrice": 45,
+      "stock": 14,
+      "isFeatured": false,
+      "description": "A soft, delicate bundle of peach carnations, lavender cushion pompons, and white spray chrysanthemums with premium ribbons.",
+      "flowerOrigin": "Colombia",
+      "stemCount": 22,
+      "vaseSize": "Not Included (Wrapped)",
+      "deliveryTags": [
+        "Same-Day Delivery",
+        "Soft Pastel"
+      ],
+      "freshnessLabels": "7 Days Freshness Guaranteed",
+      "image": "https://images.unsplash.com/photo-1550950158-d0d960dff51b?q=80&w=600"
+    },
+    {
+      "sku": "FL-BQT-07",
+      "name": "Purple Majesty Bouquet",
+      "category": "bouquets",
+      "price": 45.99,
+      "oldPrice": 52,
+      "stock": 10,
+      "isFeatured": false,
+      "description": "Deep violet lisianthus, lavender roses, and purple statice wrapped in artisan plum paper. Sophisticated and mysterious.",
+      "flowerOrigin": "Kenya",
+      "stemCount": 16,
+      "vaseSize": "Not Included (Wrapped)",
+      "deliveryTags": [
+        "Same-Day Delivery",
+        "Artisan Plum"
+      ],
+      "freshnessLabels": "7 Days Freshness Guaranteed",
+      "image": "https://images.unsplash.com/photo-1525310072745-f49212b5ac6d?q=80&w=600"
+    },
+    {
+      "sku": "FL-BQT-08",
+      "name": "Autumn Whisper Bouquet",
+      "category": "bouquets",
+      "price": 36.5,
+      "oldPrice": 42,
+      "stock": 11,
+      "isFeatured": false,
+      "description": "Warm-toned rust chrysanthemums, orange spray roses, dried wheat stalks, and eucalyptus greens wrapped in heavy kraft sheet.",
+      "flowerOrigin": "Local Farms",
+      "stemCount": 18,
+      "vaseSize": "Not Included (Wrapped)",
+      "deliveryTags": [
+        "Next-Day Delivery",
+        "Seasonal Tone"
+      ],
+      "freshnessLabels": "9 Days Freshness Guaranteed",
+      "image": "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?q=80&w=600"
+    },
+    {
+      "sku": "FL-BQT-09",
+      "name": "Sweet Serenade Bouquet",
+      "category": "bouquets",
+      "price": 49.99,
+      "oldPrice": 58,
+      "stock": 9,
+      "isFeatured": false,
+      "description": "Premium pink garden roses, white waxflowers, and delicate dollar eucalyptus branches hand-tied in a beautiful dome arrangement.",
+      "flowerOrigin": "Ecuador",
+      "stemCount": 20,
+      "vaseSize": "Not Included (Wrapped)",
+      "deliveryTags": [
+        "Same-Day Delivery",
+        "Garden Selection"
+      ],
+      "freshnessLabels": "7 Days Freshness Guaranteed",
+      "image": "https://images.unsplash.com/photo-1546193430-c2d207739ed7?q=80&w=600"
+    },
+    {
+      "sku": "FL-BQT-10",
+      "name": "Fields of Gold Daisy Bouquet",
+      "category": "bouquets",
+      "price": 27.99,
+      "oldPrice": 32,
+      "stock": 25,
+      "isFeatured": false,
+      "description": "Fresh-cut white daisies and chamomile flowers hand-tied with a rustic burlap ribbon. Simple, timeless, and bright.",
+      "flowerOrigin": "Local Farms",
+      "stemCount": 30,
+      "vaseSize": "Not Included (Wrapped)",
+      "deliveryTags": [
+        "Same-Day Delivery",
+        "Rustic Value"
+      ],
+      "freshnessLabels": "8 Days Freshness Guaranteed",
+      "image": "https://images.unsplash.com/photo-1496062031456-07b8f162a322?q=80&w=600"
+    },
+    {
+      "sku": "FL-ROS-01",
+      "name": "Velvet Crimson Rose Bouquet",
+      "category": "roses",
+      "price": 45,
+      "oldPrice": 52,
+      "stock": 20,
+      "isFeatured": true,
+      "description": "A classic arrangement of deep red velvet roses imported from Ecuador, surrounded by baby's breath and wrapped in black lace paper.",
+      "flowerOrigin": "Ecuador",
+      "stemCount": 12,
+      "vaseSize": "Not Included (Wrapped)",
+      "deliveryTags": [
+        "Same-Day Delivery",
+        "Classic Romance"
+      ],
+      "freshnessLabels": "7 Days Freshness Guaranteed",
+      "image": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=600"
+    },
+    {
+      "sku": "FL-ROS-02",
+      "name": "Sweet Pink Juliet Roses",
+      "category": "roses",
+      "price": 49.99,
+      "oldPrice": 59.99,
+      "stock": 14,
+      "isFeatured": true,
+      "description": "Luxurious, sweet-scented peach-pink David Austin Juliet roses, renowned for their intricate nested petals and exquisite aroma.",
+      "flowerOrigin": "Ecuador",
+      "stemCount": 15,
+      "vaseSize": "Not Included (Wrapped)",
+      "deliveryTags": [
+        "Same-Day Delivery",
+        "David Austin Select"
+      ],
+      "freshnessLabels": "7 Days Freshness Guaranteed",
+      "image": "https://images.unsplash.com/photo-1582794543139-8ac9cb0f7b11?q=80&w=600"
+    },
+    {
+      "sku": "FL-ROS-03",
+      "name": "Pure White Rose Box",
+      "category": "roses",
+      "price": 55,
+      "oldPrice": 65,
+      "stock": 10,
+      "isFeatured": false,
+      "description": "A minimalist white cylindrical gift box filled with two dozen pristine white roses representing purity, grace, and new beginnings.",
+      "flowerOrigin": "Ecuador",
+      "stemCount": 24,
+      "vaseSize": "Premium Box Included",
+      "deliveryTags": [
+        "Same-Day Delivery",
+        "Minimalist Box"
+      ],
+      "freshnessLabels": "7 Days Freshness Guaranteed",
+      "image": "https://images.unsplash.com/photo-1561181286-d3fee7d55364?q=80&w=600"
+    },
+    {
+      "sku": "FL-ROS-04",
+      "name": "Golden Sunshine Yellow Roses",
+      "category": "roses",
+      "price": 39.99,
+      "oldPrice": 45,
+      "stock": 18,
+      "isFeatured": false,
+      "description": "Twelve bright yellow roses hand-arranged with fresh greenery, representing warm friendship and joyful celebration.",
+      "flowerOrigin": "Colombia",
+      "stemCount": 12,
+      "vaseSize": "Not Included (Wrapped)",
+      "deliveryTags": [
+        "Same-Day Delivery",
+        "Friendship Gift"
+      ],
+      "freshnessLabels": "7 Days Freshness Guaranteed",
+      "image": "https://images.unsplash.com/photo-1582794543462-0d7922e50cf5?q=80&w=600"
+    },
+    {
+      "sku": "FL-ROS-05",
+      "name": "Mauve Enchantment Lavender Roses",
+      "category": "roses",
+      "price": 48.5,
+      "oldPrice": 55,
+      "stock": 12,
+      "isFeatured": false,
+      "description": "Rare and mesmerizing lavender roses representing enchantment and mystery. Hand-wrapped in silver-trimmed lavender paper.",
+      "flowerOrigin": "Kenya",
+      "stemCount": 15,
+      "vaseSize": "Not Included (Wrapped)",
+      "deliveryTags": [
+        "Next-Day Delivery",
+        "Exotic Roses"
+      ],
+      "freshnessLabels": "8 Days Freshness Guaranteed",
+      "image": "https://images.unsplash.com/photo-1528183429752-a97d0bf99b5a?q=80&w=600"
+    },
+    {
+      "sku": "FL-ROS-06",
+      "name": "Ecuadorian Long Stem Red Roses",
+      "category": "roses",
+      "price": 85,
+      "oldPrice": 95,
+      "stock": 8,
+      "isFeatured": true,
+      "description": "Two dozen premium, extra-long stem red roses presented in a sleek heavy glass vase. The ultimate statement of romance.",
+      "flowerOrigin": "Ecuador",
+      "stemCount": 24,
+      "vaseSize": "Large Glass Vase Included",
+      "deliveryTags": [
+        "Same-Day Delivery",
+        "Premium Vase"
+      ],
+      "freshnessLabels": "8 Days Freshness Guaranteed",
+      "image": "https://images.unsplash.com/photo-1591886960571-74d43a9d4166?q=80&w=600"
+    },
+    {
+      "sku": "FL-ROS-07",
+      "name": "Blushing Pink Rose Bunch",
+      "category": "roses",
+      "price": 38.99,
+      "oldPrice": 45,
+      "stock": 16,
+      "isFeatured": false,
+      "description": "A delightful bunch of soft pink roses representing sweet admiration and gentleness. Wrapped in organic pink craft sheet.",
+      "flowerOrigin": "Local Farms",
+      "stemCount": 12,
+      "vaseSize": "Not Included (Wrapped)",
+      "deliveryTags": [
+        "Same-Day Delivery",
+        "Soft Admiration"
+      ],
+      "freshnessLabels": "7 Days Freshness Guaranteed",
+      "image": "https://images.unsplash.com/photo-1559563362-c667ba5f5480?q=80&w=600"
+    },
+    {
+      "sku": "FL-ROS-08",
+      "name": "Ruby Romance Flower Box",
+      "category": "roses",
+      "price": 70,
+      "oldPrice": 80,
+      "stock": 7,
+      "isFeatured": false,
+      "description": "Eighteen gorgeous red roses structured inside a premium black velvet box with custom gold lettering details.",
+      "flowerOrigin": "Ecuador",
+      "stemCount": 18,
+      "vaseSize": "Signature Box Included",
+      "deliveryTags": [
+        "Same-Day Delivery",
+        "Velvet Box"
+      ],
+      "freshnessLabels": "7 Days Freshness Guaranteed",
+      "image": "https://images.unsplash.com/photo-1544816155-12df9643f363?q=80&w=600"
+    },
+    {
+      "sku": "FL-ROS-09",
+      "name": "Coral Passion Spray Roses",
+      "category": "roses",
+      "price": 42,
+      "oldPrice": 48,
+      "stock": 13,
+      "isFeatured": false,
+      "description": "Ten stems of vibrant coral spray roses with multiple blooms per stem, creating a lush, dense textured look.",
+      "flowerOrigin": "Colombia",
+      "stemCount": 10,
+      "vaseSize": "Not Included (Wrapped)",
+      "deliveryTags": [
+        "Same-Day Delivery",
+        "Coral Charm"
+      ],
+      "freshnessLabels": "7 Days Freshness Guaranteed",
+      "image": "https://images.unsplash.com/photo-1562690868-60bbe7293e94?q=80&w=600"
+    },
+    {
+      "sku": "FL-ROS-10",
+      "name": "Snow & Rose Red-White Mix",
+      "category": "roses",
+      "price": 52.99,
+      "oldPrice": 60,
+      "stock": 11,
+      "isFeatured": false,
+      "description": "A stunning mixed bouquet showcasing 9 deep red roses and 9 snow white roses, beautifully contrasted and wrapped.",
+      "flowerOrigin": "Kenya",
+      "stemCount": 18,
+      "vaseSize": "Not Included (Wrapped)",
+      "deliveryTags": [
+        "Same-Day Delivery",
+        "Contrast Mix"
+      ],
+      "freshnessLabels": "7 Days Freshness Guaranteed",
+      "image": "https://images.unsplash.com/photo-1523438885200-e635ba2c371e?q=80&w=600"
+    },
+    {
+      "sku": "FL-IND-01",
+      "name": "Minimalist Snake Plant Duo",
+      "category": "indoor",
+      "price": 26.99,
+      "oldPrice": 32,
+      "stock": 22,
+      "isFeatured": true,
+      "description": "Two healthy Laurentii snake plants potted in modern matte ceramic pots. Extremely easy to care for and great for air purification.",
+      "flowerOrigin": "Local Farms",
+      "stemCount": 0,
+      "vaseSize": "Ceramic Pots Included",
+      "deliveryTags": [
+        "Next-Day Delivery",
+        "Hardy Plant"
+      ],
+      "freshnessLabels": "Exquisite Greenhouse Specimen",
+      "image": "https://images.unsplash.com/photo-1596547609652-9cf5d8d76921?q=80&w=600"
+    },
+    {
+      "sku": "FL-IND-02",
+      "name": "Sleek Money Tree Bonsai",
+      "category": "indoor",
+      "price": 38,
+      "oldPrice": 45,
+      "stock": 15,
+      "isFeatured": true,
+      "description": "A braided Pachira Aquatica money tree styled as a bonsai. Brings a calm, Zen vibe and is believed to invite good fortune.",
+      "flowerOrigin": "Japan",
+      "stemCount": 0,
+      "vaseSize": "Bonsai Pot Included",
+      "deliveryTags": [
+        "Next-Day Delivery",
+        "Zen Decor"
+      ],
+      "freshnessLabels": "Healthy Potted Specimen",
+      "image": "https://images.unsplash.com/photo-1509223197845-458d87318791?q=80&w=600"
+    },
+    {
+      "sku": "FL-IND-03",
+      "name": "Peace Lily Air Purifier",
+      "category": "indoor",
+      "price": 29.99,
+      "oldPrice": 35,
+      "stock": 18,
+      "isFeatured": false,
+      "description": "Lush green Spathiphyllum peace lily displaying elegant white sail-like flowers. Thrives in medium to low indoor light.",
+      "flowerOrigin": "Local Farms",
+      "stemCount": 0,
+      "vaseSize": "Ceramic Pot Included",
+      "deliveryTags": [
+        "Next-Day Delivery",
+        "Air Purifier"
+      ],
+      "freshnessLabels": "Fresh Greenhouse Bloom",
+      "image": "https://images.unsplash.com/photo-1593696140826-c58b021acf8b?q=80&w=600"
+    },
+    {
+      "sku": "FL-IND-04",
+      "name": "Zanzibar Gem ZZ Plant",
+      "category": "indoor",
+      "price": 32.5,
+      "oldPrice": 39,
+      "stock": 14,
+      "isFeatured": false,
+      "description": "A robust ZZ plant featuring shiny, deep-green leaves on thick stems. Tolerates dry conditions and low lighting.",
+      "flowerOrigin": "Kenya",
+      "stemCount": 0,
+      "vaseSize": "Modern Planter Included",
+      "deliveryTags": [
+        "Next-Day Delivery",
+        "Low Maintenance"
+      ],
+      "freshnessLabels": "Thick Leaf Specimen",
+      "image": "https://images.unsplash.com/photo-1632207691143-643e2a9a9361?q=80&w=600"
+    },
+    {
+      "sku": "FL-IND-05",
+      "name": "Fiddle Leaf Fig Tree",
+      "category": "indoor",
+      "price": 59.99,
+      "oldPrice": 69.99,
+      "stock": 8,
+      "isFeatured": true,
+      "description": "A stunning Ficus Lyrata tree with large violin-shaped leaves. Adds an instant statement piece to any living room corner.",
+      "flowerOrigin": "Netherlands",
+      "stemCount": 0,
+      "vaseSize": "Large Clay Pot Included",
+      "deliveryTags": [
+        "Next-Day Delivery",
+        "Designer Pick"
+      ],
+      "freshnessLabels": "Premium Leafy Specimen",
+      "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=600"
+    },
+    {
+      "sku": "FL-IND-06",
+      "name": "Desk Aloe Vera Succulent",
+      "category": "indoor",
+      "price": 19.99,
+      "oldPrice": 24.99,
+      "stock": 30,
+      "isFeatured": false,
+      "description": "Soothing Aloe Barbadensis plant in a terracotta pot. Extremely functional and easy-to-grow desk companion.",
+      "flowerOrigin": "Local Farms",
+      "stemCount": 0,
+      "vaseSize": "Terracotta Pot Included",
+      "deliveryTags": [
+        "Same-Day Delivery",
+        "Office Friendly"
+      ],
+      "freshnessLabels": "Functional Succulent",
+      "image": "https://images.unsplash.com/photo-1599599810769-bcde5a160d32?q=80&w=600"
+    },
+    {
+      "sku": "FL-IND-07",
+      "name": "Golden Pothos Hanging Basket",
+      "category": "indoor",
+      "price": 24.5,
+      "oldPrice": 29.99,
+      "stock": 20,
+      "isFeatured": false,
+      "description": "Trailing Golden Pothos plant with heart-shaped yellow-green variegated leaves. Arrives in a ready-to-hang woven basket.",
+      "flowerOrigin": "Local Farms",
+      "stemCount": 0,
+      "vaseSize": "Hanging Basket Included",
+      "deliveryTags": [
+        "Next-Day Delivery",
+        "Hanging Basket"
+      ],
+      "freshnessLabels": "Trailing Vine Specimen",
+      "image": "https://images.unsplash.com/photo-1563245372-f21724e3856d?q=80&w=600"
+    },
+    {
+      "sku": "FL-IND-08",
+      "name": "Calathea Peacock Plant",
+      "category": "indoor",
+      "price": 35,
+      "oldPrice": 42,
+      "stock": 12,
+      "isFeatured": false,
+      "description": "Calathea Makoyana showcasing striking pale green leaves with dark green peacock feather patterns and purple undersides.",
+      "flowerOrigin": "Colombia",
+      "stemCount": 0,
+      "vaseSize": "Ceramic Pot Included",
+      "deliveryTags": [
+        "Next-Day Delivery",
+        "Exotic Foliage"
+      ],
+      "freshnessLabels": "Patterned Leaf Specimen",
+      "image": "https://images.unsplash.com/photo-1614594975525-e45190c55d0b?q=80&w=600"
+    },
+    {
+      "sku": "FL-IND-09",
+      "name": "Chinese Money Plant (Pilea)",
+      "category": "indoor",
+      "price": 22,
+      "oldPrice": 26,
+      "stock": 25,
+      "isFeatured": false,
+      "description": "Pilea Peperomioides with circular pancake-shaped leaves on long stems. Very popular minimalist home decor plant.",
+      "flowerOrigin": "Japan",
+      "stemCount": 0,
+      "vaseSize": "Ceramic Pot Included",
+      "deliveryTags": [
+        "Same-Day Delivery",
+        "Minimalist Potted"
+      ],
+      "freshnessLabels": "Healthy Potted Specimen",
+      "image": "https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?q=80&w=600"
+    },
+    {
+      "sku": "FL-IND-10",
+      "name": "Swiss Cheese Plant (Monstera)",
+      "category": "indoor",
+      "price": 44.99,
+      "oldPrice": 52,
+      "stock": 10,
+      "isFeatured": false,
+      "description": "Iconic Monstera Deliciosa showing large split leaves. Adds a tropical feel to any room. Potted in a high-quality designer planter.",
+      "flowerOrigin": "Local Farms",
+      "stemCount": 0,
+      "vaseSize": "Modern Planter Included",
+      "deliveryTags": [
+        "Next-Day Delivery",
+        "Tropical Vibe"
+      ],
+      "freshnessLabels": "Fenestrated Leaf Specimen",
+      "image": "https://images.unsplash.com/photo-1614313913007-2b4ae8ce32d6?q=80&w=600"
+    },
+    {
+      "sku": "FL-LIL-01",
+      "name": "Siberian White Lily Vase",
+      "category": "lilies",
+      "price": 42.5,
+      "oldPrice": 49,
+      "stock": 12,
+      "isFeatured": true,
+      "description": "Elegant Siberian white Asiatic lilies arranged with fresh silver dollar eucalyptus in a premium heavy glass vase.",
+      "flowerOrigin": "Netherlands",
+      "stemCount": 8,
+      "vaseSize": "Glass Vase Included",
+      "deliveryTags": [
+        "Same-Day Delivery",
+        "Vase Arrangement"
+      ],
+      "freshnessLabels": "7 Days Freshness Guaranteed",
+      "image": "https://images.unsplash.com/photo-1508610048659-a06b669e3321?q=80&w=600"
+    },
+    {
+      "sku": "FL-LIL-02",
+      "name": "Stargazer Pink Lily Bouquet",
+      "category": "lilies",
+      "price": 46.99,
+      "oldPrice": 54,
+      "stock": 15,
+      "isFeatured": true,
+      "description": "Highly fragrant pink and white Stargazer Oriental lilies wrapped in textured gray paper with a pink silk bow.",
+      "flowerOrigin": "Colombia",
+      "stemCount": 10,
+      "vaseSize": "Not Included (Wrapped)",
+      "deliveryTags": [
+        "Same-Day Delivery",
+        "Fragrant Selection"
+      ],
+      "freshnessLabels": "7 Days Freshness Guaranteed",
+      "image": "https://images.unsplash.com/photo-1569429593410-b498b3fb3387?q=80&w=600"
+    },
+    {
+      "sku": "FL-LIL-03",
+      "name": "Golden Asiatic Lily Basket",
+      "category": "lilies",
+      "price": 38.99,
+      "oldPrice": 45,
+      "stock": 14,
+      "isFeatured": false,
+      "description": "Cheerful yellow Asiatic lilies and green foliage arranged in a rustic hand-woven wicker basket. Perfect for tables.",
+      "flowerOrigin": "Local Farms",
+      "stemCount": 8,
+      "vaseSize": "Wicker Basket Included",
+      "deliveryTags": [
+        "Same-Day Delivery",
+        "Rustic Basket"
+      ],
+      "freshnessLabels": "7 Days Freshness Guaranteed",
+      "image": "https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?q=80&w=600"
+    },
+    {
+      "sku": "FL-LIL-04",
+      "name": "Double Petal Rose Lilies",
+      "category": "lilies",
+      "price": 55,
+      "oldPrice": 65,
+      "stock": 8,
+      "isFeatured": true,
+      "description": "Rare double-flowered pink lilies that resemble oversized roses, pollen-free and carrying a mild, delicate scent.",
+      "flowerOrigin": "Netherlands",
+      "stemCount": 6,
+      "vaseSize": "Not Included (Wrapped)",
+      "deliveryTags": [
+        "Next-Day Delivery",
+        "Rare Species"
+      ],
+      "freshnessLabels": "8 Days Freshness Guaranteed",
+      "image": "https://images.unsplash.com/photo-1606041008023-472dfb5e530f?q=80&w=600"
+    },
+    {
+      "sku": "FL-LIL-05",
+      "name": "Pure Lilies & Eucalyptus Vase",
+      "category": "lilies",
+      "price": 49.99,
+      "oldPrice": 58,
+      "stock": 10,
+      "isFeatured": false,
+      "description": "A stunning mixed vase arrangement containing 5 white and 5 pink fragrant Oriental lilies with silver dollar eucalyptus.",
+      "flowerOrigin": "Colombia",
+      "stemCount": 10,
+      "vaseSize": "Premium Glass Vase Included",
+      "deliveryTags": [
+        "Same-Day Delivery",
+        "Signature Vase"
+      ],
+      "freshnessLabels": "7 Days Freshness Guaranteed",
+      "image": "https://images.unsplash.com/photo-1612540646801-4d5d183e6bc1?q=80&w=600"
+    },
+    {
+      "sku": "FL-LIL-06",
+      "name": "Crimson Tiger Lily Spray",
+      "category": "lilies",
+      "price": 34.99,
+      "oldPrice": 39.99,
+      "stock": 20,
+      "isFeatured": false,
+      "description": "Vibrant orange Tiger Lilies showing exotic speckled petals. Hand-tied in a bright orange wrapping sheet.",
+      "flowerOrigin": "Local Farms",
+      "stemCount": 12,
+      "vaseSize": "Not Included (Wrapped)",
+      "deliveryTags": [
+        "Same-Day Delivery",
+        "Speckled Blooms"
+      ],
+      "freshnessLabels": "6 Days Freshness Guaranteed",
+      "image": "https://images.unsplash.com/photo-1589244159943-460088ed5c92?q=80&w=600"
+    },
+    {
+      "sku": "FL-LIL-07",
+      "name": "Serenity White Lily Bunch",
+      "category": "lilies",
+      "price": 36,
+      "oldPrice": 42,
+      "stock": 18,
+      "isFeatured": false,
+      "description": "Casablanca unscented white lilies. Hand-tied with rustic paper, excellent for allergy-friendly households.",
+      "flowerOrigin": "Local Farms",
+      "stemCount": 8,
+      "vaseSize": "Not Included (Wrapped)",
+      "deliveryTags": [
+        "Same-Day Delivery",
+        "Unscented Lilies"
+      ],
+      "freshnessLabels": "7 Days Freshness Guaranteed",
+      "image": "https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?q=80&w=600"
+    },
+    {
+      "sku": "FL-LIL-08",
+      "name": "Graceful Pink Oriental Lilies",
+      "category": "lilies",
+      "price": 45,
+      "oldPrice": 52,
+      "stock": 11,
+      "isFeatured": false,
+      "description": "Large star-shaped pink Oriental lilies carrying a rich, intoxicating floral perfume. Hand-wrapped in organic linen.",
+      "flowerOrigin": "Colombia",
+      "stemCount": 8,
+      "vaseSize": "Not Included (Wrapped)",
+      "deliveryTags": [
+        "Same-Day Delivery",
+        "Intense Scent"
+      ],
+      "freshnessLabels": "7 Days Freshness Guaranteed",
+      "image": "https://images.unsplash.com/photo-1504198266287-1659872e6590?q=80&w=600"
+    },
+    {
+      "sku": "FL-LIL-09",
+      "name": "Aura Lily & Rose Symphony",
+      "category": "lilies",
+      "price": 59.99,
+      "oldPrice": 68,
+      "stock": 9,
+      "isFeatured": false,
+      "description": "White Oriental lilies mixed with premium pink Ecuadorian roses, displayed in a designer ribbed glass vase.",
+      "flowerOrigin": "Ecuador",
+      "stemCount": 12,
+      "vaseSize": "Ribbed Glass Vase Included",
+      "deliveryTags": [
+        "Next-Day Delivery",
+        "Mixed Premium"
+      ],
+      "freshnessLabels": "7 Days Freshness Guaranteed",
+      "image": "https://images.unsplash.com/photo-1596436889106-be35e843f974?q=80&w=600"
+    },
+    {
+      "sku": "FL-LIL-10",
+      "name": "Sunshine Lily & Carnation Duo",
+      "category": "lilies",
+      "price": 32.99,
+      "oldPrice": 38,
+      "stock": 22,
+      "isFeatured": false,
+      "description": "Yellow Asiatic lilies paired with bright orange carnations, hand-arranged with matching ribbons. Cheerful and sunny.",
+      "flowerOrigin": "Local Farms",
+      "stemCount": 10,
+      "vaseSize": "Not Included (Wrapped)",
+      "deliveryTags": [
+        "Same-Day Delivery",
+        "Cheerful Bunch"
+      ],
+      "freshnessLabels": "7 Days Freshness Guaranteed",
+      "image": "https://images.unsplash.com/photo-1606722590583-6951b5ea92ad?q=80&w=600"
+    },
+    {
+      "sku": "FL-SEA-01",
+      "name": "Holiday Cheer Winter Bouquet",
+      "category": "seasonal",
+      "price": 48,
+      "oldPrice": 55,
+      "stock": 15,
+      "isFeatured": true,
+      "description": "Festive winter design showcasing red berries, pine cones, red carnations, and fresh fir foliage. Adds instant holiday warmth.",
+      "flowerOrigin": "Local Farms",
+      "stemCount": 18,
+      "vaseSize": "Not Included (Wrapped)",
+      "deliveryTags": [
+        "Same-Day Delivery",
+        "Festive Theme"
+      ],
+      "freshnessLabels": "10 Days Freshness Guaranteed",
+      "image": "https://images.unsplash.com/photo-1605721911519-3dfeb3be25e7?q=80&w=600"
+    },
+    {
+      "sku": "FL-SEA-02",
+      "name": "Spring Equinox Tulip Bouquet",
+      "category": "seasonal",
+      "price": 39.99,
+      "oldPrice": 45,
+      "stock": 25,
+      "isFeatured": true,
+      "description": "Twenty fresh spring tulips in a rainbow mix of yellow, pink, red, and white. Celebrates the arrival of warm sunshine.",
+      "flowerOrigin": "Netherlands",
+      "stemCount": 20,
+      "vaseSize": "Not Included (Wrapped)",
+      "deliveryTags": [
+        "Same-Day Delivery",
+        "Spring Special"
+      ],
+      "freshnessLabels": "7 Days Freshness Guaranteed",
+      "image": "https://images.unsplash.com/photo-1520763185298-1b434c919102?q=80&w=600"
+    },
+    {
+      "sku": "FL-SEA-03",
+      "name": "Autumn Harvest Pumpkin Basket",
+      "category": "seasonal",
+      "price": 44.5,
+      "oldPrice": 52,
+      "stock": 12,
+      "isFeatured": false,
+      "description": "A rustic wicker basket containing orange marigolds, golden sunflowers, and dried autumn oak leaves. Warm and cozy.",
+      "flowerOrigin": "Local Farms",
+      "stemCount": 15,
+      "vaseSize": "Wicker Basket Included",
+      "deliveryTags": [
+        "Next-Day Delivery",
+        "Autumn Harvest"
+      ],
+      "freshnessLabels": "8 Days Freshness Guaranteed",
+      "image": "https://images.unsplash.com/photo-1582794543139-8ac9cb0f7b11?q=80&w=600"
+    },
+    {
+      "sku": "FL-SEA-04",
+      "name": "Monsoon Dew Blue Hydrangeas",
+      "category": "seasonal",
+      "price": 55,
+      "oldPrice": 65,
+      "stock": 8,
+      "isFeatured": true,
+      "description": "Lush, oversized blue hydrangeas fresh from monsoon nurseries, arranged in a premium white ceramic vase.",
+      "flowerOrigin": "Colombia",
+      "stemCount": 6,
+      "vaseSize": "Ceramic Vase Included",
+      "deliveryTags": [
+        "Same-Day Delivery",
+        "Monsoon Fresh"
+      ],
+      "freshnessLabels": "8 Days Freshness Guaranteed",
+      "image": "https://images.unsplash.com/photo-1561181286-d3fee7d55364?q=80&w=600"
+    },
+    {
+      "sku": "FL-SEA-05",
+      "name": "Summer Solstice Sunflower Mix",
+      "category": "seasonal",
+      "price": 32.99,
+      "oldPrice": 38,
+      "stock": 20,
+      "isFeatured": false,
+      "description": "Three large golden sunflowers mixed with red dahlias and wild field greens. Brings summer vibes indoors.",
+      "flowerOrigin": "Local Farms",
+      "stemCount": 12,
+      "vaseSize": "Not Included (Wrapped)",
+      "deliveryTags": [
+        "Same-Day Delivery",
+        "Summer Vibes"
+      ],
+      "freshnessLabels": "7 Days Freshness Guaranteed",
+      "image": "https://images.unsplash.com/photo-1597848212624-a19eb35e2651?q=80&w=600"
+    },
+    {
+      "sku": "FL-SEA-06",
+      "name": "Cherry Blossom Spring Branch",
+      "category": "seasonal",
+      "price": 49.99,
+      "oldPrice": 58,
+      "stock": 10,
+      "isFeatured": false,
+      "description": "Elegant fresh-cut pink cherry blossom branches, ideal for tall floor vases. A symbol of spring rebirth.",
+      "flowerOrigin": "Japan",
+      "stemCount": 5,
+      "vaseSize": "Tall Ceramic Vase Included",
+      "deliveryTags": [
+        "Next-Day Delivery",
+        "Japanese Spring"
+      ],
+      "freshnessLabels": "10 Days Freshness Guaranteed",
+      "image": "https://images.unsplash.com/photo-1528183429752-a97d0bf99b5a?q=80&w=600"
+    },
+    {
+      "sku": "FL-SEA-07",
+      "name": "Winter Poinsettia Classic",
+      "category": "seasonal",
+      "price": 28,
+      "oldPrice": 34,
+      "stock": 30,
+      "isFeatured": false,
+      "description": "A traditional potted red Poinsettia plant wrapped in gold decorative foil. The classic Christmas foliage.",
+      "flowerOrigin": "Local Farms",
+      "stemCount": 0,
+      "vaseSize": "Foil Wrapped Pot Included",
+      "deliveryTags": [
+        "Same-Day Delivery",
+        "Christmas Potted"
+      ],
+      "freshnessLabels": "Fresh Holiday plant",
+      "image": "https://images.unsplash.com/photo-1544816155-12df9643f363?q=80&w=600"
+    },
+    {
+      "sku": "FL-SEA-08",
+      "name": "Monsoon Rain Orchid Bundle",
+      "category": "seasonal",
+      "price": 59,
+      "oldPrice": 68,
+      "stock": 9,
+      "isFeatured": false,
+      "description": "Ten stems of vibrant purple and white dendrobium orchids. Highly resistant to humidity and heat.",
+      "flowerOrigin": "Thailand",
+      "stemCount": 10,
+      "vaseSize": "Not Included (Wrapped)",
+      "deliveryTags": [
+        "Next-Day Delivery",
+        "Tropical Monsoon"
+      ],
+      "freshnessLabels": "8 Days Freshness Guaranteed",
+      "image": "https://images.unsplash.com/photo-1566393028639-d108a42c46a7?q=80&w=600"
+    },
+    {
+      "sku": "FL-SEA-09",
+      "name": "Harvest Spice Dahlia Arrangement",
+      "category": "seasonal",
+      "price": 45.9,
+      "oldPrice": 52,
+      "stock": 14,
+      "isFeatured": false,
+      "description": "Lush orange dahlias, peach spray roses, and eucalyptus greens, arranged in a modern cylindrical glass vase.",
+      "flowerOrigin": "Local Farms",
+      "stemCount": 16,
+      "vaseSize": "Cylindrical Glass Vase Included",
+      "deliveryTags": [
+        "Same-Day Delivery",
+        "Autumn Tones"
+      ],
+      "freshnessLabels": "7 Days Freshness Guaranteed",
+      "image": "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?q=80&w=600"
+    },
+    {
+      "sku": "FL-SEA-10",
+      "name": "Summer Citron Gerbera Bunch",
+      "category": "seasonal",
+      "price": 29.99,
+      "oldPrice": 35,
+      "stock": 22,
+      "isFeatured": false,
+      "description": "Fifteen bright orange, yellow, and red gerbera daisies. Hand-tied in yellow crepe paper.",
+      "flowerOrigin": "Local Farms",
+      "stemCount": 15,
+      "vaseSize": "Not Included (Wrapped)",
+      "deliveryTags": [
+        "Same-Day Delivery",
+        "Vivid Summer"
+      ],
+      "freshnessLabels": "7 Days Freshness Guaranteed",
+      "image": "https://images.unsplash.com/photo-1602928321679-560bb453f190?q=80&w=600"
+    },
+    {
+      "sku": "FL-WED-01",
+      "name": "Elegance Bridal Cascade",
+      "category": "wedding",
+      "price": 120,
+      "oldPrice": 140,
+      "stock": 5,
+      "isFeatured": true,
+      "description": "A stunning cascading bridal bouquet displaying white calla lilies, baby's breath, and satin ribbons. Pure elegance.",
+      "flowerOrigin": "Local Farms",
+      "stemCount": 25,
+      "vaseSize": "Not Included (Bridal Wrap)",
+      "deliveryTags": [
+        "Next-Day Delivery",
+        "Bridal Bouquet"
+      ],
+      "freshnessLabels": "7 Days Freshness Guaranteed",
+      "image": "https://images.unsplash.com/photo-1548690312-e3b507d8c110?q=80&w=600"
+    },
+    {
+      "sku": "FL-WED-02",
+      "name": "White Rose Ceremony Arch Set",
+      "category": "wedding",
+      "price": 249.99,
+      "oldPrice": 299.99,
+      "stock": 3,
+      "isFeatured": true,
+      "description": "Three modular floral installations featuring premium white roses and silver dollar eucalyptus to mount on wedding ceremony arches.",
+      "flowerOrigin": "Local Farms",
+      "stemCount": 80,
+      "vaseSize": "Mounting Brackets Included",
+      "deliveryTags": [
+        "Scheduled Setup",
+        "Arch Florals"
+      ],
+      "freshnessLabels": "Fresh for Ceremony",
+      "image": "https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=600"
+    },
+    {
+      "sku": "FL-WED-03",
+      "name": "Majestic Reception Centerpiece",
+      "category": "wedding",
+      "price": 89,
+      "oldPrice": 105,
+      "stock": 8,
+      "isFeatured": false,
+      "description": "Lush white hydrangeas and cream roses arranged on a tall, gold metal pedestal stand. Elevates reception guest tables.",
+      "flowerOrigin": "Local Farms",
+      "stemCount": 24,
+      "vaseSize": "Gold Pedestal Stand Included",
+      "deliveryTags": [
+        "Scheduled Delivery",
+        "Table Centerpiece"
+      ],
+      "freshnessLabels": "Fresh for Reception",
+      "image": "https://images.unsplash.com/photo-1513151233558-d860c5398176?q=80&w=600"
+    },
+    {
+      "sku": "FL-WED-04",
+      "name": "Blush Orchid Bridesmaid Bunch",
+      "category": "wedding",
+      "price": 65,
+      "oldPrice": 75,
+      "stock": 10,
+      "isFeatured": true,
+      "description": "A beautiful round bridesmaid bouquet composed of pink cymbidium orchids, blush pink garden roses, and silver eucalyptus.",
+      "flowerOrigin": "Thailand",
+      "stemCount": 15,
+      "vaseSize": "Not Included (Satin Wrapped)",
+      "deliveryTags": [
+        "Next-Day Delivery",
+        "Bridesmaid Bunch"
+      ],
+      "freshnessLabels": "7 Days Freshness Guaranteed",
+      "image": "https://images.unsplash.com/photo-1507207611509-ec012433ff52?q=80&w=600"
+    },
+    {
+      "sku": "FL-WED-05",
+      "name": "Sweetheart Table Floral Runner",
+      "category": "wedding",
+      "price": 150,
+      "oldPrice": 180,
+      "stock": 4,
+      "isFeatured": false,
+      "description": "A dense, six-foot floral garland runner crafted with white spray roses, baby's breath, and dusty miller leaves for the main table.",
+      "flowerOrigin": "Local Farms",
+      "stemCount": 50,
+      "vaseSize": "Biodegradable Base (No Vase)",
+      "deliveryTags": [
+        "Scheduled Setup",
+        "Floral Runner"
+      ],
+      "freshnessLabels": "Fresh for Wedding Day",
+      "image": "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=600"
+    },
+    {
+      "sku": "FL-WED-06",
+      "name": "Pure White Calla Boutonniere",
+      "category": "wedding",
+      "price": 12.99,
+      "oldPrice": 15,
+      "stock": 50,
+      "isFeatured": false,
+      "description": "A single premium white Calla Lily boutonniere, wrapped with green floral tape and finished with a silver safety pin.",
+      "flowerOrigin": "Local Farms",
+      "stemCount": 1,
+      "vaseSize": "Safety Pin Attachment",
+      "deliveryTags": [
+        "Same-Day Delivery",
+        "Boutonniere"
+      ],
+      "freshnessLabels": "Fresh for Ceremony",
+      "image": "https://images.unsplash.com/photo-1502224562085-639556652f33?q=80&w=600"
+    },
+    {
+      "sku": "FL-WED-07",
+      "name": "Rose Gold Petal Basket",
+      "category": "wedding",
+      "price": 25,
+      "oldPrice": 30,
+      "stock": 20,
+      "isFeatured": false,
+      "description": "A pretty white satin flower girl basket filled with 500 loose pink and peach rose petals, fresh and scented.",
+      "flowerOrigin": "Local Farms",
+      "stemCount": 0,
+      "vaseSize": "Satin Basket Included",
+      "deliveryTags": [
+        "Same-Day Delivery",
+        "Flower Girl Basket"
+      ],
+      "freshnessLabels": "Petals Freshness Guaranteed",
+      "image": "https://images.unsplash.com/photo-1523438885200-e635ba2c371e?q=80&w=600"
+    },
+    {
+      "sku": "FL-WED-08",
+      "name": "Vintage Lace Corsage",
+      "category": "wedding",
+      "price": 18.5,
+      "oldPrice": 22,
+      "stock": 35,
+      "isFeatured": false,
+      "description": "A delicate wrist corsage presenting 3 white spray rose buds, baby's breath, and green leaves on a stretchable white lace band.",
+      "flowerOrigin": "Local Farms",
+      "stemCount": 3,
+      "vaseSize": "Wrist Band Attachment",
+      "deliveryTags": [
+        "Same-Day Delivery",
+        "Wrist Corsage"
+      ],
+      "freshnessLabels": "Fresh for Ceremony",
+      "image": "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?q=80&w=600"
+    },
+    {
+      "sku": "FL-WED-09",
+      "name": "Luxury White Peony Bouquet",
+      "category": "wedding",
+      "price": 140,
+      "oldPrice": 160,
+      "stock": 6,
+      "isFeatured": false,
+      "description": "A dense, spherical bridal bouquet consisting of twenty premium imported white peonies wrapped with satin ribbons.",
+      "flowerOrigin": "Netherlands",
+      "stemCount": 20,
+      "vaseSize": "Not Included (Satin Wrap)",
+      "deliveryTags": [
+        "Next-Day Delivery",
+        "Imported Peonies"
+      ],
+      "freshnessLabels": "8 Days Freshness Guaranteed",
+      "image": "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?q=80&w=600"
+    },
+    {
+      "sku": "FL-WED-10",
+      "name": "Golden Gate Ceremony Pedestals",
+      "category": "wedding",
+      "price": 199.99,
+      "oldPrice": 230,
+      "stock": 4,
+      "isFeatured": false,
+      "description": "A matching pair of wedding altar flower pedestals overflowing with white lilies, white gladiolas, and green ferns.",
+      "flowerOrigin": "Local Farms",
+      "stemCount": 40,
+      "vaseSize": "Tall Pedestals Included",
+      "deliveryTags": [
+        "Scheduled Setup",
+        "Altar Florals"
+      ],
+      "freshnessLabels": "Fresh for Ceremony",
+      "image": "https://images.unsplash.com/photo-1509223197845-458d87318791?q=80&w=600"
+    },
+    {
+      "sku": "FL-ANN-01",
+      "name": "Timeless Love Rose Set",
+      "category": "anniversary",
+      "price": 55,
+      "oldPrice": 65,
+      "stock": 15,
+      "isFeatured": true,
+      "description": "A classic anniversary set including 18 romantic red roses and delicate white waxflowers arranged inside a heavy glass vase.",
+      "flowerOrigin": "Ecuador",
+      "stemCount": 18,
+      "vaseSize": "Glass Vase Included",
+      "deliveryTags": [
+        "Same-Day Delivery",
+        "Romance Set"
+      ],
+      "freshnessLabels": "7 Days Freshness Guaranteed",
+      "image": "https://images.unsplash.com/photo-1518199266791-5375a83190b7?q=80&w=600"
+    },
+    {
+      "sku": "FL-ANN-02",
+      "name": "Eternal Flame Heart Case",
+      "category": "anniversary",
+      "price": 110,
+      "oldPrice": 130,
+      "stock": 6,
+      "isFeatured": true,
+      "description": "A luxurious heart-shaped red gift box packed with 36 premium red roses, representing enduring love and passion.",
+      "flowerOrigin": "Ecuador",
+      "stemCount": 36,
+      "vaseSize": "Heart Gift Box Included",
+      "deliveryTags": [
+        "Same-Day Delivery",
+        "Heart Collection"
+      ],
+      "freshnessLabels": "7 Days Freshness Guaranteed",
+      "image": "https://images.unsplash.com/photo-1563245372-f21724e3856d?q=80&w=600"
+    },
+    {
+      "sku": "FL-ANN-03",
+      "name": "Silver Jubilee White Lilies",
+      "category": "anniversary",
+      "price": 65,
+      "oldPrice": 75,
+      "stock": 10,
+      "isFeatured": false,
+      "description": "Premium white Casablanca lilies, white roses, and silver-dusted green foliage inside a clear glass vase for a 25th anniversary.",
+      "flowerOrigin": "Netherlands",
+      "stemCount": 15,
+      "vaseSize": "Casablanca Glass Vase Included",
+      "deliveryTags": [
+        "Next-Day Delivery",
+        "Jubilee Flowers"
+      ],
+      "freshnessLabels": "8 Days Freshness Guaranteed",
+      "image": "https://images.unsplash.com/photo-1567427017947-545c5f8d16ad?q=80&w=600"
+    },
+    {
+      "sku": "FL-ANN-04",
+      "name": "Golden Love Orchid Bouquet",
+      "category": "anniversary",
+      "price": 75,
+      "oldPrice": 85,
+      "stock": 8,
+      "isFeatured": true,
+      "description": "Twenty fresh golden-yellow cymbidium orchids and red roses representing 50 years of marriage. Hand-wrapped in golden paper.",
+      "flowerOrigin": "Thailand",
+      "stemCount": 20,
+      "vaseSize": "Not Included (Wrapped)",
+      "deliveryTags": [
+        "Next-Day Delivery",
+        "Golden Anniversary"
+      ],
+      "freshnessLabels": "8 Days Freshness Guaranteed",
+      "image": "https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?q=80&w=600"
+    },
+    {
+      "sku": "FL-ANN-05",
+      "name": "Sweet Escape Carnation Bowl",
+      "category": "anniversary",
+      "price": 38.99,
+      "oldPrice": 45,
+      "stock": 18,
+      "isFeatured": false,
+      "description": "Soft pink carnations, pink spray roses, and white chrysanthemums arranged inside a beautiful bubble glass bowl.",
+      "flowerOrigin": "Local Farms",
+      "stemCount": 18,
+      "vaseSize": "Glass Bubble Bowl Included",
+      "deliveryTags": [
+        "Same-Day Delivery",
+        "Table Flower Bowl"
+      ],
+      "freshnessLabels": "7 Days Freshness Guaranteed",
+      "image": "https://images.unsplash.com/photo-1606041008023-472dfb5e530f?q=80&w=600"
+    },
+    {
+      "sku": "FL-ANN-06",
+      "name": "Endless Devotion Pink Roses",
+      "category": "anniversary",
+      "price": 49.99,
+      "oldPrice": 58,
+      "stock": 14,
+      "isFeatured": false,
+      "description": "Two dozen soft pink roses in a premium wrap tied with satin ribbons. A romantic gesture representing admiration and joy.",
+      "flowerOrigin": "Colombia",
+      "stemCount": 24,
+      "vaseSize": "Not Included (Wrapped)",
+      "deliveryTags": [
+        "Same-Day Delivery",
+        "Pink Romance"
+      ],
+      "freshnessLabels": "7 Days Freshness Guaranteed",
+      "image": "https://images.unsplash.com/photo-1520004434532-668416a08753?q=80&w=600"
+    },
+    {
+      "sku": "FL-ANN-07",
+      "name": "Midnight Romance Calla Lilies",
+      "category": "anniversary",
+      "price": 69,
+      "oldPrice": 80,
+      "stock": 9,
+      "isFeatured": false,
+      "description": "Burgundy calla lilies and deep red spray roses, presented in a black ceramic designer vase. Elegant and passionate.",
+      "flowerOrigin": "Local Farms",
+      "stemCount": 12,
+      "vaseSize": "Ceramic Vase Included",
+      "deliveryTags": [
+        "Same-Day Delivery",
+        "Moody Romance"
+      ],
+      "freshnessLabels": "7 Days Freshness Guaranteed",
+      "image": "https://images.unsplash.com/photo-1502990313206-7f37a9514bea?q=80&w=600"
+    },
+    {
+      "sku": "FL-ANN-08",
+      "name": "Acre of Love Tulip Basket",
+      "category": "anniversary",
+      "price": 52,
+      "oldPrice": 60,
+      "stock": 12,
+      "isFeatured": false,
+      "description": "Twenty-four red and pink tulips arranged with leatherleaf ferns in a rustic wicker basket. Charming and natural.",
+      "flowerOrigin": "Netherlands",
+      "stemCount": 24,
+      "vaseSize": "Wicker Basket Included",
+      "deliveryTags": [
+        "Next-Day Delivery",
+        "Tulip Basket"
+      ],
+      "freshnessLabels": "7 Days Freshness Guaranteed",
+      "image": "https://images.unsplash.com/photo-1471897488648-5eae4ac6686b?q=80&w=600"
+    },
+    {
+      "sku": "FL-ANN-09",
+      "name": "True Companion Lavender Mix",
+      "category": "anniversary",
+      "price": 44.99,
+      "oldPrice": 50,
+      "stock": 16,
+      "isFeatured": false,
+      "description": "Lavender roses, violet delphiniums, and white Asiatic lilies wrapped in grey linen sheet. Peaceful and sweet.",
+      "flowerOrigin": "Kenya",
+      "stemCount": 15,
+      "vaseSize": "Not Included (Wrapped)",
+      "deliveryTags": [
+        "Same-Day Delivery",
+        "Lavender Sweetness"
+      ],
+      "freshnessLabels": "7 Days Freshness Guaranteed",
+      "image": "https://images.unsplash.com/photo-1551024601-bec78aea704b?q=80&w=600"
+    },
+    {
+      "sku": "FL-ANN-10",
+      "name": "Passionate Kiss Anthuriums",
+      "category": "anniversary",
+      "price": 58,
+      "oldPrice": 68,
+      "stock": 11,
+      "isFeatured": false,
+      "description": "Six striking red heart-shaped Anthuriums potted in a black ceramic pot. Symbolizes exotic love and longevity.",
+      "flowerOrigin": "Colombia",
+      "stemCount": 6,
+      "vaseSize": "Ceramic Pot Included",
+      "deliveryTags": [
+        "Next-Day Delivery",
+        "Heart Anthuriums"
+      ],
+      "freshnessLabels": "Greenhouse Potted",
+      "image": "https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=600"
+    },
+    {
+      "sku": "FL-BDY-01",
+      "name": "Vibrant Joy Celebration Basket",
+      "category": "birthday",
+      "price": 38.99,
+      "oldPrice": 45,
+      "stock": 18,
+      "isFeatured": true,
+      "description": "A colorful birthday basket overflowing with yellow gerberas, blue iris, pink carnations, and green button mums.",
+      "flowerOrigin": "Local Farms",
+      "stemCount": 20,
+      "vaseSize": "Basket Included",
+      "deliveryTags": [
+        "Same-Day Delivery",
+        "Vibrant Celebration"
+      ],
+      "freshnessLabels": "7 Days Freshness Guaranteed",
+      "image": "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?q=80&w=600"
+    },
+    {
+      "sku": "FL-BDY-02",
+      "name": "Vivid Happiness Gerberas",
+      "category": "birthday",
+      "price": 32.5,
+      "oldPrice": 38,
+      "stock": 24,
+      "isFeatured": true,
+      "description": "A bright rainbow collection of eighteen fresh-cut gerbera daisies hand-wrapped in sunshine yellow crepe paper.",
+      "flowerOrigin": "Local Farms",
+      "stemCount": 18,
+      "vaseSize": "Not Included (Wrapped)",
+      "deliveryTags": [
+        "Same-Day Delivery",
+        "Rainbow Gerberas"
+      ],
+      "freshnessLabels": "7 Days Freshness Guaranteed",
+      "image": "https://images.unsplash.com/photo-1587573089734-09cb69c0f2b4?q=80&w=600"
+    },
+    {
+      "sku": "FL-BDY-03",
+      "name": "Birthday Balloon Bouquet Combo",
+      "category": "birthday",
+      "price": 49.99,
+      "oldPrice": 58,
+      "stock": 12,
+      "isFeatured": false,
+      "description": "A bouquet of orange roses and yellow lilies hand-tied, accompanied by 3 helium birthday balloons.",
+      "flowerOrigin": "Local Farms",
+      "stemCount": 12,
+      "vaseSize": "Not Included (Wrapped)",
+      "deliveryTags": [
+        "Same-Day Delivery",
+        "Balloons Combo"
+      ],
+      "freshnessLabels": "6 Days Freshness Guaranteed",
+      "image": "https://images.unsplash.com/photo-1596436889106-be35e843f974?q=80&w=600"
+    },
+    {
+      "sku": "FL-BDY-04",
+      "name": "Vibrant Sunshine Sunflower Jar",
+      "category": "birthday",
+      "price": 29.99,
+      "oldPrice": 34.99,
+      "stock": 20,
+      "isFeatured": true,
+      "description": "Three huge, cheerful sunflowers arranged inside a glass mason jar tied with a blue polka dot ribbon.",
+      "flowerOrigin": "Local Farms",
+      "stemCount": 3,
+      "vaseSize": "Mason Jar Included",
+      "deliveryTags": [
+        "Same-Day Delivery",
+        "Sunflowers Jar"
+      ],
+      "freshnessLabels": "7 Days Freshness Guaranteed",
+      "image": "https://images.unsplash.com/photo-1582794543139-8ac9cb0f7b11?q=80&w=600"
+    },
+    {
+      "sku": "FL-BDY-05",
+      "name": "Sweet Sixteen Pastel Bowl",
+      "category": "birthday",
+      "price": 42,
+      "oldPrice": 48,
+      "stock": 15,
+      "isFeatured": false,
+      "description": "Soft pink spray roses, white chrysanthemums, and green button poms arranged inside a clear glass bubble bowl.",
+      "flowerOrigin": "Colombia",
+      "stemCount": 15,
+      "vaseSize": "Glass Bowl Included",
+      "deliveryTags": [
+        "Same-Day Delivery",
+        "Pastel Birthday"
+      ],
+      "freshnessLabels": "7 Days Freshness Guaranteed",
+      "image": "https://images.unsplash.com/photo-1561181286-d3fee7d55364?q=80&w=600"
+    },
+    {
+      "sku": "FL-BDY-06",
+      "name": "Rainbow Carnation Surprise",
+      "category": "birthday",
+      "price": 34.99,
+      "oldPrice": 39.99,
+      "stock": 28,
+      "isFeatured": false,
+      "description": "Two dozen multi-colored carnations in pink, red, yellow, and purple, hand-tied with a cheerful colorful satin ribbon.",
+      "flowerOrigin": "Local Farms",
+      "stemCount": 24,
+      "vaseSize": "Not Included (Wrapped)",
+      "deliveryTags": [
+        "Same-Day Delivery",
+        "Carnations Pack"
+      ],
+      "freshnessLabels": "9 Days Freshness Guaranteed",
+      "image": "https://images.unsplash.com/photo-1528183429752-a97d0bf99b5a?q=80&w=600"
+    },
+    {
+      "sku": "FL-BDY-07",
+      "name": "Party Popper Orchid Vase",
+      "category": "birthday",
+      "price": 55,
+      "oldPrice": 65,
+      "stock": 10,
+      "isFeatured": false,
+      "description": "Ten stems of bright magenta orchids combined with lime-green button mums inside a cylinder glass vase.",
+      "flowerOrigin": "Thailand",
+      "stemCount": 10,
+      "vaseSize": "Glass Cylinder Included",
+      "deliveryTags": [
+        "Next-Day Delivery",
+        "Exotic Birthday"
+      ],
+      "freshnessLabels": "8 Days Freshness Guaranteed",
+      "image": "https://images.unsplash.com/photo-1533038590840-1cde6e668a91?q=80&w=600"
+    },
+    {
+      "sku": "FL-BDY-08",
+      "name": "Golden Glow Daisy Basket",
+      "category": "birthday",
+      "price": 36,
+      "oldPrice": 42,
+      "stock": 16,
+      "isFeatured": false,
+      "description": "Happy yellow daisies, white button chrysanthemums, and green leaves arranged inside a rustic birch bark basket.",
+      "flowerOrigin": "Local Farms",
+      "stemCount": 20,
+      "vaseSize": "Birch Basket Included",
+      "deliveryTags": [
+        "Same-Day Delivery",
+        "Cheerful Basket"
+      ],
+      "freshnessLabels": "7 Days Freshness Guaranteed",
+      "image": "https://images.unsplash.com/photo-1518199266791-5375a83190b7?q=80&w=600"
+    },
+    {
+      "sku": "FL-BDY-09",
+      "name": "Vibrant Sunset Tulip Bunch",
+      "category": "birthday",
+      "price": 45,
+      "oldPrice": 52,
+      "stock": 14,
+      "isFeatured": false,
+      "description": "Fifteen Dutch tulips in shades of orange and yellow, wrapped with thick brown kraft paper and tied with twine.",
+      "flowerOrigin": "Netherlands",
+      "stemCount": 15,
+      "vaseSize": "Not Included (Wrapped)",
+      "deliveryTags": [
+        "Same-Day Delivery",
+        "Sunset Tulips"
+      ],
+      "freshnessLabels": "7 Days Freshness Guaranteed",
+      "image": "https://images.unsplash.com/photo-1544816155-12df9643f363?q=80&w=600"
+    },
+    {
+      "sku": "FL-BDY-10",
+      "name": "Happy Day Alstroemeria Bowl",
+      "category": "birthday",
+      "price": 38,
+      "oldPrice": 45,
+      "stock": 19,
+      "isFeatured": false,
+      "description": "Colorful, long-lasting Peruvian lilies (Alstroemeria) arranged inside a simple glass fishbowl vase.",
+      "flowerOrigin": "Colombia",
+      "stemCount": 18,
+      "vaseSize": "Glass Bowl Included",
+      "deliveryTags": [
+        "Same-Day Delivery",
+        "Colorful Bowl"
+      ],
+      "freshnessLabels": "10 Days Freshness Guaranteed",
+      "image": "https://images.unsplash.com/photo-1523438885200-e635ba2c371e?q=80&w=600"
+    },
+    {
+      "sku": "FL-LUX-01",
+      "name": "Royal White Orchid Case",
+      "category": "luxury",
+      "price": 145,
+      "oldPrice": 170,
+      "stock": 6,
+      "isFeatured": true,
+      "description": "A magnificent cascading white Phalaenopsis orchid presenting 2 large spikes, potted in a custom black acrylic pedestal vase.",
+      "flowerOrigin": "Japan",
+      "stemCount": 2,
+      "vaseSize": "Luxury Acrylic Pedestal Included",
+      "deliveryTags": [
+        "Next-Day Delivery",
+        "Royal Collection"
+      ],
+      "freshnessLabels": "Greenhouse Showpiece",
+      "image": "https://images.unsplash.com/photo-1506244856291-8910ea843e81?q=80&w=600"
+    },
+    {
+      "sku": "FL-LUX-02",
+      "name": "Velvet Crimson Emperor Case",
+      "category": "luxury",
+      "price": 180,
+      "oldPrice": 210,
+      "stock": 5,
+      "isFeatured": true,
+      "description": "Fifty premium long-stemmed red roses beautifully arranged inside a signature black velvet-covered presentation case.",
+      "flowerOrigin": "Ecuador",
+      "stemCount": 50,
+      "vaseSize": "Velvet Case Included",
+      "deliveryTags": [
+        "Next-Day Delivery",
+        "Imperial Collection"
+      ],
+      "freshnessLabels": "7 Days Freshness Guaranteed",
+      "image": "https://images.unsplash.com/photo-1509223197845-458d87318791?q=80&w=600"
+    },
+    {
+      "sku": "FL-LUX-03",
+      "name": "Signature Royal Hydrangea Urn",
+      "category": "luxury",
+      "price": 195,
+      "oldPrice": 230,
+      "stock": 4,
+      "isFeatured": false,
+      "description": "A massive, breathtaking arrangement of blue hydrangeas, pink peonies, and white orchids in a heavy ceramic pedestal urn.",
+      "flowerOrigin": "Netherlands",
+      "stemCount": 18,
+      "vaseSize": "Premium Ceramic Urn Included",
+      "deliveryTags": [
+        "Scheduled Setup",
+        "Signature Urn"
+      ],
+      "freshnessLabels": "Exquisite Greenhouse Cut",
+      "image": "https://images.unsplash.com/photo-1509223197845-458d87318791?q=80&w=600"
+    },
+    {
+      "sku": "FL-LUX-04",
+      "name": "Golden Empire Exotic Calla Set",
+      "category": "luxury",
+      "price": 160,
+      "oldPrice": 190,
+      "stock": 7,
+      "isFeatured": true,
+      "description": "Exquisite yellow calla lilies combined with gold-sprayed monstera leaves inside a gold-plated ceramic vase.",
+      "flowerOrigin": "Netherlands",
+      "stemCount": 12,
+      "vaseSize": "Gold Plated Vase Included",
+      "deliveryTags": [
+        "Next-Day Delivery",
+        "Exotic Luxury"
+      ],
+      "freshnessLabels": "8 Days Freshness Guaranteed",
+      "image": "https://images.unsplash.com/photo-1563245372-f21724e3856d?q=80&w=600"
+    },
+    {
+      "sku": "FL-LUX-05",
+      "name": "Luxury Premium Floral Hamper",
+      "category": "luxury",
+      "price": 249.99,
+      "oldPrice": 299.99,
+      "stock": 3,
+      "isFeatured": false,
+      "description": "An exquisite wicker hamper basket containing pink cymbidium orchids, roses, hydrangeas, paired with high-end chocolates and teas.",
+      "flowerOrigin": "Colombia",
+      "stemCount": 20,
+      "vaseSize": "Luxury Gift Basket Included",
+      "deliveryTags": [
+        "Next-Day Delivery",
+        "Grand Gift Hamper"
+      ],
+      "freshnessLabels": "Fresh & Gourmet Set",
+      "image": "https://images.unsplash.com/photo-1563245372-f21724e3856d?q=80&w=600"
+    },
+    {
+      "sku": "FL-LUX-06",
+      "name": "Blushing Majesty Peony Bowl",
+      "category": "luxury",
+      "price": 175,
+      "oldPrice": 200,
+      "stock": 5,
+      "isFeatured": false,
+      "description": "A dense dome arrangement of soft pink imported peonies arranged inside a genuine lead crystal centerpiece bowl.",
+      "flowerOrigin": "Netherlands",
+      "stemCount": 15,
+      "vaseSize": "Lead Crystal Bowl Included",
+      "deliveryTags": [
+        "Next-Day Delivery",
+        "Crystal Peonies"
+      ],
+      "freshnessLabels": "8 Days Freshness Guaranteed",
+      "image": "https://images.unsplash.com/photo-1606041008023-472dfb5e530f?q=80&w=600"
+    },
+    {
+      "sku": "FL-LUX-07",
+      "name": "Midnight Velvet Rose Box",
+      "category": "luxury",
+      "price": 125,
+      "oldPrice": 150,
+      "stock": 8,
+      "isFeatured": false,
+      "description": "Two dozen rare, deep burgundy Black Baccara roses arranged in a signature black velvet box. Represents extreme elegance.",
+      "flowerOrigin": "France",
+      "stemCount": 24,
+      "vaseSize": "Velvet Gift Box Included",
+      "deliveryTags": [
+        "Same-Day Delivery",
+        "Black Baccara"
+      ],
+      "freshnessLabels": "7 Days Freshness Guaranteed",
+      "image": "https://images.unsplash.com/photo-1606041008023-472dfb5e530f?q=80&w=600"
+    },
+    {
+      "sku": "FL-LUX-08",
+      "name": "Imperial Anthurium Gold Vase",
+      "category": "luxury",
+      "price": 135,
+      "oldPrice": 160,
+      "stock": 9,
+      "isFeatured": false,
+      "description": "Dramatic pink and white imported anthuriums paired with green orchids inside a heavy ceramic gold-plated urn.",
+      "flowerOrigin": "Colombia",
+      "stemCount": 10,
+      "vaseSize": "Ceramic Gold Urn Included",
+      "deliveryTags": [
+        "Next-Day Delivery",
+        "Imperial Gold"
+      ],
+      "freshnessLabels": "8 Days Freshness Guaranteed",
+      "image": "https://images.unsplash.com/photo-1596436889106-be35e843f974?q=80&w=600"
+    },
+    {
+      "sku": "FL-LUX-09",
+      "name": "Grand Palace Orchid Trio",
+      "category": "luxury",
+      "price": 190,
+      "oldPrice": 220,
+      "stock": 4,
+      "isFeatured": false,
+      "description": "Three heavy stems of cascading white phalaenopsis orchids potted inside a premium silver-finished centerpiece bowl.",
+      "flowerOrigin": "Japan",
+      "stemCount": 3,
+      "vaseSize": "Silver Finished Bowl Included",
+      "deliveryTags": [
+        "Next-Day Delivery",
+        "Orchid Trio"
+      ],
+      "freshnessLabels": "Healthy Potted Blooms",
+      "image": "https://images.unsplash.com/photo-1528183429752-a97d0bf99b5a?q=80&w=600"
+    },
+    {
+      "sku": "FL-LUX-10",
+      "name": "Regal Gold & Rose Arrangement",
+      "category": "luxury",
+      "price": 220,
+      "oldPrice": 250,
+      "stock": 3,
+      "isFeatured": false,
+      "description": "Cream white garden roses, yellow calla lilies, and exotic greenery arranged inside a genuine heavy brass pedestal bowl.",
+      "flowerOrigin": "Local Farms",
+      "stemCount": 30,
+      "vaseSize": "Brass Pedestal Bowl Included",
+      "deliveryTags": [
+        "Scheduled Setup",
+        "Regal Brass"
+      ],
+      "freshnessLabels": "Exquisite Greenhouse Cut",
+      "image": "https://images.unsplash.com/photo-1582794543139-8ac9cb0f7b11?q=80&w=600"
+    },
+    {
+      "sku": "FL-CMB-01",
+      "name": "Candlelit Garden Rose Combo",
+      "category": "combos",
+      "price": 55,
+      "oldPrice": 65,
+      "stock": 15,
+      "isFeatured": true,
+      "description": "A bouquet of fresh pink roses hand-tied, accompanied by an organic hand-poured lavender soy wax jar candle.",
+      "flowerOrigin": "Colombia",
+      "stemCount": 15,
+      "vaseSize": "Not Included (Wrapped + Candle)",
+      "deliveryTags": [
+        "Same-Day Delivery",
+        "Candle Combo"
+      ],
+      "freshnessLabels": "7 Days Freshness Guaranteed",
+      "image": "https://images.unsplash.com/photo-1596436889106-be35e843f974?q=80&w=600"
+    },
+    {
+      "sku": "FL-CMB-02",
+      "name": "Teddy Bear & Red Rose Combo",
+      "category": "combos",
+      "price": 49.99,
+      "oldPrice": 60,
+      "stock": 20,
+      "isFeatured": true,
+      "description": "Twelve deep red roses bouquet hand-wrapped, paired with a fluffy cuddly teddy bear and a premium dark chocolate bar.",
+      "flowerOrigin": "Ecuador",
+      "stemCount": 12,
+      "vaseSize": "Not Included (Wrapped + Teddy)",
+      "deliveryTags": [
+        "Same-Day Delivery",
+        "Classic Teddy Bundle"
+      ],
+      "freshnessLabels": "7 Days Freshness Guaranteed",
+      "image": "https://images.unsplash.com/photo-1544816155-12df9643f363?q=80&w=600"
+    },
+    {
+      "sku": "FL-CMB-03",
+      "name": "Belgian Chocolates & Orchid Combo",
+      "category": "combos",
+      "price": 65,
+      "oldPrice": 75,
+      "stock": 10,
+      "isFeatured": false,
+      "description": "A beautiful purple potted orchid plant paired with a premium box of twelve Belgian dark chocolate truffles.",
+      "flowerOrigin": "Thailand",
+      "stemCount": 1,
+      "vaseSize": "Ceramic Orchid Pot Included",
+      "deliveryTags": [
+        "Next-Day Delivery",
+        "Chocolates & Orchid"
+      ],
+      "freshnessLabels": "Fresh plant & Sweet Treats",
+      "image": "https://images.unsplash.com/photo-1523438885200-e635ba2c371e?q=80&w=600"
+    },
+    {
+      "sku": "FL-CMB-04",
+      "name": "Celebration Truffles & Lily Bunch",
+      "category": "combos",
+      "price": 59.99,
+      "oldPrice": 68,
+      "stock": 12,
+      "isFeatured": true,
+      "description": "A bunch of yellow Asiatic lilies hand-tied, accompanied by a premium box of milk chocolate hazelnut truffles.",
+      "flowerOrigin": "Local Farms",
+      "stemCount": 8,
+      "vaseSize": "Not Included (Wrapped + Chocolates)",
+      "deliveryTags": [
+        "Same-Day Delivery",
+        "Lily Truffles Set"
+      ],
+      "freshnessLabels": "7 Days Freshness Guaranteed",
+      "image": "https://images.unsplash.com/photo-1561181286-d3fee7d55364?q=80&w=600"
+    },
+    {
+      "sku": "FL-CMB-05",
+      "name": "Elegance Card & White Lily Set",
+      "category": "combos",
+      "price": 45,
+      "oldPrice": 52,
+      "stock": 18,
+      "isFeatured": false,
+      "description": "A hand-tied bouquet of white Asiatic lilies paired with a premium gold-embossed handwritten greeting card.",
+      "flowerOrigin": "Local Farms",
+      "stemCount": 8,
+      "vaseSize": "Not Included (Wrapped + Card)",
+      "deliveryTags": [
+        "Same-Day Delivery",
+        "Card & Lilies Set"
+      ],
+      "freshnessLabels": "7 Days Freshness Guaranteed",
+      "image": "https://images.unsplash.com/photo-1528183429752-a97d0bf99b5a?q=80&w=600"
+    },
+    {
+      "sku": "FL-CMB-06",
+      "name": "Greeting Card & Gerberas Bundle",
+      "category": "combos",
+      "price": 38,
+      "oldPrice": 44,
+      "stock": 22,
+      "isFeatured": false,
+      "description": "A bunch of multi-colored gerberas daisies hand-wrapped, paired with a custom printed happy birthday card.",
+      "flowerOrigin": "Local Farms",
+      "stemCount": 12,
+      "vaseSize": "Not Included (Wrapped + Card)",
+      "deliveryTags": [
+        "Same-Day Delivery",
+        "Card & Gerberas"
+      ],
+      "freshnessLabels": "7 Days Freshness Guaranteed",
+      "image": "https://images.unsplash.com/photo-1544816155-12df9643f363?q=80&w=600"
+    },
+    {
+      "sku": "FL-CMB-07",
+      "name": "Sweet Lavender Candle & Plant Set",
+      "category": "combos",
+      "price": 42.5,
+      "oldPrice": 50,
+      "stock": 14,
+      "isFeatured": false,
+      "description": "A potted green Peace Lily plant paired with an organic lavender-scented soy wax glass jar candle.",
+      "flowerOrigin": "Local Farms",
+      "stemCount": 0,
+      "vaseSize": "Ceramic Pot Included + Candle",
+      "deliveryTags": [
+        "Next-Day Delivery",
+        "Peace Lily & Candle"
+      ],
+      "freshnessLabels": "Healthy Potted Combo",
+      "image": "https://images.unsplash.com/photo-1503642551022-c011aafb3c88?q=80&w=600"
+    },
+    {
+      "sku": "FL-CMB-08",
+      "name": "Luxury Chocolates & Rose Box Set",
+      "category": "combos",
+      "price": 85,
+      "oldPrice": 98,
+      "stock": 8,
+      "isFeatured": false,
+      "description": "A white cylinder gift box filled with 12 white roses, paired with a premium collection of Belgian dark chocolate truffles.",
+      "flowerOrigin": "Ecuador",
+      "stemCount": 12,
+      "vaseSize": "White Gift Box + Chocolates",
+      "deliveryTags": [
+        "Same-Day Delivery",
+        "Chocolates & Roses"
+      ],
+      "freshnessLabels": "7 Days Freshness Guaranteed",
+      "image": "https://images.unsplash.com/photo-1523438885200-e635ba2c371e?q=80&w=600"
+    },
+    {
+      "sku": "FL-CMB-09",
+      "name": "Romantic Card & Red Roses Duo",
+      "category": "combos",
+      "price": 52,
+      "oldPrice": 60,
+      "stock": 15,
+      "isFeatured": false,
+      "description": "One dozen red roses wrapped in gold paper, paired with a handwritten romantic greeting card in a red envelope.",
+      "flowerOrigin": "Ecuador",
+      "stemCount": 12,
+      "vaseSize": "Not Included (Wrapped + Card)",
+      "deliveryTags": [
+        "Same-Day Delivery",
+        "Love Message Combo"
+      ],
+      "freshnessLabels": "7 Days Freshness Guaranteed",
+      "image": "https://images.unsplash.com/photo-1509223197845-458d87318791?q=80&w=600"
+    },
+    {
+      "sku": "FL-CMB-10",
+      "name": "Cozy Teddy & Sunflowers Combo",
+      "category": "combos",
+      "price": 44.99,
+      "oldPrice": 52,
+      "stock": 16,
+      "isFeatured": false,
+      "description": "Three bright sunflowers bouquet wrapped in blue craft sheet, paired with a fluffy, soft teddy bear holding a heart.",
+      "flowerOrigin": "Local Farms",
+      "stemCount": 3,
+      "vaseSize": "Not Included (Wrapped + Teddy)",
+      "deliveryTags": [
+        "Same-Day Delivery",
+        "Sunflowers & Teddy"
+      ],
+      "freshnessLabels": "7 Days Freshness Guaranteed",
+      "image": "https://images.unsplash.com/photo-1553531384-cc64ac80f931?q=80&w=600"
+    }
+  ],
+  "promos": [
+    {
+      "code": "FLORISH10",
+      "discountPercent": 10,
+      "isFreeShipping": false,
+      "minPurchase": 10,
+      "expiresAt": "2030-12-31T23:59:59.000Z"
+    },
+    {
+      "code": "FREESHIP",
+      "discountPercent": 0,
+      "isFreeShipping": true,
+      "minPurchase": 20,
+      "expiresAt": "2030-12-31T23:59:59.000Z"
+    }
+  ]
+}

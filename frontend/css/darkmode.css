@@ -1,0 +1,35 @@
+/*
+ * Darkmode.css - Theme Overrides for Florish
+ * Purpose: Custom rules to style the layout when .dark-theme is active.
+ */
+
+.dark-theme {
+  --bg-color: hsl(210, 24%, 10%); /* Very Dark Blue/Gray */
+  --surface-color: hsl(210, 24%, 15%); /* Dark Grey/Blue */
+  --text-primary: hsl(210, 10%, 90%);
+  --text-secondary: hsl(210, 10%, 70%);
+  --text-muted: hsl(210, 10%, 50%);
+  --border-color: hsl(210, 20%, 22%);
+  
+  --primary: hsl(var(--primary-hue), 55%, 50%); /* High contrast emerald green for dark mode */
+  --primary-light: hsl(var(--primary-hue), 40%, 15%);
+  --secondary-light: hsl(var(--secondary-hue), 45%, 18%);
+}
+
+.dark-theme img {
+  opacity: 0.85;
+  transition: opacity var(--transition-normal);
+}
+
+.dark-theme img:hover {
+  opacity: 1;
+}
+
+.dark-theme .btn-outline {
+  border-color: var(--secondary);
+  color: var(--secondary);
+}
+
+.dark-theme .btn-outline:hover {
+  background-color: var(--secondary-light);
+}

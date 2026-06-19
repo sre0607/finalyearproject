@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms of Service - Florish</title>
+  
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/darkmode.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <div id="loader-placeholder"></div>
+  <div id="navbar-placeholder"></div>
+
+  <main class="container py-xxl" style="max-width: 800px; margin: 0 auto; padding-left: var(--space-md); padding-right: var(--space-md);">
+    <h1 style="color: var(--primary); margin-bottom: var(--space-lg); font-family: var(--font-secondary);">Terms of Service</h1>
+    
+    <div style="line-height: 1.8; color: var(--text-primary); display: flex; flex-direction: column; gap: var(--space-md);">
+      <p><em>Last updated: May 27, 2026</em></p>
+      
+      <p>Welcome to Florish! These terms and conditions outline the rules and regulations for the use of Florish's Floral E-Commerce Website.</p>
+      
+      <p>By accessing this website, we assume you accept these terms and conditions. Do not continue to use Florish if you do not agree to take all of the terms and conditions stated on this page.</p>
+      
+      <h2 style="color: var(--primary); font-size: 1.4rem; margin-top: var(--space-lg);">1. Accounts and Registration</h2>
+      <p>When you create an account on Florish, you must provide accurate, complete, and current information. You are solely responsible for safeguarding the credentials and password associated with your account, and you agree not to disclose your password to third parties.</p>
+      
+      <h2 style="color: var(--primary); font-size: 1.4rem; margin-top: var(--space-lg);">2. Purchases and Inventory Limits</h2>
+      <p>All floral purchases are subject to product stock levels. We reserve the right to cancel orders or limit quantities at checkout if available stems are depleted due to rapid seasonal demands. Product prices are subject to change without notice.</p>
+      
+      <h2 style="color: var(--primary); font-size: 1.4rem; margin-top: var(--space-lg);">3. Delivery Conditions</h2>
+      <p>Same-day delivery is valid for orders placed before 1 PM local time. We strive to fulfill orders on schedule, but delivery timelines are estimates and cannot be guaranteed during holidays (e.g. Valentine's Day, Mother's Day).</p>
+      
+      <h2 style="color: var(--primary); font-size: 1.4rem; margin-top: var(--space-lg);">4. Intellectual Property</h2>
+      <p>The content, graphic designs, logos, text descriptions, and photographic catalog layouts exhibited on Florish are the intellectual property of Florish and protected under relevant trademark and copyright regulations.</p>
+      
+      <h2 style="color: var(--primary); font-size: 1.4rem; margin-top: var(--space-lg);">5. Limitation of Liability</h2>
+      <p>In no event shall Florish be liable for any indirect, consequential, or special liabilities arising out of or in any way related to your use of this e-commerce platform.</p>
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="js/api.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/darkmode.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      fetch('components/loader.html')
+        .then(res => res.text())
+        .then(html => {
+          document.getElementById('loader-placeholder').innerHTML = html;
+          setTimeout(() => {
+            const loader = document.getElementById('global-loader');
+            if (loader) loader.style.opacity = '0';
+            setTimeout(() => { if(loader) loader.style.display = 'none'; }, 300);
+          }, 400);
+        });
+    });
+  </script>
+</body>
+</html>

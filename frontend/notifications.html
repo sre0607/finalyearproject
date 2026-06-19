@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notifications Inbox - Florish</title>
+  
+  <meta name="description" content="View your order status updates, promo offers, and restocked item notifications.">
+  
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/darkmode.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  
+  <style>
+    .notifications-container {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    
+    .notifications-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 1rem;
+    }
+
+    .notifications-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .notification-card {
+      background-color: var(--surface-color);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      display: flex;
+      gap: 1.25rem;
+      align-items: flex-start;
+      position: relative;
+      transition: all 0.2s ease;
+    }
+
+    .notification-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+
+    .notification-card.unread {
+      border-left: 4px solid var(--primary);
+      background-color: var(--primary-light);
+    }
+
+    .notification-icon {
+      font-size: 1.8rem;
+      background: var(--bg-color);
+      padding: 0.5rem;
+      border-radius: 50%;
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .notification-body {
+      flex: 1;
+    }
+
+    .notification-title {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 0.35rem;
+      color: var(--text-primary);
+    }
+
+    .notification-message {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+      margin-bottom: 0.75rem;
+    }
+
+    .notification-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .notification-action-btn {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--primary);
+      background: none;
+      border: none;
+      cursor: pointer;
+      text-decoration: underline;
+      padding: 0;
+    }
+
+    .notification-action-btn:hover {
+      color: var(--primary-dark);
+    }
+
+    .mark-read-dot {
+      width: 10px;
+      height: 10px;
+      background-color: var(--primary);
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 4rem 2rem;
+      background: var(--surface-color);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+    }
+  </style>
+</head>
+<body>
+
+  <div id="navbar-placeholder"></div>
+
+  <div id="header-placeholder"></div>
+
+  <main class="container">
+    <div class="notifications-container">
+      <div class="notifications-header">
+        <h2 style="font-family: var(--font-serif); color: var(--primary); margin: 0;">Inbox</h2>
+        <button id="btn-read-all" class="btn btn-outline btn-sm">Mark All as Read</button>
+      </div>
+
+      <div id="notifications-inbox">
+        <!-- Loaded dynamically via js/notifications.js -->
+        <div class="text-center" style="padding: 3rem 0;">
+          <div class="spinner" style="display: inline-block; width: 35px; height: 35px;"></div>
+          <p class="text-secondary" style="margin-top: 1rem;">Retrieving your notifications...</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="js/api.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/notifications.js"></script>
+  <script src="js/darkmode.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      fetch('components/header.html')
+        .then(res => res.text())
+        .then(html => {
+          const banner = document.getElementById('header-placeholder');
+          banner.innerHTML = html;
+          banner.querySelector('#page-title').textContent = 'Notifications';
+          banner.querySelector('#breadcrumb-current').textContent = 'Notifications';
+        });
+    });
+  </script>
+</body>
+</html>

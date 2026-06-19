@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Florish - Handcrafted Flower Bouquets & Fresh Plants</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Welcome to Florish! Experience premium handcrafted floral arrangements, bouquets, and house plants with same-day home delivery. Perfect for weddings, birthdays, and celebrations.">
+  <meta name="keywords" content="flowers, floral bouquets, online florist, rose delivery, house plants, fresh blossoms">
+  
+  <!-- Global Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+  
+  <!-- Page Specific and Layout Stylesheets -->
+  <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/darkmode.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Dynamic Global Loading Spinner -->
+  <div id="loader-placeholder"></div>
+
+  <!-- Reusable Responsive Navbar Placeholder -->
+  <div id="navbar-placeholder"></div>
+
+  <main>
+    <!-- Hero Slider Section -->
+    <section class="hero-slider">
+      <div class="hero-slide active" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1526047932273-341f2a7631f9?q=80&w=1600&auto=format&fit=crop');">
+        <div class="hero-content animate-fade-in">
+          <h1>Express Your Love with Blooms</h1>
+          <p>Exquisite fresh flower arrangements tailored meticulously for your unforgettable moments.</p>
+          <a href="shop.html" class="btn btn-secondary animate-pulse">Shop Bouquets</a>
+        </div>
+      </div>
+      <!-- Add more slides if needed -->
+    </section>
+
+    <!-- Categories Section -->
+    <section class="category-section container">
+      <div class="section-header">
+        <h2>Shop by Category</h2>
+        <p>Explore our seasonal collections designed to match every mood and celebration.</p>
+      </div>
+      <div class="category-grid">
+        <!-- Loaded dynamically from database -->
+      </div>
+    </section>
+
+    <!-- Featured Products Section -->
+    <section class="featured-products py-xxl">
+      <div class="container">
+        <div class="section-header">
+          <h2>Featured Arrangements</h2>
+          <p>Our top selling, florist-recommended creations made with fresh, hand-picked stems.</p>
+        </div>
+        <!-- Grid layout for Product Cards -->
+        <div class="products-grid" id="featured-products-grid">
+          <!-- Dynamically generated product-cards will be injected here via js/products.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Customer Value Propositions Section -->
+    <section class="benefits-section py-xxl">
+      <div class="container benefits-grid">
+        <div class="benefit-card">
+          <div class="benefit-icon">🚚</div>
+          <h3>Same-Day Delivery</h3>
+          <p>Order before 1 PM for quick, doorstep fulfillment.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">🌸</div>
+          <h3>Freshness Guaranteed</h3>
+          <p>Beautiful flowers kept fresh for at least 7 days.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">💳</div>
+          <h3>Secure Checkout</h3>
+          <p>100% safe checkout using credit, debit, or UPI.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Reusable Footer Placeholder -->
+  <div id="footer-placeholder"></div>
+
+  <!-- Global Javascripts -->
+  <script src="js/api.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/slider.js"></script>
+  <script src="js/products.js"></script>
+  <script src="js/darkmode.js"></script>
+  <script>
+    // Local script to trigger loader component dynamic loading on home page
+    document.addEventListener('DOMContentLoaded', () => {
+      fetch('components/loader.html')
+        .then(res => res.text())
+        .then(html => {
+          document.getElementById('loader-placeholder').innerHTML = html;
+          // Dismiss loader after short delay
+          setTimeout(() => {
+            const loader = document.getElementById('global-loader');
+            if (loader) loader.style.opacity = '0';
+            setTimeout(() => { if(loader) loader.style.display = 'none'; }, 300);
+          }, 600);
+        });
+    });
+  </script>
+</body>
+</html>

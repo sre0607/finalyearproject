@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Account (You) - Florish</title>
+  
+  <meta name="description" content="Manage your Florish account orders, default shipping address, wishlist items, stock alerts, and personalized recommendations.">
+  
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/darkmode.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  
+  <style>
+    /* Premium You Section Custom Styles */
+    .you-container {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 var(--space-lg);
+    }
+
+    /* 1. Greeting Header Banner */
+    .greeting-banner {
+      background: linear-gradient(135deg, var(--primary), #2d6a4f);
+      color: white;
+      border-radius: var(--radius-lg);
+      padding: var(--space-xl) var(--space-xxl);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: var(--space-xl);
+      box-shadow: var(--shadow-md);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .greeting-banner::before {
+      content: '';
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 50%;
+      top: -150px;
+      right: -50px;
+      pointer-events: none;
+    }
+
+    .greeting-left {
+      display: flex;
+      align-items: center;
+      gap: var(--space-lg);
+    }
+
+    .greeting-avatar {
+      font-size: 3rem;
+      background: rgba(255, 255, 255, 0.15);
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 3px solid rgba(255, 255, 255, 0.3);
+      color: white;
+      font-weight: bold;
+      font-family: var(--font-serif);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .greeting-text h2 {
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      margin: 0 0 0.25rem 0;
+      color: white;
+    }
+
+    .greeting-text p {
+      margin: 0;
+      opacity: 0.85;
+      font-size: 0.95rem;
+    }
+
+    .greeting-stats {
+      display: flex;
+      gap: var(--space-xl);
+    }
+
+    .stat-card {
+      text-align: center;
+      background: rgba(255, 255, 255, 0.1);
+      padding: var(--space-sm) var(--space-md);
+      border-radius: var(--radius-md);
+      min-width: 90px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: background 0.2s ease;
+    }
+
+    .stat-card:hover {
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    .stat-val {
+      display: block;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .stat-label {
+      font-size: 0.75rem;
+      opacity: 0.8;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* 2. Quick Action Card Shortcuts */
+    .shortcuts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: var(--space-md);
+      margin-bottom: var(--space-xl);
+    }
+
+    .shortcut-card {
+      background: var(--surface-color);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: var(--space-md);
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .shortcut-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--primary);
+    }
+
+    .shortcut-icon {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    .shortcut-card span {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--text-primary);
+    }
+
+    /* Dashboard Layout Sections */
+    .dashboard-section {
+      background-color: var(--surface-color);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: var(--space-xl);
+      margin-bottom: var(--space-xl);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .section-title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: var(--space-sm);
+      margin-bottom: var(--space-lg);
+    }
+
+    .section-title {
+      font-family: var(--font-serif);
+      color: var(--primary);
+      margin: 0;
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* 3. Your Orders Section */
+    .orders-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+
+    .order-dashboard-card {
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      background-color: var(--bg-color);
+      transition: box-shadow 0.2s ease;
+    }
+
+    .order-dashboard-card:hover {
+      box-shadow: var(--shadow-md);
+    }
+
+    .order-card-header {
+      background-color: var(--primary-light);
+      padding: var(--space-sm) var(--space-md);
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+    }
+
+    .order-header-info {
+      display: flex;
+      gap: var(--space-lg);
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+
+    .order-header-info strong {
+      color: var(--text-primary);
+    }
+
+    .order-card-body {
+      padding: var(--space-md);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: var(--space-md);
+    }
+
+    .order-items-detail {
+      flex: 1;
+      min-width: 280px;
+    }
+
+    .order-item-row {
+      margin-bottom: 0.25rem;
+      font-size: 0.95rem;
+    }
+
+    .order-actions {
+      display: flex;
+      gap: var(--space-sm);
+      flex-wrap: wrap;
+    }
+
+    /* 4. Buy Again & Recommendations Grids */
+    .horizontal-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: var(--space-lg);
+    }
+
+    /* 5. Account Editor Grid */
+    .account-settings-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-xl);
+    }
+
+    @media (max-width: 768px) {
+      .account-settings-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .form-group-address {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-sm);
+    }
+
+    .form-group-full {
+      grid-column: 1 / -1;
+    }
+
+    /* 7. Notifications styling */
+    .inbox-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+      max-height: 400px;
+      overflow-y: auto;
+      padding-right: 0.5rem;
+    }
+
+    .inbox-card {
+      border: 1px solid var(--border-color);
+      background-color: var(--bg-color);
+      border-radius: var(--radius-md);
+      padding: var(--space-md);
+      display: flex;
+      gap: var(--space-md);
+      align-items: flex-start;
+      position: relative;
+      transition: all 0.2s ease;
+    }
+
+    .inbox-card:hover {
+      box-shadow: var(--shadow-sm);
+      border-color: var(--primary);
+    }
+
+    .inbox-card.unread {
+      border-left: 4px solid var(--primary);
+      background-color: var(--primary-light);
+    }
+
+    .inbox-icon {
+      font-size: 1.5rem;
+    }
+
+    .inbox-body {
+      flex: 1;
+    }
+
+    .inbox-title {
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .inbox-msg {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.4;
+      margin-bottom: 0.5rem;
+    }
+
+    .inbox-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .inbox-action-btn {
+      color: var(--primary);
+      text-decoration: underline;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .inbox-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--primary);
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    .empty-state-you {
+      text-align: center;
+      padding: var(--space-xl);
+      color: var(--text-secondary);
+    }
+  </style>
+</head>
+<body>
+
+  <div id="navbar-placeholder"></div>
+
+  <div id="header-placeholder"></div>
+
+  <main class="you-container">
+    
+    <!-- 1. Greeting Banner -->
+    <section class="greeting-banner" id="you-greeting-banner">
+      <div class="greeting-left">
+        <div class="greeting-avatar" id="lbl-avatar">U</div>
+        <div class="greeting-text">
+          <h2 id="lbl-greeting-name">Hello, User!</h2>
+          <p>Welcome to your personal control center. Track your orders, view saved lists, and manage details.</p>
+        </div>
+      </div>
+      <div class="greeting-stats">
+        <div class="stat-card">
+          <span class="stat-val" id="stat-orders-count">0</span>
+          <span class="stat-label">Orders</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-val" id="stat-wishlist-count">0</span>
+          <span class="stat-label">Wishlist</span>
+        </div>
+        <div class="stat-card" id="stat-alerts-wrapper" style="cursor: pointer;">
+          <span class="stat-val" id="stat-alerts-count">0</span>
+          <span class="stat-label">Alerts</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Quick Action Cards -->
+    <section class="shortcuts-grid">
+      <div class="shortcut-card" onclick="scrollToSection('you-orders')">
+        <span class="shortcut-icon">📦</span>
+        <span>Your Orders</span>
+      </div>
+      <div class="shortcut-card" onclick="scrollToSection('you-buy-again')">
+        <span class="shortcut-icon">🔄</span>
+        <span>Buy Again</span>
+      </div>
+      <div class="shortcut-card" onclick="scrollToSection('you-account')">
+        <span class="shortcut-icon">⚙️</span>
+        <span>Manage Settings</span>
+      </div>
+      <div class="shortcut-card" onclick="scrollToSection('you-wishlist')">
+        <span class="shortcut-icon">❤️</span>
+        <span>Wishlist & Lists</span>
+      </div>
+      <div class="shortcut-card" onclick="scrollToSection('you-notifications')">
+        <span class="shortcut-icon">🔔</span>
+        <span>Notifications</span>
+      </div>
+      <div class="shortcut-card" onclick="window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' })">
+        <span class="shortcut-icon">🛍️</span>
+        <span>Recommended</span>
+      </div>
+    </section>
+
+    <!-- 3. Your Orders Section -->
+    <section class="dashboard-section" id="you-orders">
+      <div class="section-title-row">
+        <h2 class="section-title">📦 Recent Orders</h2>
+        <a href="shop.html" class="btn btn-outline btn-sm">Shop More</a>
+      </div>
+      <div class="orders-list" id="orders-dashboard-list">
+        <!-- Rendered dynamically -->
+        <div class="empty-state-you">
+          <p>You have no recent orders yet.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Buy Again Section -->
+    <section class="dashboard-section" id="you-buy-again" style="display: none;">
+      <div class="section-title-row">
+        <h2 class="section-title">🔄 Buy Again</h2>
+      </div>
+      <div class="horizontal-grid" id="buy-again-products-grid">
+        <!-- Rendered dynamically from past purchases -->
+      </div>
+    </section>
+
+    <!-- 5. Lists & Wishlist Section -->
+    <section class="dashboard-section" id="you-wishlist">
+      <div class="section-title-row">
+        <h2 class="section-title">❤️ Wishlist & Saved Lists</h2>
+      </div>
+      <div class="horizontal-grid" id="wishlist-products-grid">
+        <!-- Rendered dynamically -->
+        <div class="empty-state-you" style="grid-column: 1 / -1;">
+          <p>Your wishlist is currently empty!</p>
+          <a href="shop.html" class="btn btn-primary btn-sm" style="margin-top: 0.5rem;">Browse Arrangements</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Keep Shopping For Section -->
+    <section class="dashboard-section" id="you-recommendations" style="display: none;">
+      <div class="section-title-row">
+        <h2 class="section-title">🌸 Keep Shopping For</h2>
+      </div>
+      <div class="horizontal-grid" id="recommendations-products-grid">
+        <!-- Rendered dynamically based on browsed category -->
+      </div>
+    </section>
+
+    <!-- 7. Notifications Section -->
+    <section class="dashboard-section" id="you-notifications">
+      <div class="section-title-row">
+        <h2 class="section-title">🔔 In-App Notifications</h2>
+        <button class="btn btn-outline btn-sm" id="btn-inbox-read-all">Mark All Read</button>
+      </div>
+      <div class="inbox-list" id="inbox-dashboard-list">
+        <!-- Rendered dynamically -->
+        <div class="empty-state-you">
+          <p>You have no new alerts in your inbox.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. Account Settings Section -->
+    <section class="dashboard-section" id="you-account">
+      <div class="section-title-row">
+        <h2 class="section-title">⚙️ Profile & Saved Shipping Address</h2>
+      </div>
+      
+      <div class="account-settings-grid">
+        
+        <!-- Left: Basic Profile details -->
+        <div class="form-container" style="border-right: 1px solid var(--border-color); padding-right: 1.5rem;">
+          <h3 style="margin-bottom: var(--space-md); color: var(--primary);">Basic Information</h3>
+          <form id="form-profile-details">
+            <div class="form-group">
+              <label for="profile-name">Full Name</label>
+              <input type="text" id="profile-name" required placeholder="Your Name" />
+            </div>
+            <div class="form-group">
+              <label for="profile-email">Email Address</label>
+              <input type="email" id="profile-email" required placeholder="name@example.com" />
+            </div>
+            <div class="form-group">
+              <label for="profile-password">New Password (Leave blank to keep current)</label>
+              <input type="password" id="profile-password" placeholder="Password (Min 8 chars, 1 letter, 1 number)" />
+            </div>
+            <div class="form-group">
+              <label for="profile-confirm-password">Confirm Password</label>
+              <input type="password" id="profile-confirm-password" placeholder="Confirm Password" />
+            </div>
+            <button type="submit" class="btn btn-primary" id="btn-save-profile">Save Profile Settings</button>
+          </form>
+        </div>
+
+        <!-- Right: Address Editor -->
+        <div class="form-container" style="padding-left: 0.5rem;">
+          <h3 style="margin-bottom: var(--space-md); color: var(--primary);">Default Delivery Address</h3>
+          <form id="form-profile-address">
+            <div class="form-group-address">
+              <div class="form-group">
+                <label for="addr-first-name">First Name</label>
+                <input type="text" id="addr-first-name" placeholder="First Name" />
+              </div>
+              <div class="form-group">
+                <label for="addr-last-name">Last Name</label>
+                <input type="text" id="addr-last-name" placeholder="Last Name" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="addr-line">Street Address</label>
+              <input type="text" id="addr-line" placeholder="Apartment, building, street address" />
+            </div>
+            <div class="form-group-address">
+              <div class="form-group">
+                <label for="addr-city">City</label>
+                <input type="text" id="addr-city" placeholder="City" />
+              </div>
+              <div class="form-group">
+                <label for="addr-pincode">Pincode</label>
+                <input type="text" id="addr-pincode" placeholder="400001" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="addr-phone">Phone Number (10 digits)</label>
+              <input type="text" id="addr-phone" placeholder="Phone" />
+            </div>
+            <button type="submit" class="btn btn-outline" id="btn-save-address">Save Delivery Address</button>
+          </form>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <!-- Central script attachments -->
+  <script src="js/api.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/validation.js"></script>
+  <script src="js/you.js"></script>
+  <script src="js/darkmode.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      fetch('components/header.html')
+        .then(res => res.text())
+        .then(html => {
+          const banner = document.getElementById('header-placeholder');
+          banner.innerHTML = html;
+          banner.querySelector('#page-title').textContent = 'My Account (You)';
+          banner.querySelector('#breadcrumb-current').textContent = 'My Profile';
+        });
+    });
+
+    function scrollToSection(id) {
+      const section = document.getElementById(id);
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  </script>
+</body>
+</html>

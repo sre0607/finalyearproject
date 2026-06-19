@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Help & Support - Florish</title>
+  
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/darkmode.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <div id="loader-placeholder"></div>
+  <div id="navbar-placeholder"></div>
+
+  <main class="container py-xxl" style="max-width: 800px; margin: 0 auto; padding-left: var(--space-md); padding-right: var(--space-md);">
+    <h1 style="color: var(--primary); margin-bottom: var(--space-lg); font-family: var(--font-secondary); text-align: center;">Help & Support Center</h1>
+    
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-lg); margin-top: var(--space-xl);">
+      
+      <!-- Quick Info Widgets -->
+      <div class="admin-card" style="display: flex; flex-direction: column; gap: var(--space-sm); text-align: left;">
+        <h3 style="color: var(--primary); font-size: 1.25rem;">Quick Resolutions</h3>
+        <p>Before submitting an inquiry, you can quickly check outstanding order statuses or read common answers:</p>
+        <div style="display: flex; flex-direction: column; gap: var(--space-xs); margin-top: var(--space-xs);">
+          <a href="orders.html" class="btn btn-primary text-center">📦 Track My Order</a>
+          <a href="faq.html" class="btn btn-outline text-center">❓ Read FAQs</a>
+        </div>
+        <hr style="margin: var(--space-sm) 0; border: none; border-top: 1px solid var(--border-color);" />
+        <h4 style="font-weight: 600; color: var(--primary);">Contact Details</h4>
+        <p>📞 Phone: +1 (800) 555-FLOW (Mon-Sat, 9AM - 6PM)</p>
+        <p>✉️ Email: support@florish.com (24/7 Response)</p>
+      </div>
+
+      <!-- Support Ticket Form -->
+      <div class="admin-card">
+        <h3 style="color: var(--primary); font-size: 1.25rem; margin-bottom: var(--space-sm); text-align: left;">Submit a Support Request</h3>
+        <form id="help-support-form" onsubmit="event.preventDefault(); handleHelpSubmit();">
+          <div class="form-group" style="text-align: left; margin-bottom: var(--space-sm);">
+            <label class="form-label" for="help-name">Your Name</label>
+            <input type="text" id="help-name" class="form-control" required />
+          </div>
+          <div class="form-group" style="text-align: left; margin-bottom: var(--space-sm);">
+            <label class="form-label" for="help-email">Email Address</label>
+            <input type="email" id="help-email" class="form-control" required />
+          </div>
+          <div class="form-group" style="text-align: left; margin-bottom: var(--space-sm);">
+            <label class="form-label" for="help-topic">Support Topic</label>
+            <select id="help-topic" class="form-control" required>
+              <option value="order">Order Issues / Delivery Timing</option>
+              <option value="payment">Billing & Refund Request</option>
+              <option value="custom">Special Custom Arrangements</option>
+              <option value="other">Other Inquiries</option>
+            </select>
+          </div>
+          <div class="form-group" style="text-align: left; margin-bottom: var(--space-md);">
+            <label class="form-label" for="help-msg">Describe your issue</label>
+            <textarea id="help-msg" class="form-control" rows="4" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Inquiry</button>
+        </form>
+      </div>
+
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="js/api.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/darkmode.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      fetch('components/loader.html')
+        .then(res => res.text())
+        .then(html => {
+          document.getElementById('loader-placeholder').innerHTML = html;
+          setTimeout(() => {
+            const loader = document.getElementById('global-loader');
+            if (loader) loader.style.opacity = '0';
+            setTimeout(() => { if(loader) loader.style.display = 'none'; }, 300);
+          }, 400);
+        });
+      
+      // Auto pre-populate user details if logged in
+      const cachedUser = localStorage.getItem('florish_user');
+      if (cachedUser) {
+        try {
+          const user = JSON.parse(cachedUser);
+          document.getElementById('help-name').value = user.name || '';
+          document.getElementById('help-email').value = user.email || '';
+        } catch (e) {}
+      }
+    });
+
+    function handleHelpSubmit() {
+      const topic = document.getElementById('help-topic').value;
+      if (typeof showNotification === 'function') {
+        showNotification('Support inquiry submitted successfully. We will get back to you shortly!', 'success');
+      } else {
+        alert('Support inquiry submitted successfully. We will get back to you shortly!');
+      }
+      document.getElementById('help-msg').value = '';
+    }
+  </script>
+</body>
+</html>

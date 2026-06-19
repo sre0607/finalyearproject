@@ -1,0 +1,65 @@
+========================================================================
+                      ENTITY-RELATIONSHIP (ER) DIAGRAM
+                     Floral E-Commerce Website - Florish
+========================================================================
+
+ASCII Mapping of Entities, Keys, and Relational Cardinality:
+
+     +------------------+                    +------------------+
+     |       USER       |                    |     WISHLIST     |
+     +------------------+                    +------------------+
+     | PK  _id          |<------------------1| FK  user         |
+     |     name         |                    |     products[]   |
+     |     email (UK)   |                    +------------------+
+     |     password     |
+     |     role         |
+     +------------------+
+              |
+              | 1
+              |
+              | 1..*
+     +------------------+                    +------------------+
+     |      ORDER       |                    |       CART       |
+     +------------------+                    +------------------+
+     | PK  _id          |<------------------1| FK  user         |
+     | FK  user         |                    |     items[]      |
+     |     items[]      |                    +------------------+
+     |     address      |                              |
+     |     totalPrice   |                              |
+     |     status       |                              |
+     +------------------+                              |
+              |                                        |
+              |                                        |
+              | *                                      | *
+              +----------------- REFERENCES -----------+
+                                     |
+                                     V
+                           +------------------+
+                           |     PRODUCT      |
+                           +------------------+
+                           | PK  _id          |
+                           |     sku (UK)     |
+                           |     name (UK)    |
+                           |     price        |
+                           |     stock        |
+                           +------------------+
+                                     ^
+                                     | 1
+                                     |
+                                     | *
+                           +------------------+
+                           |      REVIEW      |
+                           +------------------+
+                           | PK  _id          |
+                           | FK  product      |
+                           | FK  user         |
+                           |     rating       |
+                           +------------------+
+
+------------------------------------------------------------------------
+Cardinality Key:
+- User to Cart: 1-to-1 (Each user has one persistent shopping cart)
+- User to Wishlist: 1-to-1 (Each user has one wishlist)
+- User to Order: 1-to-Many (Each user can place multiple orders)
+- Product to Review: 1-to-Many (Each product can have multiple reviews)
+========================================================================

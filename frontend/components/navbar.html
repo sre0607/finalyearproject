@@ -1,0 +1,378 @@
+<!-- 
+  Navbar.html - Responsive Main Navigation Header
+  Purpose: Extracted markup containing search fields, profile icons, and count badges injected globally.
+-->
+<nav class="navbar">
+  <div class="container navbar-container">
+    <a href="index.html" class="nav-logo">
+      <span class="logo-accent">🌱</span> Florish
+    </a>
+
+    <div class="nav-search-bar">
+      <input type="text" id="nav-search-input" placeholder="Search bouquets, flowers..." />
+      <button id="nav-search-submit">🔍</button>
+    </div>
+
+    <ul class="nav-links">
+      <li><a href="index.html" class="nav-link">Home</a></li>
+      <li class="nav-dropdown">
+        <a href="#" class="nav-link dropdown-toggle" id="nav-categories-toggle">Categories ▾</a>
+        <div class="dropdown-content" id="nav-categories-dropdown" style="display: none;">
+          <a href="shop.html">All Flowers</a>
+          <!-- Dynamically loaded categories here -->
+        </div>
+      </li>
+      <li><a href="shop.html" class="nav-link">Shop</a></li>
+      <li><a href="about.html" class="nav-link">About</a></li>
+      <li><a href="contact.html" class="nav-link">Contact</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <!-- Theme Switcher Button -->
+      <button id="theme-toggle-btn" title="Toggle Light/Dark Theme">
+        <span class="toggle-icon">🌙</span>
+      </button>
+
+      <a href="wishlist.html" class="nav-icon-link" title="Wishlist">
+        ❤️
+      </a>
+
+      <a href="cart.html" class="nav-icon-link cart-link" title="Shopping Cart">
+        🛒
+        <span class="cart-count-badge">0</span>
+      </a>
+
+      <div class="nav-user-dropdown">
+        <a href="login.html" class="btn btn-outline" id="nav-login-btn">Login</a>
+        <div class="dropdown-content" id="nav-user-menu" style="display: none;">
+          <a href="notifications.html" style="display: flex; justify-content: space-between; align-items: center;">Notifications <span id="nav-notifications-badge" class="badge-count" style="display: none; background: var(--secondary); color: white; border-radius: 50%; padding: 2px 6px; font-size: 0.75rem;">0</span></a>
+          <a href="you.html">My Profile (You)</a>
+          <a href="admin/dashboard.html" id="nav-admin-link">Dashboard</a>
+          <a href="#" id="nav-logout-btn">Logout</a>
+        </div>
+      </div>
+
+      <!-- Hamburger Menu for Mobile -->
+      <button id="mobile-menu-toggle" class="nav-toggle" style="display: none;">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+  <!-- Dedicated Mobile Search Row (Only visible on screens <= 992px) -->
+  <div class="mobile-search-container">
+    <div class="container">
+      <div class="nav-search-bar mobile-nav-search-bar">
+        <input type="text" id="nav-search-input-mobile" placeholder="Search bouquets, flowers..." />
+        <button id="nav-search-submit-mobile">🔍</button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<style>
+  /* Local styles for the dynamically loaded Navbar to keep styles modular */
+  .navbar {
+    background-color: var(--surface-color);
+    border-bottom: 1px solid var(--border-color);
+    padding: 0.75rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .nav-logo {
+    font-family: var(--font-serif);
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .nav-search-bar {
+    display: flex;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-full);
+    padding: 0.25rem 0.5rem;
+    background-color: var(--bg-color);
+    max-width: 320px;
+    width: 100%;
+    position: relative; /* Align suggestions relative to the input bar container */
+  }
+
+  .nav-search-bar input {
+    width: 100%;
+    padding: 0.25rem 0.75rem;
+    outline: none;
+    font-size: 0.9rem;
+  }
+
+  .nav-search-bar button {
+    cursor: pointer;
+  }
+
+  /* Amazon-Style Search Suggestions Dropdown */
+  .search-suggestions-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
+    z-index: 1010;
+    max-height: 350px;
+    overflow-y: auto;
+    display: none;
+    margin-top: 0.5rem;
+    text-align: left;
+  }
+
+  .suggestion-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    padding: var(--space-sm) var(--space-md);
+    cursor: pointer;
+    transition: background-color var(--transition-fast);
+    text-decoration: none;
+    color: var(--text-primary) !important;
+  }
+
+  .suggestion-item:hover, .suggestion-item.selected {
+    background-color: var(--primary-light);
+    color: var(--primary) !important;
+  }
+
+  .suggestion-item img {
+    width: 36px;
+    height: 36px;
+    object-fit: cover;
+    border-radius: var(--radius-sm);
+  }
+
+  .suggestion-details {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .suggestion-name {
+    font-weight: 600;
+    font-size: 0.85rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .suggestion-price {
+    font-size: 0.8rem;
+    color: var(--secondary);
+    font-weight: 700;
+  }
+  
+  .nav-links {
+    display: flex;
+    gap: var(--space-lg);
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+    position: static;
+    box-shadow: none;
+    padding: 0;
+    border-bottom: none;
+  }
+
+  .mobile-search-container {
+    display: none;
+    padding: 0.5rem var(--space-lg);
+    border-top: 1px solid var(--border-color);
+  }
+
+  .mobile-nav-search-bar {
+    display: flex !important;
+    max-width: 100% !important;
+    width: 100%;
+  }
+  
+  .nav-link {
+    font-weight: 500;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+  }
+  
+  .nav-link:hover, .nav-link.active {
+    color: var(--primary);
+  }
+  
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+  }
+
+  .nav-icon-link {
+    font-size: 1.3rem;
+    position: relative;
+    cursor: pointer;
+  }
+
+  .cart-count-badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: var(--secondary);
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 700;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #theme-toggle-btn {
+    cursor: pointer;
+    font-size: 1.2rem;
+  }
+
+  /* Hamburger Styles */
+  .nav-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 24px;
+    height: 18px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+  
+  .nav-toggle span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary);
+    border-radius: var(--radius-full);
+    transition: transform var(--transition-normal), opacity var(--transition-normal);
+  }
+  
+  .nav-toggle.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  
+  .nav-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .nav-toggle.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  .mobile-search-item {
+    display: none;
+  }
+
+  @media (max-width: 992px) {
+    .nav-toggle {
+      display: flex !important;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background-color: var(--surface-color);
+      padding: var(--space-md);
+      border-bottom: 1px solid var(--border-color);
+      box-shadow: var(--shadow-md);
+      gap: var(--space-sm);
+      opacity: 0;
+      transform: translateY(-10px);
+      pointer-events: none;
+      transition: opacity var(--transition-normal), transform var(--transition-normal);
+      z-index: 1000;
+    }
+
+    .nav-links.active {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    .nav-search-bar {
+      display: none !important;
+    }
+
+    .mobile-search-container {
+      display: block;
+    }
+  }
+
+  /* User Profile Dropdown Menu Styling */
+  .nav-user-dropdown {
+    position: relative;
+  }
+  
+  .dropdown-content {
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background-color: var(--surface-color);
+    min-width: 160px;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 0.5rem 0;
+    z-index: 1001;
+    margin-top: 0.5rem;
+    display: none; /* initially hidden, toggled by JS block/none */
+  }
+  
+  .dropdown-content a {
+    color: var(--text-primary);
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    display: block;
+    font-size: 0.9rem;
+    text-align: left;
+  }
+  
+  .dropdown-content a:hover {
+    background-color: var(--primary-light);
+    color: var(--primary);
+  }
+
+  .nav-dropdown {
+    position: relative;
+  }
+
+  @media (min-width: 993px) {
+    .nav-dropdown:hover .dropdown-content {
+      display: block !important;
+    }
+  }
+
+  #nav-categories-dropdown {
+    left: 0;
+    right: auto;
+  }
+</style>

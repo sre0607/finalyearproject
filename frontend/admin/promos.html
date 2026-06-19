@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manage Coupons - Florish Backoffice</title>
+  
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/admin.css">
+  <link rel="stylesheet" href="../css/darkmode.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <script src="../js/darkmode.js"></script>
+  <style>
+    /* Prevent layout flash before backend authorization check completes */
+    html, body { display: none; }
+  </style>
+  <script>
+    (async function() {
+      const token = localStorage.getItem('florish_token');
+      let user = null;
+      try { user = JSON.parse(localStorage.getItem('florish_user')); } catch(e) {}
+      
+      if (!token || !user || user.role !== 'admin') {
+        window.location.replace('login.html');
+        return;
+      }
+      
+      // Determine API URL (same logic as api.js)
+      const hostname = window.location.hostname;
+      const apiBase = (hostname === 'localhost' || hostname === '127.0.0.1' || hostname === '' || hostname.startsWith('192.168.') || hostname.startsWith('10.') || hostname.startsWith('172.16.'))
+        ? 'http://localhost:5000/api'
+        : 'https://finalproject-9pgj.onrender.com/api';
+      
+      try {
+        const response = await fetch(`${apiBase}/auth/profile`, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+          }
+        });
+        
+        if (response.ok) {
+          const profile = await response.json();
+          if (profile && profile.role === 'admin') {
+            // Keep local storage info updated
+            localStorage.setItem('florish_user', JSON.stringify({ name: profile.name, email: profile.email, role: profile.role }));
+            // Success - show page
+            document.documentElement.style.display = 'block';
+            if (document.body) document.body.style.display = 'block';
+            return;
+          }
+        }
+      } catch (err) {
+        console.error('Admin session validation failed:', err);
+      }
+      
+      // Redirect if unauthorized or fetch failed
+      localStorage.removeItem('florish_token');
+      localStorage.removeItem('florish_user');
+      window.location.replace('login.html');
+    })();
+  </script>
+</head>
+<body>
+
+  <div class="admin-layout">
+    
+    <!-- Sidebar Navigation Drawer (Injected by admin.js) -->
+    <aside class="admin-sidebar">
+      <div class="admin-logo">🌱 Florish Admin</div>
+    </aside>
+
+    <!-- Main Content Workspace -->
+    <main class="admin-content">
+      <header class="admin-header">
+        <h1>Promo Coupon Codes</h1>
+        <button class="btn btn-secondary btn-sm" id="btn-add-promo">➕ Add Promo Code</button>
+      </header>
+
+      <!-- Promos Table -->
+      <section class="admin-card">
+        <div class="admin-table-wrapper">
+          <table class="admin-table" id="promos-table">
+            <thead>
+              <tr>
+                <th>Coupon Code</th>
+                <th>Discount (%)</th>
+                <th>Min Purchase</th>
+                <th>Free Shipping</th>
+                <th>Expiry Date</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td colspan="6" class="text-center">Loading coupons...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+    
+  </div>
+
+  <script src="../js/api.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>

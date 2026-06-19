@@ -1,0 +1,149 @@
+/*
+ * Admin.css - Admin Dashboard Layout for Florish
+ * Purpose: Styling for metrics counters, user directories, inventory spreadsheets, and activity tracking.
+ */
+
+.admin-layout {
+  display: flex;
+  min-height: 100vh;
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+}
+
+/* Sidebar Dashboard */
+.admin-sidebar {
+  width: 260px;
+  background-color: var(--primary);
+  color: var(--surface-color);
+  padding: var(--space-xl) var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xxl);
+}
+
+.admin-logo {
+  font-family: var(--font-serif);
+  font-size: 1.75rem;
+  font-weight: 700;
+  text-align: center;
+  color: var(--surface-color);
+}
+
+.admin-menu {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.admin-menu-link {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: 0.75rem var(--space-md);
+  border-radius: var(--radius-md);
+  transition: var(--transition-fast);
+  color: hsl(var(--primary-hue), 30%, 85%);
+}
+
+.admin-menu-link:hover, .admin-menu-link.active {
+  background-color: hsl(var(--primary-hue), 64%, 20%);
+  color: var(--surface-color);
+}
+
+/* Main Panel Content */
+.admin-content {
+  flex-grow: 1;
+  padding: var(--space-xxl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: var(--space-md);
+}
+
+/* Stats Metrics Cards */
+.admin-metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--space-lg);
+}
+
+.metric-card {
+  background-color: var(--surface-color);
+  border-radius: var(--radius-md);
+  padding: var(--space-xl);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.metric-title {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.metric-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.metric-trend {
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.trend-up { color: var(--success); }
+.trend-down { color: var(--error); }
+
+/* Table View in Admin Panels */
+.admin-card {
+  background-color: var(--surface-color);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-color);
+  padding: var(--space-xl);
+}
+
+.admin-table-wrapper {
+  overflow-x: auto;
+  margin-top: var(--space-md);
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.admin-table th, .admin-table td {
+  padding: 0.75rem var(--space-md);
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.admin-table th {
+  background-color: var(--primary-light);
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.admin-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.badge-success { background-color: hsl(142, 69%, 90%); color: var(--success); }
+.badge-pending { background-color: hsl(38, 92%, 90%); color: var(--warning); }
+.badge-danger { background-color: hsl(0, 84%, 90%); color: var(--error); }

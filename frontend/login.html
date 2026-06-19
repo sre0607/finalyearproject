@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer Login - Access Your Florish Profile</title>
+  
+  <meta name="description" content="Sign in to your Florish account to track outstanding bouquets shipments, view checkout history, and update profile credentials.">
+  
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/auth.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/darkmode.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <div id="navbar-placeholder"></div>
+
+  <main class="auth-wrapper">
+    <div class="auth-card">
+      <a href="index.html" class="auth-logo">🌱 Florish</a>
+      <p class="auth-subtitle">Sign in to your customer account</p>
+      
+      <form class="auth-form" id="login-form" novalidate>
+        <!-- Placeholder for server dynamic alerts -->
+        <div id="auth-alert" style="display: none;"></div>
+
+        <div class="form-group">
+          <label class="form-label" for="login-email">Email Address</label>
+          <input type="email" id="login-email" class="form-control" placeholder="name@example.com" />
+          <div class="error-msg" id="err-login-email" style="display: none;"></div>
+        </div>
+        
+        <div class="form-group">
+          <div class="flex justify-between items-center" style="margin-bottom: var(--space-sm);">
+            <label class="form-label" for="login-password" style="margin-bottom: 0;">Password</label>
+            <a href="forgot-password.html" class="text-secondary" style="font-size: 0.85rem;">Forgot?</a>
+          </div>
+          <input type="password" id="login-password" class="form-control" placeholder="••••••••" />
+          <div class="error-msg" id="err-login-password" style="display: none;"></div>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: var(--space-sm);">
+          Sign In
+        </button>
+      </form>
+
+      <div class="auth-footer">
+        New to Florish? <a href="register.html">Create an Account</a>
+      </div>
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="js/api.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/validation.js"></script>
+  <script src="js/darkmode.js"></script>
+</body>
+</html>

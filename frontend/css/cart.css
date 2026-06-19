@@ -1,0 +1,121 @@
+/*
+ * Cart.css - Cart Page Layout for Florish
+ * Purpose: Styling for responsive checkout tables, order summary sliders, line item edits, and checkout progress states.
+ */
+
+.cart-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: var(--space-xl);
+  padding: var(--space-xxl) 0;
+}
+
+/* Cart Table */
+.cart-table-wrapper {
+  background-color: var(--surface-color);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+  overflow-x: auto;
+}
+
+.cart-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px;
+}
+
+.cart-table th, .cart-table td {
+  padding: var(--space-lg);
+  text-align: left;
+}
+
+.cart-table th {
+  background-color: var(--primary-light);
+  color: var(--primary);
+  font-weight: 600;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.cart-table td {
+  border-bottom: 1px solid var(--border-color);
+  vertical-align: middle;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.cart-item img {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+}
+
+.cart-item-name {
+  font-weight: 600;
+}
+
+.cart-item-category {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.cart-remove-btn {
+  color: var(--error);
+  cursor: pointer;
+  background: none;
+  font-weight: 600;
+}
+
+.cart-remove-btn:hover {
+  text-decoration: underline;
+}
+
+/* Order Summary Box */
+.summary-box {
+  background-color: var(--surface-color);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  padding: var(--space-xl);
+  box-shadow: var(--shadow-sm);
+  height: fit-content;
+}
+
+.summary-title {
+  font-size: 1.3rem;
+  margin-bottom: var(--space-lg);
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: var(--space-sm);
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: var(--space-md);
+}
+
+.summary-row.total {
+  font-weight: 700;
+  font-size: 1.25rem;
+  border-top: 1px solid var(--border-color);
+  padding-top: var(--space-md);
+  color: var(--primary);
+}
+
+.coupon-section {
+  margin-top: var(--space-lg);
+  margin-bottom: var(--space-lg);
+  display: flex;
+  gap: var(--space-sm);
+}
+
+@media (max-width: 992px) {
+  .cart-container {
+    grid-template-columns: 1fr;
+  }
+}

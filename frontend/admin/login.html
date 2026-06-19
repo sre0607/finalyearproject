@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Login - Florish Backoffice</title>
+  
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/auth.css">
+  <link rel="stylesheet" href="../css/animations.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+
+  <main class="auth-wrapper" style="min-height: 100vh;">
+    <div class="auth-card">
+      <div class="auth-logo">🌱 Florish Admin</div>
+      <p class="auth-subtitle">Authorized administrator credential check</p>
+      
+      <form class="auth-form" id="admin-login-form" novalidate>
+        <!-- Placeholder for server dynamic alerts -->
+        <div id="auth-alert" style="display: none;"></div>
+
+        <div class="form-group">
+          <label class="form-label" for="admin-email">Admin Email</label>
+          <input type="email" id="admin-email" class="form-control" placeholder="admin@example.com" />
+          <div class="error-msg" id="err-admin-email" style="display: none;"></div>
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label" for="admin-password">Secure Password</label>
+          <input type="password" id="admin-password" class="form-control" placeholder="••••••••" />
+          <div class="error-msg" id="err-admin-password" style="display: none;"></div>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: var(--space-sm);">
+          Enter Backoffice console
+        </button>
+      </form>
+
+      <div class="auth-footer">
+        <a href="../index.html">← Back to Public Website</a>
+      </div>
+    </div>
+  </main>
+
+  <script src="../js/api.js"></script>
+  <script src="../js/validation.js"></script>
+  <script>
+    document.getElementById('admin-login-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const form = e.target;
+      const emailInput = document.getElementById('admin-email');
+      const passwordInput = document.getElementById('admin-password');
+      const alertBox = document.getElementById('auth-alert');
+      const submitBtn = form.querySelector('button[type="submit"]');
+
+      if (alertBox) {
+        alertBox.style.display = 'none';
+        alertBox.textContent = '';
+      }
+
+      if (typeof clearInlineErrors === 'function') {
+        clearInlineErrors(form);
+      }
+
+      let isValid = true;
+      const emailVal = emailInput.value.trim();
+      const passwordVal = passwordInput.value;
+
+      if (!emailVal) {
+        if (typeof showInlineError === 'function') {
+          showInlineError(emailInput, 'Admin email address is required');
+        }
+        isValid = false;
+      } else if (typeof validateEmailPattern === 'function' && !validateEmailPattern(emailVal)) {
+        if (typeof showInlineError === 'function') {
+          showInlineError(emailInput, 'Please enter a valid email address');
+        }
+        isValid = false;
+      }
+
+      if (!passwordVal) {
+        if (typeof showInlineError === 'function') {
+          showInlineError(passwordInput, 'Password is required');
+        }
+        isValid = false;
+      }
+
+      if (!isValid) return;
+
+      const originalBtnText = submitBtn.textContent;
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Authenticating...';
+
+      try {
+        const data = await api.post('/auth/login', { email: emailVal, password: passwordVal });
+        
+        if (data.role !== 'admin') {
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalBtnText;
+          
+          if (typeof showInlineError === 'function') {
+            showInlineError(emailInput, 'Access Denied. Administrator role is required!');
+          }
+          if (alertBox) {
+            alertBox.className = 'form-alert form-alert-error';
+            alertBox.textContent = 'Access Denied. Administrator credentials required!';
+            alertBox.style.display = 'flex';
+          }
+          return;
+        }
+
+        // Save credentials
+        localStorage.setItem('florish_token', data.token);
+        localStorage.setItem('florish_user', JSON.stringify({ name: data.name, email: data.email, role: data.role }));
+
+        if (alertBox) {
+          alertBox.className = 'form-alert form-alert-success';
+          alertBox.textContent = 'Access granted! Welcome to backoffice console. Redirecting...';
+          alertBox.style.display = 'flex';
+        }
+
+        setTimeout(() => {
+          window.location.href = 'dashboard.html';
+        }, 1200);
+
+      } catch (error) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalBtnText;
+
+        if (alertBox) {
+          alertBox.className = 'form-alert form-alert-error';
+          alertBox.textContent = error.message;
+          alertBox.style.display = 'flex';
+        }
+      }
+    });
+  </script>
+</body>
+</html>

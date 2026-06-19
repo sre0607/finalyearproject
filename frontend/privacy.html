@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy - Florish</title>
+  
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/darkmode.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <div id="loader-placeholder"></div>
+  <div id="navbar-placeholder"></div>
+
+  <main class="container py-xxl" style="max-width: 800px; margin: 0 auto; padding-left: var(--space-md); padding-right: var(--space-md);">
+    <h1 style="color: var(--primary); margin-bottom: var(--space-lg); font-family: var(--font-secondary);">Privacy Policy</h1>
+    
+    <div style="line-height: 1.8; color: var(--text-primary); display: flex; flex-direction: column; gap: var(--space-md);">
+      <p><em>Last updated: May 27, 2026</em></p>
+      
+      <p>At Florish, accessible from our e-commerce platform, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by Florish and how we use it.</p>
+      
+      <h2 style="color: var(--primary); font-size: 1.4rem; margin-top: var(--space-lg);">1. Information We Collect</h2>
+      <p>We collect personal information that you provide to us directly. This includes your name, email address, physical delivery address, phone number, payment billing choices, and passwords. All account data is stored securely in our databases, and user passwords are automatically hashed using Bcrypt before storage.</p>
+      
+      <h2 style="color: var(--primary); font-size: 1.4rem; margin-top: var(--space-lg);">2. How We Use Your Information</h2>
+      <p>We use the information we collect in various ways, including to:</p>
+      <ul style="padding-left: var(--space-lg); list-style-type: disc;">
+        <li>Provide, operate, and maintain our floral e-commerce platform.</li>
+        <li>Improve, personalize, and expand order selections.</li>
+        <li>Understand and analyze how you navigate the shop and use filters.</li>
+        <li>Process your transactions, verify inventory, and dispatch deliveries.</li>
+        <li>Communicate with you for order updates, confirmation, and support.</li>
+      </ul>
+      
+      <h2 style="color: var(--primary); font-size: 1.4rem; margin-top: var(--space-lg);">3. Log Files and Cookies</h2>
+      <p>Florish follows a standard procedure of using log files and browser storage. We use local browser cache (localStorage) to maintain user session tokens and coordinate shopping carts. We do not track users across external sites.</p>
+      
+      <h2 style="color: var(--primary); font-size: 1.4rem; margin-top: var(--space-lg);">4. Security of Data</h2>
+      <p>The security of your personal information is critical to us. We implement JWT encryption layers, CORS locks, and backend mongo sanitizations to guard requests from injection vectors. However, please remember that no method of transmission over the Internet is 100% secure.</p>
+      
+      <p>If you have any questions or require more information about our Privacy Policy, do not hesitate to contact our customer support team.</p>
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="js/api.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/darkmode.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      fetch('components/loader.html')
+        .then(res => res.text())
+        .then(html => {
+          document.getElementById('loader-placeholder').innerHTML = html;
+          setTimeout(() => {
+            const loader = document.getElementById('global-loader');
+            if (loader) loader.style.opacity = '0';
+            setTimeout(() => { if(loader) loader.style.display = 'none'; }, 300);
+          }, 400);
+        });
+    });
+  </script>
+</body>
+</html>

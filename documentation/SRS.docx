@@ -1,0 +1,37 @@
+========================================================================
+                 SOFTWARE REQUIREMENTS SPECIFICATIONS (SRS)
+                     Floral E-Commerce Website - Florish
+========================================================================
+
+Document Type: System analysis placeholder reference guide
+Project Title: Florish - Floral E-Commerce
+Level: BCA Final Year Academic Project
+
+------------------------------------------------------------------------
+1. INTRODUCTION
+------------------------------------------------------------------------
+1.1 Purpose
+This document presents the detailed requirements specifications for "Florish", a web-based e-commerce platform that allows customers to browse, customize, and order premium handcrafted flower bouquets, and enables admins to coordinate inventory and order statuses in real-time.
+
+1.2 Scope
+- User Registration, JWT Session Authentications, Profiles management.
+- Dynamic Floral catalogue, Category filters, price-limit selections, keyword searches.
+- Wishlist saves, responsive Shopping Cart calculations, Cash on Delivery (COD) / online mockup payment options, order receipt history logs.
+- Backoffice admin inventories dashboards, adding product stems with Multer image upload, updating delivery tracking.
+
+------------------------------------------------------------------------
+2. FUNCTIONAL REQUIREMENTS
+------------------------------------------------------------------------
+- FR-1: Users must register profiles with unique emails.
+- FR-2: Users must sign in to save wishlists or proceed past shopping carts.
+- FR-3: Users must query floral items dynamically without reloading pages.
+- FR-4: Admins must enter backoffice modules with distinct administrative logs.
+- FR-5: Admins must modify catalogs, prices, descriptions, and upload item graphics using Multer.
+
+------------------------------------------------------------------------
+3. NON-FUNCTIONAL REQUIREMENTS
+------------------------------------------------------------------------
+- NFR-1 (Security): Crypt passwords using Bcrypt before saving to database. Sign API calls with JSON Web Tokens (JWT).
+- NFR-2 (Aesthetics): Sleek Inter typography, responsive grids layouts, custom micro-animations.
+- NFR-3 (Performance): REST API responses must yield within 800ms.
+- NFR-4 (Compatibility): Fully responsive across mobile, tablet, and desktops.

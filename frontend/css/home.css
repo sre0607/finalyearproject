@@ -1,0 +1,182 @@
+/*
+ * Home.css - Home Page Styles for Florish
+ * Purpose: Styles for hero sliders, banners, featured grid, category sliders, and newsletter section.
+ */
+
+/* Hero Banner Slider */
+.hero-slider {
+  position: relative;
+  height: 80vh;
+  overflow: hidden;
+  background-color: var(--primary-light);
+}
+
+.hero-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity var(--transition-slow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-slide.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.hero-content {
+  text-align: center;
+  color: var(--surface-color);
+  max-width: 800px;
+  padding: 2rem;
+  z-index: 2;
+  background: rgba(28, 64, 49, 0.6);
+  backdrop-filter: blur(10px);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-premium);
+}
+
+.hero-content h1 {
+  font-family: var(--font-serif);
+  font-size: 3.5rem;
+  margin-bottom: var(--space-md);
+  color: #fff;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: var(--space-xl);
+}
+
+/* Category Grid */
+.category-section {
+  padding: 5rem 0;
+}
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--space-lg);
+  margin-top: var(--space-xl);
+}
+
+.category-card {
+  position: relative;
+  height: 350px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.category-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.category-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.category-card:hover img {
+  transform: scale(1.08);
+}
+
+.category-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(10, 25, 20, 0.8) 0%, rgba(10, 25, 20, 0.2) 60%, transparent 100%);
+  padding: var(--space-lg);
+  color: var(--surface-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  text-align: center;
+  transition: background var(--transition-normal);
+}
+
+.category-card:hover .category-overlay {
+  background: linear-gradient(to top, rgba(10, 25, 20, 0.95) 0%, rgba(10, 25, 20, 0.4) 70%, rgba(10, 25, 20, 0.1) 100%);
+}
+
+.category-overlay h3 {
+  color: var(--surface-color);
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  font-weight: 600;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.category-explore {
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--secondary);
+  margin-top: 0.5rem;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity var(--transition-normal), transform var(--transition-normal);
+}
+
+.category-card:hover .category-explore {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Featured Products Section */
+.featured-products {
+  padding: 5rem 0;
+  background-color: var(--surface-color);
+}
+
+.section-header {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 3rem;
+}
+
+.section-header h2 {
+  margin-bottom: var(--space-sm);
+}
+
+.section-header p {
+  color: var(--text-secondary);
+}
+
+/* Testimonials / Benefits */
+.benefits-section {
+  background-color: var(--primary-light);
+  padding: 4rem 0;
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--space-xl);
+  text-align: center;
+}
+
+.benefit-card {
+  background: var(--surface-color);
+  padding: var(--space-xl);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.benefit-icon {
+  font-size: 2.5rem;
+  color: var(--secondary);
+  margin-bottom: var(--space-md);
+}

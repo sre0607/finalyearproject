@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - Florish Backoffice</title>
+  
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/admin.css">
+  <link rel="stylesheet" href="../css/darkmode.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <script src="../js/darkmode.js"></script>
+  <style>
+    /* Prevent layout flash before backend authorization check completes */
+    html, body { display: none; }
+  </style>
+  <script>
+    (async function() {
+      const token = localStorage.getItem('florish_token');
+      let user = null;
+      try { user = JSON.parse(localStorage.getItem('florish_user')); } catch(e) {}
+      
+      if (!token || !user || user.role !== 'admin') {
+        window.location.replace('login.html');
+        return;
+      }
+      
+      // Determine API URL (same logic as api.js)
+      const hostname = window.location.hostname;
+      const apiBase = (hostname === 'localhost' || hostname === '127.0.0.1' || hostname === '' || hostname.startsWith('192.168.') || hostname.startsWith('10.') || hostname.startsWith('172.16.'))
+        ? 'http://localhost:5000/api'
+        : 'https://finalproject-9pgj.onrender.com/api';
+      
+      try {
+        const response = await fetch(`${apiBase}/auth/profile`, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+          }
+        });
+        
+        if (response.ok) {
+          const profile = await response.json();
+          if (profile && profile.role === 'admin') {
+            // Keep local storage info updated
+            localStorage.setItem('florish_user', JSON.stringify({ name: profile.name, email: profile.email, role: profile.role }));
+            // Success - show page
+            document.documentElement.style.display = 'block';
+            if (document.body) document.body.style.display = 'block';
+            return;
+          }
+        }
+      } catch (err) {
+        console.error('Admin session validation failed:', err);
+      }
+      
+      // Redirect if unauthorized or fetch failed
+      localStorage.removeItem('florish_token');
+      localStorage.removeItem('florish_user');
+      window.location.replace('login.html');
+    })();
+  </script>
+</head>
+<body>
+
+  <div class="admin-layout">
+    
+    <!-- Sidebar Navigation Drawer -->
+    <aside class="admin-sidebar">
+      <div class="admin-logo">🌱 Florish Admin</div>
+      <nav class="admin-menu">
+        <a href="dashboard.html" class="admin-menu-link active">📊 Dashboard</a>
+        <a href="products.html" class="admin-menu-link">🌸 Inventory Items</a>
+        <a href="add-product.html" class="admin-menu-link">➕ Add Product</a>
+        <a href="orders.html" class="admin-menu-link">🛒 Client Orders</a>
+        <a href="users.html" class="admin-menu-link">👥 User Accounts</a>
+        <a href="settings.html" class="admin-menu-link">⚙️ Core Settings</a>
+        <a href="../index.html" class="admin-menu-link" style="margin-top: 5rem;">🏠 Public Site</a>
+      </nav>
+    </aside>
+
+    <!-- Main Content Workspace -->
+    <main class="admin-content">
+      <header class="admin-header">
+        <h1>Dashboard Overview</h1>
+        <div class="admin-profile">
+          <strong>Logged as Admin</strong>
+          <a href="login.html" id="admin-logout-btn" class="btn btn-outline btn-sm" style="margin-left: 1rem;">Logout</a>
+        </div>
+      </header>
+
+      <!-- Stat Cards Grid -->
+      <!-- Stat Cards Grid -->
+      <section class="admin-metrics" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: var(--space-md);">
+        <div class="metric-card">
+          <span class="metric-title">Total Revenue</span>
+          <span class="metric-value">₹0</span>
+        </div>
+        <div class="metric-card">
+          <span class="metric-title">Orders Processed</span>
+          <span class="metric-value">0</span>
+        </div>
+        <div class="metric-card">
+          <span class="metric-title">Registered Accounts</span>
+          <span class="metric-value">0</span>
+        </div>
+        <div class="metric-card">
+          <span class="metric-title">Total Products</span>
+          <span class="metric-value">0</span>
+        </div>
+        <div class="metric-card">
+          <span class="metric-title">Active Orders</span>
+          <span class="metric-value">0</span>
+        </div>
+        <div class="metric-card">
+          <span class="metric-title">Low Stock Items</span>
+          <span class="metric-value">0</span>
+        </div>
+      </section>
+
+      <!-- Dashboard Grid Layout -->
+      <div class="dashboard-grid" style="display: grid; grid-template-columns: 2fr 1fr; gap: var(--space-lg); margin-top: var(--space-lg); align-items: start;">
+        
+        <!-- Left Column: Sales Report Export & Recent Transactions -->
+        <div style="display: flex; flex-direction: column; gap: var(--space-lg);">
+          
+          <!-- Sales Report Export Card -->
+          <section class="admin-card" style="margin-top: 0;">
+            <h3>📊 Sales Report Export</h3>
+            <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.25rem; margin-bottom: var(--space-md);">
+              Generate and download detailed sales performance reports in Excel (.xlsx) format.
+            </p>
+            
+            <div style="display: flex; flex-wrap: wrap; gap: var(--space-md); align-items: flex-end; margin-bottom: var(--space-md);">
+              <div style="display: flex; flex-direction: column; gap: 0.25rem; flex: 1; min-width: 150px;">
+                <label for="report-start-date" style="font-size: 0.85rem; font-weight: 600; color: var(--text-secondary);">Start Date</label>
+                <input type="date" id="report-start-date" style="width: 100%; padding: 0.5rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm); background-color: var(--surface-color); color: var(--text-primary);">
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 0.25rem; flex: 1; min-width: 150px;">
+                <label for="report-end-date" style="font-size: 0.85rem; font-weight: 600; color: var(--text-secondary);">End Date</label>
+                <input type="date" id="report-end-date" style="width: 100%; padding: 0.5rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm); background-color: var(--surface-color); color: var(--text-primary);">
+              </div>
+              <div style="flex: 1; min-width: 200px;">
+                <button id="btn-download-custom" class="btn btn-primary" style="width: 100%; height: 38px; display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;">
+                  📥 Download Custom Report
+                </button>
+              </div>
+            </div>
+            
+            <div style="display: flex; flex-wrap: wrap; gap: var(--space-sm); align-items: center; border-top: 1px solid var(--border-color); padding-top: var(--space-md);">
+              <span style="font-size: 0.85rem; font-weight: 600; color: var(--text-secondary); margin-right: var(--space-sm);">Quick Reports:</span>
+              <button id="btn-download-daily" class="btn btn-outline btn-sm">Daily</button>
+              <button id="btn-download-weekly" class="btn btn-outline btn-sm">Weekly</button>
+              <button id="btn-download-monthly" class="btn btn-outline btn-sm">Monthly</button>
+              <button id="btn-download-full" class="btn btn-outline btn-sm">Full History</button>
+            </div>
+            
+            <div id="report-status-msg" style="margin-top: var(--space-md); padding: var(--space-sm) var(--space-md); border-radius: var(--radius-sm); font-size: 0.9rem; display: none;"></div>
+          </section>
+
+          <!-- Recent Orders List Table -->
+          <section class="admin-card" style="margin-top: 0;">
+            <h3>Recent Transactions</h3>
+            <div class="admin-table-wrapper">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>Order ID</th>
+                    <th>Client</th>
+                    <th>Purchases</th>
+                    <th>Amount</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td colspan="6" class="text-center">Loading transactions...</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </div>
+
+        <!-- Top Selling Products -->
+        <section class="admin-card" style="margin-top: 0;">
+          <h3>Top Selling Products</h3>
+          <div class="top-selling-wrapper">
+            <ul class="top-selling-list" id="top-selling-list" style="list-style: none; padding: 0; margin: 0;">
+              <li style="padding: 1rem 0; border-bottom: 1px solid var(--border-color); color: var(--text-muted);">Loading top products...</li>
+            </ul>
+          </div>
+        </section>
+      </div>
+    </main>
+    
+  </div>
+
+  <script src="../js/api.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>

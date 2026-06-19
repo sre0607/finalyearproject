@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blushing Romance Bouquet - Premium Flowers | Florish</title>
+  
+  <meta name="description" content="View details, client reviews, styling directions, and pricing for the hand-arranged Blushing Romance Bouquet at Florish.">
+  
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/product.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/darkmode.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <div id="navbar-placeholder"></div>
+
+  <div id="header-placeholder"></div>
+
+  <main class="container">
+    <div class="product-detail-container">
+      
+      <!-- Left Column: Media Gallery -->
+      <section class="product-gallery">
+        <div class="main-image-container">
+          <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><rect width='100%' height='100%' fill='%23f3f4f6'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='10' fill='%239ca3af'>No Image</text></svg>" id="main-product-img" alt="Main floral bouquet zoom" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100\' height=\'100\' viewBox=\'0 0 100 100\'><rect width=\'100%\' height=\'100%\' fill=\'%23f3f4f6\'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' font-family=\'sans-serif\' font-size=\'10\' fill=\'%239ca3af\'>No Image</text></svg>';" />
+        </div>
+        <div class="thumbnail-row" style="display: none;">
+        </div>
+      </section>
+
+      <!-- Right Column: Specs and Add to Cart Options -->
+      <section class="product-info">
+        <h1 class="product-title" id="lbl-product-name">Blushing Romance Bouquet</h1>
+        <div class="product-rating" id="lbl-product-rating">
+          ⭐⭐⭐⭐⭐ <span class="rating-text">(42 customer reviews)</span>
+        </div>
+        <div class="product-price">
+          <span class="price-old" id="lbl-product-old-price" style="text-decoration: line-through; color: var(--text-muted); font-size: 1.2rem; margin-right: 0.75rem; display: none;"></span>
+          <span id="lbl-product-price">₹0</span>
+        </div>
+        
+        <p class="text-secondary" style="margin-bottom: var(--space-lg);" id="lbl-product-desc">
+          A classic round flower bouquet crafted with premium pink spray roses, white lilies, fresh baby breath, and decorative eucalyptus leaves. Wrapped beautifully in organic flax craft paper.
+        </p>
+
+        <!-- Product Actions -->
+        <div class="product-actions">
+          <div class="quantity-selector">
+            <button class="qty-btn" id="btn-qty-minus">-</button>
+            <input type="text" class="qty-input" id="input-qty" value="1" readonly />
+            <button class="qty-btn" id="btn-qty-plus">+</button>
+          </div>
+          <button class="btn btn-primary btn-add-cart-large" id="btn-add-to-cart">🛒 Add to Cart</button>
+          <button class="btn btn-outline" id="btn-add-wishlist">❤️</button>
+        </div>
+
+        <div class="product-meta">
+          <div class="meta-item"><span class="meta-label">Availability:</span> <span id="lbl-stock-status">Checking...</span></div>
+          <div class="meta-item"><span class="meta-label">Delivery:</span> <span style="font-weight: 500; color: var(--primary);">Est. Delivery in 2&ndash;4 Business Days</span></div>
+          <div class="meta-item"><span class="meta-label">SKU:</span> <span id="lbl-sku">FL-ROSE-09</span></div>
+          <div class="meta-item"><span class="meta-label">Category:</span> <span id="lbl-category">Gift Bouquets</span></div>
+          <div class="meta-item"><span class="meta-label">Tags:</span> <span id="lbl-product-tags">Fresh, Flowers</span></div>
+        </div>
+      </section>
+      
+    </div>
+
+    <!-- Product Tabbed descriptions -->
+    <section class="tabs-section">
+      <div class="tabs-headers">
+        <div class="tab-link active" onclick="switchTab('tab-description', this)">Description</div>
+        <div class="tab-link" id="tab-reviews-link" onclick="switchTab('tab-reviews', this)">Reviews (0)</div>
+      </div>
+      <div class="tab-content active" id="tab-description">
+        <p>This award-winning bouquet is hand-arranged by our master florist using premium seasonal flowers. Each stem is trimmed, treated, and placed in a temporary water gel pouch to maintain freshness during transport. Features same-day delivery across municipal areas when ordered early.</p>
+        <br>
+        <strong>Floral Care Instructions:</strong>
+        <ul style="list-style-type: disc; margin-left: var(--space-xl); margin-top: var(--space-sm);">
+          <li>Unwrap carefully and cut stems 1 inch at a 45-degree angle.</li>
+          <li>Place in a clean vase filled with cold water.</li>
+          <li>Add standard flower food packet included inside your package.</li>
+          <li>Change vase water every two days. Keep away from direct heat or air vents.</li>
+        </ul>
+      </div>
+      <div class="tab-content" id="tab-reviews">
+        <p>No reviews posted yet. Be the first to leave feedback on your purchase!</p>
+      </div>
+    </section>
+
+    <!-- Related Products Showcase Section -->
+    <section class="related-products py-xxl" style="border-top: 1px solid var(--border-color); margin-top: var(--space-xxl);">
+      <h2 style="font-family: var(--font-serif); margin-bottom: var(--space-lg); color: var(--primary);">Related Creations</h2>
+      <div class="products-grid" id="related-products-grid">
+        <!-- Dynamically populated -->
+      </div>
+    </section>
+
+    <!-- Recently Viewed Products Section -->
+    <section class="recently-viewed py-xxl" id="recently-viewed-section" style="border-top: 1px solid var(--border-color); margin-top: var(--space-xl); display: none;">
+      <h2 style="font-family: var(--font-serif); margin-bottom: var(--space-lg); color: var(--primary);">Recently Viewed</h2>
+      <div class="products-grid" id="recently-viewed-grid">
+        <!-- Dynamically populated -->
+      </div>
+    </section>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="js/api.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/products.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/wishlist.js"></script>
+  <script src="js/darkmode.js"></script>
+  <script>
+    // Tab switching utilities
+    function switchTab(tabId, el) {
+      document.querySelectorAll('.tab-link').forEach(link => link.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+      el.classList.add('active');
+      document.getElementById(tabId).classList.add('active');
+    }
+
+    // Main image slider gallery
+    function changeImage(src, button) {
+      document.getElementById('main-product-img').src = src;
+      document.querySelectorAll('.thumb-btn').forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+    }
+
+    let currentProductId = '';
+
+    // Dynamic Header Loading and API Fetching
+    document.addEventListener('DOMContentLoaded', async () => {
+      fetch('components/header.html')
+        .then(res => res.text())
+        .then(html => {
+          const banner = document.getElementById('header-placeholder');
+          banner.innerHTML = html;
+          banner.querySelector('#page-title').textContent = 'Arrangement Details';
+          banner.querySelector('#breadcrumb-current').textContent = 'Product Details';
+        });
+
+      // Quantity controls
+      const qtyInput = document.getElementById('input-qty');
+      let productStockLimit = 99; // Default fallback
+
+      document.getElementById('btn-qty-minus').addEventListener('click', () => {
+        let val = parseInt(qtyInput.value);
+        if(val > 1) qtyInput.value = val - 1;
+      });
+      document.getElementById('btn-qty-plus').addEventListener('click', () => {
+        let val = parseInt(qtyInput.value);
+        if(val < productStockLimit) {
+          qtyInput.value = val + 1;
+        } else {
+          showNotification(`Only ${productStockLimit} items left in stock!`, 'error');
+        }
+      });
+
+      // Extract Product ID from URL
+      const params = new URLSearchParams(window.location.search);
+      const prodId = params.get('id');
+      if (!prodId) {
+        showNotification('No product ID specified. Returning to catalog.', 'error');
+        setTimeout(() => { window.location.href = 'shop.html'; }, 1000);
+        return;
+      }
+      currentProductId = prodId;
+      trackRecentlyViewed(prodId);
+
+      // Load product details from REST API
+      try {
+        const baseServerUrl = API_BASE_URL.replace('/api', '');
+        const product = await api.get(`/products/${prodId}`);
+        productStockLimit = product.stock !== undefined ? product.stock : 10;
+
+        // Update basic text nodes
+        document.title = `${product.name} - Premium Flowers | Florish`;
+        document.getElementById('lbl-product-name').textContent = product.name;
+        document.getElementById('lbl-product-price').textContent = formatINR(product.price);
+        
+        const oldPriceSpan = document.getElementById('lbl-product-old-price');
+        if (oldPriceSpan) {
+          if (product.oldPrice && product.oldPrice > product.price) {
+            oldPriceSpan.textContent = formatINR(product.oldPrice);
+            oldPriceSpan.style.display = 'inline-block';
+          } else {
+            oldPriceSpan.style.display = 'none';
+          }
+        }
+
+        document.getElementById('lbl-product-desc').textContent = product.description;
+        document.getElementById('lbl-sku').textContent = product.sku;
+        document.getElementById('lbl-category').textContent = product.category;
+
+        // Dynamic Stock Status
+        const stockStatusSpan = document.getElementById('lbl-stock-status');
+        const addToCartBtn = document.getElementById('btn-add-to-cart');
+        const qtyPlusBtn = document.getElementById('btn-qty-plus');
+        const qtyMinusBtn = document.getElementById('btn-qty-minus');
+
+        if (product.stock === 0) {
+          if (stockStatusSpan) {
+            stockStatusSpan.textContent = 'Out of Stock';
+            stockStatusSpan.style.color = 'var(--error)';
+            stockStatusSpan.style.fontWeight = '600';
+          }
+          if (addToCartBtn) {
+            addToCartBtn.disabled = false;
+            addToCartBtn.textContent = '🔔 Notify Me When Available';
+            addToCartBtn.className = 'btn btn-secondary btn-add-cart-large';
+            addToCartBtn.dataset.isOutOfStock = 'true';
+          }
+          qtyInput.value = '0';
+          qtyPlusBtn.disabled = true;
+          qtyMinusBtn.disabled = true;
+        } else if (product.stock > 0 && product.stock <= 5) {
+          if (stockStatusSpan) {
+            stockStatusSpan.textContent = `Low Stock (Only ${product.stock} left!)`;
+            stockStatusSpan.style.color = 'var(--warning)';
+            stockStatusSpan.style.fontWeight = '600';
+          }
+        } else {
+          if (stockStatusSpan) {
+            stockStatusSpan.textContent = 'In Stock';
+            stockStatusSpan.style.color = 'var(--success)';
+            stockStatusSpan.style.fontWeight = '600';
+          }
+        }
+
+        // Resolve Image
+        const imageUrl = getSafeImageUrl(product.image, product.category, product.name);
+
+        const mainProductImg = document.getElementById('main-product-img');
+        if (mainProductImg) {
+          mainProductImg.src = imageUrl;
+          mainProductImg.alt = product.name;
+          mainProductImg.onerror = function() {
+            this.onerror = null;
+            this.src = getSafeImageUrl(null, product.category, product.name);
+          };
+        }
+
+        const isUnsplash = imageUrl.includes('images.unsplash.com');
+        const img1 = imageUrl;
+        const img2 = isUnsplash ? (imageUrl.split('?')[0] + '?q=80&w=600&auto=format&fit=crop&crop=entropy') : imageUrl;
+        const img3 = isUnsplash ? (imageUrl.split('?')[0] + '?q=80&w=600&auto=format&fit=crop&crop=center') : imageUrl;
+
+        // Populate thumbnails dynamically
+        const thumbRow = document.querySelector('.thumbnail-row');
+        if (thumbRow) {
+          const fallback = getSafeImageUrl(null, product.category, product.name);
+          if (isUnsplash) {
+            thumbRow.innerHTML = `
+              <button class="thumb-btn active" onclick="changeImage('${img1}', this)">
+                <img src="${img1}" alt="Thumbnail 1" onerror="this.onerror=null; this.src='${fallback}';" />
+              </button>
+              <button class="thumb-btn" onclick="changeImage('${img2}', this)">
+                <img src="${img2}" alt="Thumbnail 2" onerror="this.onerror=null; this.src='${fallback}';" />
+              </button>
+              <button class="thumb-btn" onclick="changeImage('${img3}', this)">
+                <img src="${img3}" alt="Thumbnail 3" onerror="this.onerror=null; this.src='${fallback}';" />
+              </button>
+            `;
+            thumbRow.style.display = 'flex';
+          } else {
+            thumbRow.innerHTML = `
+              <button class="thumb-btn active" onclick="changeImage('${img1}', this)">
+                <img src="${img1}" alt="Thumbnail 1" onerror="this.onerror=null; this.src='${fallback}';" />
+              </button>
+            `;
+            thumbRow.style.display = 'flex';
+          }
+        }
+
+        // Star rating markup (premium gold stars)
+        const ratingVal = product.rating !== undefined ? product.rating : 5;
+        const reviewsCount = product.reviewsCount !== undefined ? product.reviewsCount : 0;
+        const stars = '★'.repeat(Math.round(ratingVal)) + '☆'.repeat(5 - Math.round(ratingVal));
+        document.getElementById('lbl-product-rating').innerHTML = `<span style="color: var(--accent); font-weight: bold; margin-right: 0.25rem;">${Number(ratingVal).toFixed(1)}</span><span style="color: var(--accent); letter-spacing: 1px;">${stars}</span> <span class="rating-text">(${reviewsCount} customer reviews)</span>`;
+
+        // Update Tab Header Count
+        const tabLink = document.getElementById('tab-reviews-link');
+        if (tabLink) {
+          tabLink.textContent = `Reviews (${reviewsCount})`;
+        }
+
+        // Tags markup
+        const tagsSpan = document.getElementById('lbl-product-tags');
+        if (tagsSpan && product.createdAt) {
+          tagsSpan.textContent = `Fresh, ${product.category}, Live, Mapped`;
+        }
+
+        // Render reviews
+        renderProductReviews(product.reviews || []);
+
+        // Load Related & Recently Viewed Products dynamically
+        try {
+          const allProducts = await api.get('/products');
+          const related = allProducts
+            .filter(p => p.category === product.category && (p._id || p.id) !== (product._id || product.id))
+            .slice(0, 4);
+          
+          const relatedGrid = document.getElementById('related-products-grid');
+          if (relatedGrid) {
+            if (related.length === 0) {
+              const fallbacks = allProducts.filter(p => (p._id || p.id) !== (product._id || product.id)).slice(0, 4);
+              renderProducts(fallbacks, relatedGrid);
+            } else {
+              renderProducts(related, relatedGrid);
+            }
+          }
+
+          // Populate Recently Viewed section
+          renderRecentlyViewed(allProducts, currentProductId);
+        } catch (relatedErr) {
+          console.error('Error rendering related or recently viewed products:', relatedErr);
+        }
+
+      } catch (err) {
+        console.error('Error fetching product specs:', err);
+        showNotification('Failed to load arrangement details.', 'error');
+        setTimeout(() => { window.location.href = 'shop.html'; }, 1000);
+      }
+
+      // Add to cart click event listener
+      const addToCartBtn = document.getElementById('btn-add-to-cart');
+      if (addToCartBtn) {
+        addToCartBtn.addEventListener('click', async () => {
+          if (addToCartBtn.dataset.isOutOfStock === 'true') {
+            await handleNotifyMeClick();
+            return;
+          }
+          const qty = parseInt(qtyInput.value) || 1;
+          if (typeof addToCart === 'function') {
+            await addToCart(currentProductId, qty, addToCartBtn);
+          } else {
+            console.error('addToCart function not found!');
+          }
+        });
+      }
+
+      async function handleNotifyMeClick() {
+        const token = localStorage.getItem('florish_token');
+        if (!token) {
+          showNotification('Please login to subscribe to stock notifications.', 'error');
+          setTimeout(() => { window.location.href = 'login.html'; }, 1000);
+          return;
+        }
+        try {
+          const btn = document.getElementById('btn-add-to-cart');
+          btn.disabled = true;
+          btn.textContent = 'Subscribing...';
+          await api.post(`/products/${currentProductId}/subscribe`);
+          showNotification('You will be notified when this product is back in stock!', 'success');
+          btn.textContent = '✓ Subscribed';
+        } catch (err) {
+          showNotification(err.message || 'Could not subscribe to stock notifications', 'error');
+          const btn = document.getElementById('btn-add-to-cart');
+          btn.disabled = false;
+          btn.textContent = '🔔 Notify Me When Available';
+        }
+      }
+
+      // Add to wishlist click event listener
+      document.getElementById('btn-add-wishlist').addEventListener('click', async () => {
+        const token = localStorage.getItem('florish_token');
+        if (!token) {
+          showNotification('Please login to save items to your wishlist.', 'error');
+          setTimeout(() => { window.location.href = 'login.html'; }, 1000);
+          return;
+        }
+
+        try {
+          await api.post('/wishlist', { productId: currentProductId });
+          showNotification('Item added to wishlist!', 'success');
+        } catch (err) {
+          console.error(err);
+          showNotification(err.message || 'Failed to save to wishlist', 'error');
+        }
+      });
+    });
+
+    // Decode HTML entities safely on the frontend
+    function decodeHtml(html) {
+      const txt = document.createElement("textarea");
+      txt.innerHTML = html;
+      return txt.value;
+    }
+
+    // Render product reviews dynamically and add review post form
+    function renderProductReviews(reviews) {
+      const container = document.getElementById('tab-reviews');
+      if (!container) return;
+
+      let html = '<div class="reviews-list" style="margin-bottom: 2rem;">';
+      if (reviews.length === 0) {
+        html += '<p>No reviews posted yet. Be the first to leave feedback on your purchase!</p>';
+      } else {
+        reviews.forEach(r => {
+          const cleanComment = decodeHtml(r.comment);
+          const stars = '★'.repeat(r.rating) + '☆'.repeat(5 - r.rating);
+          html += `
+            <div class="review-item" style="border-bottom: 1px solid var(--border-color); padding: 1rem 0;">
+              <div style="display:flex; justify-content:space-between; margin-bottom: 0.25rem;">
+                <strong>${r.name}</strong>
+                <span style="color: var(--accent); letter-spacing: 1px; font-weight: bold;">${stars}</span>
+              </div>
+              <p class="text-secondary">${cleanComment}</p>
+            </div>
+          `;
+        });
+      }
+      html += '</div>';
+
+      // Inject submit form
+      const token = localStorage.getItem('florish_token');
+      if (token) {
+        html += `
+          <div class="add-review-form" style="border-top: 1px solid var(--border-color); padding-top: 1.5rem;">
+            <h3>Leave a Review</h3>
+            <form id="frm-submit-review" onsubmit="handleReviewSubmit(event)">
+              <div class="form-group" style="margin-bottom: 1rem;">
+                <label class="form-label" for="review-rating">Rating *</label>
+                <select id="review-rating" class="form-control" style="max-width: 150px; color: var(--accent); font-weight: bold;" required>
+                  <option value="5">★★★★★ (5)</option>
+                  <option value="4">★★★★☆ (4)</option>
+                  <option value="3">★★★☆☆ (3)</option>
+                  <option value="2">★★☆☆☆ (2)</option>
+                  <option value="1">★☆☆☆☆ (1)</option>
+                </select>
+              </div>
+              <div class="form-group" style="margin-bottom: 1rem;">
+                <label class="form-label" for="review-comment">Comment *</label>
+                <textarea id="review-comment" class="form-control" rows="3" placeholder="Share your experience with this bouquet..." required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">Post Review</button>
+            </form>
+          </div>
+        `;
+      } else {
+        html += '<p class="text-muted" style="margin-top:1rem;">Please <a href="login.html">login</a> to write a customer review.</p>';
+      }
+
+      container.innerHTML = html;
+    }
+
+    async function handleReviewSubmit(e) {
+      e.preventDefault();
+      const rating = document.getElementById('review-rating').value;
+      const comment = document.getElementById('review-comment').value;
+
+      try {
+        await api.post(`/products/${currentProductId}/reviews`, { rating, comment });
+        showNotification('Review successfully posted!', 'success');
+        setTimeout(() => { window.location.reload(); }, 1000);
+      } catch (err) {
+        showNotification(err.message || 'Could not post review', 'error');
+      }
+    }
+
+    // Client-side tracking of recently viewed product history
+    function trackRecentlyViewed(productId) {
+      let viewed = [];
+      try {
+        viewed = JSON.parse(localStorage.getItem('florish_recently_viewed')) || [];
+        if (!Array.isArray(viewed)) viewed = [];
+      } catch (e) {
+        viewed = [];
+      }
+      
+      // Filter out current ID to avoid duplicates and place it at the front
+      viewed = viewed.filter(id => id !== productId);
+      viewed.unshift(productId);
+      
+      // Cap list size to 5
+      if (viewed.length > 5) {
+        viewed = viewed.slice(0, 5);
+      }
+      localStorage.setItem('florish_recently_viewed', JSON.stringify(viewed));
+    }
+
+    // Dynamic rendering of recently viewed products from details cache
+    function renderRecentlyViewed(allProducts, currentId) {
+      let viewedIds = [];
+      try {
+        viewedIds = JSON.parse(localStorage.getItem('florish_recently_viewed')) || [];
+        if (!Array.isArray(viewedIds)) viewedIds = [];
+      } catch (e) {
+        viewedIds = [];
+      }
+
+      // Exclude current product
+      const targetIds = viewedIds.filter(id => id !== currentId);
+      if (targetIds.length === 0) return;
+
+      const viewedProducts = targetIds
+        .map(id => allProducts.find(p => (p._id || p.id) === id))
+        .filter(p => p !== undefined)
+        .slice(0, 4); // Limit to 4 cards in visual grid
+
+      if (viewedProducts.length > 0) {
+        const section = document.getElementById('recently-viewed-section');
+        const grid = document.getElementById('recently-viewed-grid');
+        if (section && grid) {
+          section.style.display = 'block';
+          renderProducts(viewedProducts, grid);
+        }
+      }
+    }
+  </script>
+</body>
+</html>

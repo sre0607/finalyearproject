@@ -1,0 +1,58 @@
+========================================================================
+                     PROJECT PRESENTATION SLIDE OUTLINE
+                     Floral E-Commerce Website - Florish
+========================================================================
+
+Document Type: PowerPoint Project Presentation reference guide
+Project Title: Florish - Floral E-Commerce
+Level: BCA Final Year Academic Project
+
+------------------------------------------------------------------------
+SLIDE 1: TITLE SLIDE
+- Project Name: Florish - Floral E-Commerce Website
+- Subtitle: BCA Final Year Academic Capstone Project
+- Student Name / Roll Numbers: [Student Credentials]
+- Guide Name: [Project Advisor Name]
+
+------------------------------------------------------------------------
+SLIDE 2: PROJECT ABSTRACT & INTRODUCTION
+- Overview: Decoupled Web application selling hand-arranged seasonal bouquets.
+- Motivation: Modernize local florist businesses through dynamic online catalogs.
+- Objective: Provide smooth shopping, wishlist, cart caching, and admin inventory controls.
+
+------------------------------------------------------------------------
+SLIDE 3: PROBLEM STATEMENT & PROPOSED SYSTEM
+- Problem: Manual brick-and-mortar ordering lacks home delivery tracking, persistent shopping lists, and remote catalogs.
+- Proposed System: Dynamic 3-tier architecture (Static HTML/CSS, Node/Express REST APIs, MongoDB cloud/local cluster) with JWT and Multer file upload.
+
+------------------------------------------------------------------------
+SLIDE 4: SYSTEM TECH STACK
+- Frontend: HTML5, CSS3 Variables, responsive media breakpoints, dynamic modular JS.
+- Backend: Node.js, Express.js middleware server.
+- Database: MongoDB Mongoose collections models.
+- Image Upload: Multer disk storage config.
+- Security: Crypt password (Bcrypt), REST Session sign (JWT).
+
+------------------------------------------------------------------------
+SLIDE 5: SYSTEM ARCHITECTURE
+- Decoupled client-server requests flow.
+- Static components dynamically load shared navbar/footers.
+- Backend routing mounts controllers, models validation, and global error catches.
+
+------------------------------------------------------------------------
+SLIDE 6: ENTITY RELATIONAL (ER) MODEL
+- Collections list: Users, Products, Carts, Orders, Wishlists, Reviews.
+- Cardinality links maps. Compound uniqueness indexes for reviews.
+
+------------------------------------------------------------------------
+SLIDE 7: KEY FEATURES AND USER INTERFACES
+- Client Area: Catalog search, Price sliders, cart badge updates.
+- Auth: JWT token headers interceptor inside client fetch api calls.
+- Backoffice: metrics grids counters, stock quantity additions, track updates.
+
+------------------------------------------------------------------------
+SLIDE 8: TESTING & CONCLUSION
+- Authentication sessions test validation profiles.
+- Automated tests verifying DB cast and Multer file type catches.
+- Future Scope: Live WhatsApp messaging notifications, online credit card Stripe gateways.
+========================================================================

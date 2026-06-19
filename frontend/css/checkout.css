@@ -1,0 +1,96 @@
+/*
+ * Checkout.css - Checkout Page Layout for Florish
+ * Purpose: Styling for billing address forms, shipping option grids, and dynamic payment gateway integration designs.
+ */
+
+.checkout-container {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: var(--space-xl);
+  padding: var(--space-xxl) 0;
+}
+
+/* Shipping and Billing Panels */
+.checkout-panel {
+  background-color: var(--surface-color);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  padding: var(--space-xl);
+  box-shadow: var(--shadow-sm);
+  margin-bottom: var(--space-lg);
+}
+
+.panel-title {
+  font-family: var(--font-primary);
+  font-weight: 600;
+  font-size: 1.25rem;
+  margin-bottom: var(--space-lg);
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+}
+
+.form-grid .full-width {
+  grid-column: span 2;
+}
+
+/* Payment Gateway Selector */
+.payment-methods {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  margin-top: var(--space-md);
+}
+
+.payment-option {
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.payment-option:hover, .payment-option.active {
+  border-color: var(--primary);
+  background-color: var(--primary-light);
+}
+
+.payment-option input {
+  cursor: pointer;
+}
+
+.payment-option-label {
+  display: flex;
+  flex-direction: column;
+}
+
+.payment-label-title {
+  font-weight: 600;
+}
+
+.payment-label-desc {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 768px) {
+  .checkout-container {
+    grid-template-columns: 1fr;
+  }
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+  .form-grid .full-width {
+    grid-column: span 1;
+  }
+}

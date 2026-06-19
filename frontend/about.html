@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - Our Floral Story | Florish</title>
+  
+  <meta name="description" content="Discover the origins of Florish, our passion for handcrafted floral aesthetics, our environment-friendly values, and our talented team of expert florists.">
+  
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/darkmode.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  
+  <style>
+    .about-hero {
+      padding: 5rem 0;
+      background: linear-gradient(rgba(28, 64, 49, 0.04), rgba(28, 64, 49, 0.01));
+      text-align: center;
+    }
+    .about-story {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-xxl);
+      padding: 5rem 0;
+      align-items: center;
+    }
+    .about-img img {
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+    }
+    @media (max-width: 768px) {
+      .about-story {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="navbar-placeholder"></div>
+
+  <main>
+    <!-- About Intro Page Header -->
+    <section class="about-hero">
+      <div class="container">
+        <h1>Our Story</h1>
+        <p class="text-secondary">Cultivating joy, one hand-selected blossom at a time.</p>
+      </div>
+    </section>
+
+    <!-- Narrative Section -->
+    <section class="container about-story">
+      <div class="about-img">
+        <img src="https://images.unsplash.com/photo-1516253593875-bd7ba052fbc5?q=80&w=600&auto=format&fit=crop" alt="Florist designing a bouquet" />
+      </div>
+      <div class="about-text">
+        <h2>Handcrafted with Passion</h2>
+        <p>Florish started in a small boutique greenhouse with a simple idea: to make sending premium flowers as simple and enjoyable as receiving them. Our local team works with sustainable farms to source the highest quality fresh stems daily.</p>
+        <br>
+        <p>Whether you want to express love, gratitude, deep sympathy, or celebrate a happy birthday, we design each floral arrangement with precision to ensure your feelings are beautifully expressed.</p>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="js/api.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/darkmode.js"></script>
+</body>
+</html>

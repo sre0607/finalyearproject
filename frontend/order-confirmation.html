@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Confirmed - Thank You | Florish</title>
+  
+  <meta name="description" content="Thank you for your purchase at Florish! Your order has been registered successfully.">
+  
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/darkmode.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  
+  <style>
+    .confirmation-wrapper {
+      max-width: 800px;
+      margin: var(--space-xxl) auto;
+      padding: 0 var(--space-lg);
+    }
+    .success-panel {
+      background-color: var(--surface-color);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-color);
+      padding: var(--space-xxl) var(--space-xl);
+      text-align: center;
+      box-shadow: var(--shadow-md);
+      margin-bottom: var(--space-xl);
+    }
+    .success-icon-wrapper {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 80px;
+      height: 80px;
+      background-color: var(--primary-light);
+      border-radius: 50%;
+      margin-bottom: var(--space-lg);
+      color: var(--primary);
+    }
+    .success-icon-wrapper svg {
+      width: 45px;
+      height: 45px;
+    }
+    .confirmation-title {
+      font-size: 2.25rem;
+      margin-bottom: var(--space-sm);
+    }
+    .order-id-badge {
+      display: inline-block;
+      padding: 0.5rem 1.5rem;
+      background-color: var(--bg-color);
+      border: 1px dashed var(--primary);
+      border-radius: var(--radius-md);
+      font-family: var(--font-primary);
+      font-weight: 700;
+      color: var(--primary);
+      font-size: 1.1rem;
+      margin: var(--space-md) 0;
+    }
+    .details-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: var(--space-lg);
+      text-align: left;
+    }
+    .receipt-panel, .info-panel {
+      background-color: var(--surface-color);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-color);
+      padding: var(--space-xl);
+      box-shadow: var(--shadow-sm);
+    }
+    .receipt-title {
+      font-size: 1.25rem;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: var(--space-sm);
+      margin-bottom: var(--space-md);
+    }
+    .receipt-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: var(--space-sm);
+      font-size: 0.95rem;
+    }
+    .receipt-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.5rem;
+      font-size: 0.9rem;
+    }
+    .receipt-row.total {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--primary);
+      border-top: 1px solid var(--border-color);
+      padding-top: var(--space-md);
+      margin-top: var(--space-md);
+    }
+    .info-block {
+      margin-bottom: var(--space-md);
+    }
+    .info-block h4 {
+      font-family: var(--font-primary);
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-secondary);
+      margin-bottom: 0.25rem;
+    }
+    .info-block p {
+      font-size: 0.95rem;
+      color: var(--text-primary);
+      line-height: 1.4;
+    }
+    .button-group {
+      display: flex;
+      justify-content: center;
+      gap: var(--space-md);
+      margin-top: var(--space-xl);
+    }
+    @media (max-width: 768px) {
+      .details-grid {
+        grid-template-columns: 1fr;
+      }
+      .button-group {
+        flex-direction: column;
+        gap: var(--space-sm);
+      }
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="navbar-placeholder"></div>
+
+  <div id="header-placeholder"></div>
+
+  <main class="container confirmation-wrapper">
+    <div class="success-panel animate-fade-in">
+      <div class="success-icon-wrapper">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
+        </svg>
+      </div>
+      <h1 class="confirmation-title">Order Confirmed!</h1>
+      <p class="text-secondary" style="max-width: 500px; margin: 0 auto;">
+        Thank you for choosing Florish. Your payment has been processed and our master florists are already selecting the freshest stems for your arrangement.
+      </p>
+      <div class="order-id-badge" id="lbl-order-id">Loading Order...</div>
+      <p class="text-muted" style="font-size: 0.85rem;" id="lbl-order-date"></p>
+    </div>
+
+    <!-- Loading State -->
+    <div id="confirmation-loader" class="text-center" style="padding: 4rem 0;">
+      <div style="display: inline-block; width: 40px; height: 40px;" class="spinner"></div>
+      <p class="text-secondary" style="margin-top: 1rem;">Loading your order receipt details...</p>
+    </div>
+
+    <!-- Details Grid -->
+    <div class="details-grid" id="confirmation-details" style="display: none;">
+      <!-- Left Box: Order Summary & Invoice -->
+      <section class="receipt-panel">
+        <h3 class="receipt-title">Order Receipt</h3>
+        <div id="receipt-items-container" style="margin-bottom: var(--space-lg);">
+          <!-- Dynamic receipt items -->
+        </div>
+        
+        <div class="receipt-row" style="border-top: 1px dashed var(--border-color); padding-top: var(--space-md);">
+          <span class="text-secondary">Subtotal</span>
+          <span id="receipt-subtotal">₹0</span>
+        </div>
+        <div class="receipt-row" id="receipt-discount-row" style="display: none;">
+          <span class="text-secondary">Discount (<span id="receipt-promo-code"></span>)</span>
+          <span id="receipt-discount" style="color: var(--success); font-weight: 600;">-₹0</span>
+        </div>
+        <div class="receipt-row">
+          <span class="text-secondary">Shipping</span>
+          <span id="receipt-shipping">Free</span>
+        </div>
+        <div class="receipt-row">
+          <span class="text-secondary">GST / Taxes (8%)</span>
+          <span id="receipt-tax">₹0</span>
+        </div>
+        <div class="receipt-row total">
+          <span>Order Total</span>
+          <span id="receipt-total">₹0</span>
+        </div>
+      </section>
+
+      <!-- Right Box: Shipping Address & Payment -->
+      <section class="info-panel">
+        <h3 class="receipt-title">Delivery & Billing</h3>
+        
+        <div class="info-block">
+          <h4>Delivery Address</h4>
+          <p id="lbl-shipping-name"></p>
+          <p id="lbl-shipping-address"></p>
+          <p id="lbl-shipping-city-pin"></p>
+        </div>
+
+        <div class="info-block">
+          <h4>Contact Information</h4>
+          <p id="lbl-shipping-phone"></p>
+          <p id="lbl-shipping-email"></p>
+        </div>
+
+        <div class="info-block">
+          <h4>Payment Method</h4>
+          <p id="lbl-payment-method" style="text-transform: uppercase; font-weight: 600; color: var(--primary); margin-bottom: 0.5rem;"></p>
+        </div>
+
+        <div class="info-block" style="margin-bottom: 0;">
+          <h4>Estimated Delivery</h4>
+          <p id="lbl-delivery-date" style="font-weight: 600; color: var(--primary);"></p>
+        </div>
+      </section>
+    </div>
+
+    <!-- Actions -->
+    <div class="button-group">
+      <a href="shop.html" class="btn btn-outline" style="min-width: 200px;">🌷 Continue Shopping</a>
+      <a href="orders.html" class="btn btn-primary" style="min-width: 200px;">📦 Track Your Order</a>
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="js/api.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/darkmode.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      // Load standard header
+      fetch('components/header.html')
+        .then(res => res.text())
+        .then(html => {
+          const banner = document.getElementById('header-placeholder');
+          banner.innerHTML = html;
+          banner.querySelector('#page-title').textContent = 'Order Receipt';
+          banner.querySelector('#breadcrumb-current').textContent = 'Order Success';
+        });
+
+      // Get Order ID from URL params
+      const params = new URLSearchParams(window.location.search);
+      const orderId = params.get('id');
+
+      if (!orderId) {
+        showNotification('Invalid or missing order reference.', 'error');
+        setTimeout(() => { window.location.href = 'index.html'; }, 2000);
+        return;
+      }
+
+      // Fetch order details from API
+      try {
+        const order = await api.get(`/orders/${orderId}`);
+        
+        // Hide loader & reveal details
+        document.getElementById('confirmation-loader').style.display = 'none';
+        document.getElementById('confirmation-details').style.display = 'grid';
+
+        // Order ID formatted
+        const formattedId = order._id.substring(order._id.length - 6).toUpperCase();
+        document.getElementById('lbl-order-id').textContent = `Order ID: #FL-${formattedId}`;
+        
+        const date = new Date(order.createdAt);
+        document.getElementById('lbl-order-date').textContent = `Placed on ${date.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })} at ${date.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })}`;
+
+        // Render receipt items
+        const itemsContainer = document.getElementById('receipt-items-container');
+        itemsContainer.innerHTML = '';
+        
+        let subtotal = 0;
+        order.items.forEach(item => {
+          const itemTotal = item.price * item.quantity;
+          subtotal += itemTotal;
+          
+          const row = document.createElement('div');
+          row.className = 'receipt-item';
+          row.innerHTML = `
+            <span>${item.name} <strong class="text-secondary">x${item.quantity}</strong></span>
+            <strong>${formatINR(itemTotal)}</strong>
+          `;
+          itemsContainer.appendChild(row);
+        });
+
+        // Price breakdown fields
+        document.getElementById('receipt-subtotal').textContent = formatINR(subtotal);
+        
+        const discRow = document.getElementById('receipt-discount-row');
+        const discCode = document.getElementById('receipt-promo-code');
+        const discVal = document.getElementById('receipt-discount');
+        if (discRow && order.discountPrice > 0) {
+          discRow.style.display = 'flex';
+          if (discCode) discCode.textContent = order.promoCode || 'PROMO';
+          if (discVal) discVal.textContent = `-${formatINR(order.discountPrice)}`;
+        } else if (discRow) {
+          discRow.style.display = 'none';
+        }
+
+        document.getElementById('receipt-shipping').textContent = order.shippingPrice === 0 ? 'Free' : formatINR(order.shippingPrice);
+        document.getElementById('receipt-tax').textContent = formatINR(order.taxPrice);
+        document.getElementById('receipt-total').textContent = formatINR(order.totalPrice);
+
+        // Delivery details
+        const addr = order.shippingAddress;
+        document.getElementById('lbl-shipping-name').textContent = `${addr.firstName} ${addr.lastName}`;
+        document.getElementById('lbl-shipping-address').textContent = addr.address;
+        document.getElementById('lbl-shipping-city-pin').textContent = `${addr.city} - ${addr.pincode}`;
+        document.getElementById('lbl-shipping-phone').textContent = `📞 ${addr.phone}`;
+        document.getElementById('lbl-shipping-email').textContent = `✉ ${addr.email}`;
+
+        // Compute expected delivery date range: +2 to +4 days from order placement date
+        const dStart = new Date(order.createdAt);
+        dStart.setDate(dStart.getDate() + 2);
+        const dEnd = new Date(order.createdAt);
+        dEnd.setDate(dEnd.getDate() + 4);
+        const optRange = { month: 'short', day: 'numeric' };
+        const optYear = { month: 'short', day: 'numeric', year: 'numeric' };
+        document.getElementById('lbl-delivery-date').textContent = `${dStart.toLocaleDateString('en-US', optRange)} - ${dEnd.toLocaleDateString('en-US', optYear)}`;
+
+        // Payment details
+        const paymentLabel = order.paymentMethod === 'cod' ? 'Cash on Delivery (COD)' : 'Card / UPI Instant Online';
+        document.getElementById('lbl-payment-method').textContent = paymentLabel;
+
+      } catch (err) {
+        console.error('Error fetching order receipt:', err);
+        document.getElementById('confirmation-loader').innerHTML = `
+          <p class="text-secondary" style="color: var(--error);">
+            Failed to retrieve purchase invoice details from database.
+          </p>
+        `;
+      }
+    });
+  </script>
+</body>
+</html>

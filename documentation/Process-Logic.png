@@ -1,0 +1,58 @@
+========================================================================
+                          PROCESS FLOW LOGIC
+                     Floral E-Commerce Website - Florish
+========================================================================
+
+------------------------------------------------------------------------
+1. USER LOGIN PROCESS FLOW LOGIC
+------------------------------------------------------------------------
+[Start]
+   |
+   v
+[Input: Email & Password]
+   |
+   v
+[Query: Find user document by email in MongoDB]
+   |
+   +---> (Found?) --- No ---> [Return: Error 401 Unauthorized]
+   |
+   +--- Yes ---> [Compare password Bcrypt hashes matchPassword()]
+                    |
+                    +---> (Match?) --- No ---> [Return: Error 401 Unauthorized]
+                    |
+                    +--- Yes ---> [Generate Session JWT token]
+                                     |
+                                     v
+                                  [Return: HTTP 200 OK + User Specs + JWT]
+                                     |
+                                     v
+                                  [End]
+
+------------------------------------------------------------------------
+2. SECURE CHECKOUT SUBMIT PROCESS FLOW LOGIC
+------------------------------------------------------------------------
+[Start]
+   |
+   v
+[Inbound JWT Protection check authMiddleware]
+   |
+   +---> (Session token Valid?) --- No ---> [Return: Error 401 Unauthorized]
+   |
+   +--- Yes ---> [Read Cart items subdocuments list from database / req]
+                    |
+                    +---> (Cart empty?) --- Yes ---> [Return: Error 400 Bad Request]
+                    |
+                    +--- No ---> [Create Order document details in MongoDB]
+                                    |
+                                    v
+                                 [Decrement Stock quantity in Products DB]
+                                    |
+                                    v
+                                 [Clear Shopping Cart items collection]
+                                    |
+                                    v
+                                 [Return: HTTP 201 Created + Invoice Specs]
+                                    |
+                                    v
+                                 [End]
+========================================================================

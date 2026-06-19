@@ -1,0 +1,100 @@
+/*
+ * Responsive.css - Responsive Adjustments for Florish
+ * Purpose: Custom breakpoints and media queries for desktop, tablet, and mobile layouts.
+ */
+
+/* Extra Large Screens (Desktops) */
+@media (max-width: 1200px) {
+  .container {
+    max-width: 960px;
+  }
+  h1 { font-size: 2.5rem; }
+  h2 { font-size: 2rem; }
+}
+
+/* Medium & Large Screens (Tablets / Laptops) */
+@media (max-width: 992px) {
+  .container {
+    max-width: 720px;
+  }
+  h1 { font-size: 2.25rem; }
+  h2 { font-size: 1.75rem; }
+  
+  /* Hide standard navbar links, show burger menu if designed */
+  .nav-menu {
+    display: none; /* Managed dynamically via JavaScript or class toggle */
+  }
+  
+  .nav-toggle {
+    display: block !important;
+  }
+}
+
+/* Small Screens (Tablets / Phablets) */
+@media (max-width: 768px) {
+  .container {
+    max-width: 540px;
+    padding: 0 var(--space-md);
+  }
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1.25rem; }
+  
+  .grid-2, .grid-3, .grid-4 {
+    grid-template-columns: 1fr !important;
+  }
+  
+  .flex-responsive {
+    flex-direction: column !important;
+    gap: var(--space-md);
+  }
+}
+
+/* Mobile Screens */
+@media (max-width: 576px) {
+  .container {
+    padding: 0 var(--space-sm);
+  }
+  h1 { font-size: 1.75rem; }
+  
+  .btn {
+    width: 100%;
+    padding: 0.6rem 1.2rem;
+  }
+}
+
+/* Tablet & Mobile Hero slider adjustments */
+@media (max-width: 992px) {
+  .hero-slider {
+    height: 60vh !important;
+  }
+  .hero-content {
+    padding: 1.5rem !important;
+    margin: var(--space-md) !important;
+    max-width: 90% !important;
+  }
+  .hero-content h1 {
+    font-size: 2.2rem !important;
+  }
+  .hero-content p {
+    font-size: 1rem !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-slider {
+    height: 48vh !important;
+  }
+  .hero-content h1 {
+    font-size: 1.65rem !important;
+  }
+  .hero-content p {
+    font-size: 0.85rem !important;
+    margin-bottom: var(--space-md) !important;
+  }
+  
+  .products-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)) !important;
+    gap: var(--space-md) !important;
+  }
+}

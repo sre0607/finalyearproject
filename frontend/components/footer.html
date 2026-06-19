@@ -1,0 +1,154 @@
+<!-- 
+  Footer.html - Shared Page Footer Section
+  Purpose: General shop details, fast site links, social handles, and copyright scripts.
+-->
+<footer class="footer">
+  <div class="container footer-container">
+    <div class="footer-widget footer-about">
+      <h3 class="footer-logo">🌱 Florish</h3>
+      <p class="footer-text">
+        Bringing the fresh fragrance and aesthetic beauty of hand-selected blossoms right to your doorstep. Perfect bouquets for all of life's celebrations.
+      </p>
+      <div class="social-icons">
+        <a href="#" title="Facebook">📘</a>
+        <a href="#" title="Instagram">📸</a>
+        <a href="#" title="Twitter">🐦</a>
+        <a href="#" title="Pinterest">📌</a>
+      </div>
+    </div>
+
+    <div class="footer-widget">
+      <h4 class="widget-title">Quick Links</h4>
+      <ul class="widget-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html">Shop Catalog</a></li>
+        <li><a href="about.html">Our Story</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-widget">
+      <h4 class="widget-title">Shopping & Policies</h4>
+      <ul class="widget-links">
+        <li><a href="cart.html">View Cart</a></li>
+        <li><a href="checkout.html">Checkout</a></li>
+        <li><a href="wishlist.html">My Wishlist</a></li>
+        <li><a href="orders.html">Track Orders</a></li>
+        <li><a href="faq.html">FAQs</a></li>
+        <li><a href="help.html">Help & Support</a></li>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="terms.html">Terms of Service</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-widget">
+      <h4 class="widget-title">Subscribe to Newsletter</h4>
+      <p class="footer-text">Subscribe to get notifications about new arrivals, flash deals, and floral styling tips.</p>
+      <form class="footer-newsletter-form" onsubmit="event.preventDefault(); if (typeof showNotification === 'function') { showNotification('Thank you for subscribing!', 'success'); } else { alert('Thank you for subscribing!'); }">
+        <input type="email" placeholder="Your Email Address" required />
+        <button type="submit" class="btn btn-secondary">Join</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="container footer-bottom-container">
+      <p>&copy; <span id="current-year">2026</span> Florish Floral E-Commerce. All Rights Reserved.</p>
+      <p>Designed as BCA Final Year Project</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background-color: var(--primary);
+    color: hsl(var(--primary-hue), 30%, 90%);
+    padding: 4rem 0 0;
+    margin-top: auto;
+  }
+
+  .footer-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 2fr;
+    gap: var(--space-xl);
+    padding-bottom: 3rem;
+  }
+
+  .footer-logo {
+    color: var(--surface-color);
+    font-size: 1.8rem;
+    margin-bottom: var(--space-md);
+  }
+
+  .footer-text {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: var(--space-lg);
+  }
+
+  .widget-title {
+    color: var(--surface-color);
+    margin-bottom: var(--space-lg);
+    font-family: var(--font-primary);
+    font-weight: 600;
+  }
+
+  .widget-links li {
+    margin-bottom: var(--space-sm);
+  }
+
+  .widget-links a {
+    font-size: 0.9rem;
+  }
+
+  .widget-links a:hover {
+    color: var(--secondary);
+    padding-left: 4px;
+  }
+
+  .social-icons {
+    display: flex;
+    gap: var(--space-md);
+    font-size: 1.4rem;
+  }
+
+  .footer-newsletter-form {
+    display: flex;
+    gap: var(--space-xs);
+  }
+
+  .footer-newsletter-form input {
+    background-color: var(--surface-color);
+    border: none;
+    border-radius: var(--radius-full);
+    padding: 0.5rem 1rem;
+    width: 100%;
+    color: var(--text-primary);
+    outline: none;
+  }
+
+  .footer-bottom {
+    border-top: 1px solid hsl(var(--primary-hue), 40%, 20%);
+    padding: 1.5rem 0;
+    background-color: hsl(var(--primary-hue), 64%, 20%);
+    font-size: 0.85rem;
+    text-align: center;
+  }
+
+  .footer-bottom-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  @media (max-width: 768px) {
+    .footer-container {
+      grid-template-columns: 1fr !important;
+      gap: var(--space-xl);
+    }
+    .footer-bottom-container {
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+  }
+</style>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Product - Florish Backoffice</title>
+  
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/admin.css">
+  <link rel="stylesheet" href="../css/darkmode.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <script src="../js/darkmode.js"></script>
+  <style>
+    /* Prevent layout flash before backend authorization check completes */
+    html, body { display: none; }
+  </style>
+  <script>
+    (async function() {
+      const token = localStorage.getItem('florish_token');
+      let user = null;
+      try { user = JSON.parse(localStorage.getItem('florish_user')); } catch(e) {}
+      
+      if (!token || !user || user.role !== 'admin') {
+        window.location.replace('login.html');
+        return;
+      }
+      
+      // Determine API URL (same logic as api.js)
+      const hostname = window.location.hostname;
+      const apiBase = (hostname === 'localhost' || hostname === '127.0.0.1' || hostname === '' || hostname.startsWith('192.168.') || hostname.startsWith('10.') || hostname.startsWith('172.16.'))
+        ? 'http://localhost:5000/api'
+        : 'https://finalproject-9pgj.onrender.com/api';
+      
+      try {
+        const response = await fetch(`${apiBase}/auth/profile`, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+          }
+        });
+        
+        if (response.ok) {
+          const profile = await response.json();
+          if (profile && profile.role === 'admin') {
+            // Keep local storage info updated
+            localStorage.setItem('florish_user', JSON.stringify({ name: profile.name, email: profile.email, role: profile.role }));
+            // Success - show page
+            document.documentElement.style.display = 'block';
+            if (document.body) document.body.style.display = 'block';
+            return;
+          }
+        }
+      } catch (err) {
+        console.error('Admin session validation failed:', err);
+      }
+      
+      // Redirect if unauthorized or fetch failed
+      localStorage.removeItem('florish_token');
+      localStorage.removeItem('florish_user');
+      window.location.replace('login.html');
+    })();
+  </script>
+</head>
+<body>
+
+  <div class="admin-layout">
+    
+    <!-- Sidebar Navigation Drawer -->
+    <aside class="admin-sidebar">
+      <div class="admin-logo">🌱 Florish Admin</div>
+      <nav class="admin-menu">
+        <a href="dashboard.html" class="admin-menu-link">📊 Dashboard</a>
+        <a href="products.html" class="admin-menu-link">🌸 Inventory Items</a>
+        <a href="add-product.html" class="admin-menu-link active">➕ Add Product</a>
+        <a href="orders.html" class="admin-menu-link">🛒 Client Orders</a>
+        <a href="users.html" class="admin-menu-link">👥 User Accounts</a>
+        <a href="settings.html" class="admin-menu-link">⚙️ Core Settings</a>
+        <a href="../index.html" class="admin-menu-link" style="margin-top: 5rem;">🏠 Public Site</a>
+      </nav>
+    </aside>
+
+    <!-- Main Content Workspace -->
+    <main class="admin-content">
+      <header class="admin-header">
+        <h1>Add New Floral Arrangement</h1>
+      </header>
+
+      <!-- Add Product Form Form -->
+      <section class="admin-card">
+        <form id="admin-add-product-form">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-lg);">
+            
+            <div class="form-group">
+              <label class="form-label" for="add-prod-name">Product Name *</label>
+              <input type="text" id="add-prod-name" class="form-control" required />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="add-prod-sku">SKU Code *</label>
+              <input type="text" id="add-prod-sku" class="form-control" placeholder="e.g. FL-ROSE-12" required />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="add-prod-cat">Category *</label>
+              <select id="add-prod-cat" class="form-control" required>
+                <option value="">Loading categories...</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="add-prod-price">Price (₹) *</label>
+              <input type="number" step="0.01" id="add-prod-price" class="form-control" required />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="add-prod-stock">Initial Stock *</label>
+              <input type="number" id="add-prod-stock" class="form-control" min="0" step="1" required />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="add-prod-image-source">Image Source *</label>
+              <select id="add-prod-image-source" class="form-control" required>
+                <option value="upload">Upload from device</option>
+                <option value="url">Paste image URL</option>
+              </select>
+            </div>
+
+            <div class="form-group" id="add-image-file-group">
+              <label class="form-label" for="add-prod-image">Upload Product Image *</label>
+              <input type="file" id="add-prod-image" class="form-control" style="padding: 0.5rem;" accept="image/*" required />
+            </div>
+
+            <div class="form-group" id="add-image-url-group" style="display: none;">
+              <label class="form-label" for="add-prod-image-url">Image URL *</label>
+              <input type="url" id="add-prod-image-url" class="form-control" placeholder="https://example.com/image.jpg" />
+            </div>
+
+            <div class="form-group" id="add-image-preview-group" style="grid-column: span 2; display: none; margin-top: -10px;">
+              <label class="form-label">Image Preview</label>
+              <div id="add-image-preview-container" style="margin-top: 8px;">
+                <img id="add-image-preview" src="" style="max-height: 120px; border-radius: 4px; border: 1px solid var(--border-color); object-fit: cover;" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100\' height=\'100\' viewBox=\'0 0 100 100\'><rect width=\'100%\' height=\'100%\' fill=\'%23f3f4f6\'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' font-family=\'sans-serif\' font-size=\'10\' fill=\'%239ca3af\'>Image Unavailable</text></svg>';" />
+              </div>
+            </div>
+
+            <div class="form-group" style="display: flex; gap: var(--space-lg); align-items: center; height: 100%; margin-top: 1.5rem;">
+              <label style="display: flex; align-items: center; gap: 6px; font-weight: 500; cursor: pointer;">
+                <input type="checkbox" id="add-prod-featured" /> Mark as Featured
+              </label>
+              <label style="display: flex; align-items: center; gap: 6px; font-weight: 500; cursor: pointer;">
+                <input type="checkbox" id="add-prod-hidden" /> Hide Product from Catalog
+              </label>
+            </div>
+
+            <div class="form-group" style="grid-column: span 2;">
+              <label class="form-label" for="add-prod-desc">Product Description</label>
+              <textarea id="add-prod-desc" class="form-control" rows="4" placeholder="Brief copy showcasing the arrangement's features, floral stem contents, etc." required></textarea>
+            </div>
+
+          </div>
+          <button type="submit" class="btn btn-primary" style="margin-top: var(--space-md);">Save & Publish Arrangement</button>
+        </form>
+      </section>
+    </main>
+    
+  </div>
+
+  <script src="../js/api.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>

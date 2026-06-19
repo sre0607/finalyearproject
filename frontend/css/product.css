@@ -1,0 +1,193 @@
+/*
+ * Product.css - Product Details Layout for Florish
+ * Purpose: Custom rules for single product showcase, interactive gallery zooms, detail tables, review sections, and related products carousel.
+ */
+
+.product-detail-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-xxl);
+  padding: var(--space-xxl) 0;
+}
+
+/* Product Gallery */
+.product-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.main-image-container {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-color);
+  background-color: var(--surface-color);
+}
+
+.main-image-container img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.main-image-container img:hover {
+  transform: scale(1.05);
+  cursor: zoom-in;
+}
+
+.thumbnail-row {
+  display: flex;
+  gap: var(--space-sm);
+  justify-content: center;
+}
+
+.thumb-btn {
+  width: 80px;
+  height: 80px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 2px solid transparent;
+  cursor: pointer;
+  background-color: var(--surface-color);
+  box-shadow: var(--shadow-sm);
+}
+
+.thumb-btn.active, .thumb-btn:hover {
+  border-color: var(--primary);
+}
+
+.thumb-btn img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Product Info */
+.product-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.product-title {
+  font-family: var(--font-serif);
+  font-size: 2.5rem;
+  margin-bottom: var(--space-sm);
+}
+
+.product-price {
+  font-size: 2rem;
+  color: var(--secondary);
+  font-weight: 700;
+  margin-bottom: var(--space-md);
+}
+
+.product-rating {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--accent);
+  margin-bottom: var(--space-lg);
+}
+
+.product-meta {
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  padding: var(--space-lg) 0;
+  margin-bottom: var(--space-xl);
+}
+
+.meta-item {
+  margin-bottom: var(--space-sm);
+  font-size: 0.95rem;
+}
+
+.meta-label {
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+/* Add to Cart Actions */
+.product-actions {
+  display: flex;
+  gap: var(--space-md);
+  margin-bottom: var(--space-xl);
+}
+
+.quantity-selector {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  background-color: var(--surface-color);
+}
+
+.qty-btn {
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background-color: transparent;
+  font-weight: bold;
+}
+
+.qty-btn:hover {
+  background-color: var(--border-color);
+}
+
+.qty-input {
+  width: 50px;
+  text-align: center;
+  font-weight: 600;
+  outline: none;
+}
+
+/* Reviews and Tabs */
+.tabs-section {
+  border-top: 1px solid var(--border-color);
+  padding: var(--space-xxl) 0;
+}
+
+.tabs-headers {
+  display: flex;
+  gap: var(--space-xl);
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: var(--space-xl);
+}
+
+.tab-link {
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding-bottom: var(--space-sm);
+  cursor: pointer;
+  position: relative;
+}
+
+.tab-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background-color: var(--primary);
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .product-detail-container {
+    grid-template-columns: 1fr;
+  }
+}

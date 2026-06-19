@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manage Orders - Florish Backoffice</title>
+  
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/admin.css">
+  <link rel="stylesheet" href="../css/darkmode.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <script src="../js/darkmode.js"></script>
+  <style>
+    /* Prevent layout flash before backend authorization check completes */
+    html, body { display: none; }
+  </style>
+  <script>
+    (async function() {
+      const token = localStorage.getItem('florish_token');
+      let user = null;
+      try { user = JSON.parse(localStorage.getItem('florish_user')); } catch(e) {}
+      
+      if (!token || !user || user.role !== 'admin') {
+        window.location.replace('login.html');
+        return;
+      }
+      
+      // Determine API URL (same logic as api.js)
+      const hostname = window.location.hostname;
+      const apiBase = (hostname === 'localhost' || hostname === '127.0.0.1' || hostname === '' || hostname.startsWith('192.168.') || hostname.startsWith('10.') || hostname.startsWith('172.16.'))
+        ? 'http://localhost:5000/api'
+        : 'https://finalproject-9pgj.onrender.com/api';
+      
+      try {
+        const response = await fetch(`${apiBase}/auth/profile`, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+          }
+        });
+        
+        if (response.ok) {
+          const profile = await response.json();
+          if (profile && profile.role === 'admin') {
+            // Keep local storage info updated
+            localStorage.setItem('florish_user', JSON.stringify({ name: profile.name, email: profile.email, role: profile.role }));
+            // Success - show page
+            document.documentElement.style.display = 'block';
+            if (document.body) document.body.style.display = 'block';
+            return;
+          }
+        }
+      } catch (err) {
+        console.error('Admin session validation failed:', err);
+      }
+      
+      // Redirect if unauthorized or fetch failed
+      localStorage.removeItem('florish_token');
+      localStorage.removeItem('florish_user');
+      window.location.replace('login.html');
+    })();
+  </script>
+</head>
+<body>
+
+  <div class="admin-layout">
+    
+    <!-- Sidebar Navigation Drawer -->
+    <aside class="admin-sidebar">
+      <div class="admin-logo">🌱 Florish Admin</div>
+      <nav class="admin-menu">
+        <a href="dashboard.html" class="admin-menu-link">📊 Dashboard</a>
+        <a href="products.html" class="admin-menu-link">🌸 Inventory Items</a>
+        <a href="add-product.html" class="admin-menu-link">➕ Add Product</a>
+        <a href="orders.html" class="admin-menu-link active">🛒 Client Orders</a>
+        <a href="users.html" class="admin-menu-link">👥 User Accounts</a>
+        <a href="settings.html" class="admin-menu-link">⚙️ Core Settings</a>
+        <a href="../index.html" class="admin-menu-link" style="margin-top: 5rem;">🏠 Public Site</a>
+      </nav>
+    </aside>
+
+    <!-- Main Content Workspace -->
+    <main class="admin-content">
+      <header class="admin-header" style="flex-wrap: wrap; gap: 1rem;">
+        <h1>Customer Orders</h1>
+        <div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap;">
+          <input type="text" id="order-search-input" class="form-control" placeholder="Search by Client or ID..." style="width: 200px; margin-bottom: 0;" />
+          <select id="order-status-filter" class="form-control" style="width: 150px; margin-bottom: 0;">
+            <option value="">All Statuses</option>
+            <option value="Processing">Processing</option>
+            <option value="Shipped">Shipped</option>
+            <option value="Delivered">Delivered</option>
+            <option value="Cancelled">Cancelled</option>
+          </select>
+          <select id="order-archive-filter" class="form-control" style="width: 150px; margin-bottom: 0;">
+            <option value="active" selected>Active Orders</option>
+            <option value="archived">Archived Orders</option>
+            <option value="all">All Orders</option>
+          </select>
+          <button class="btn btn-primary btn-sm" id="btn-search-orders" style="margin-top: 0; padding: 0.5rem 1rem; border-radius: var(--radius-md);">Filter</button>
+          <button class="btn btn-secondary btn-sm" id="btn-orders-download-report" style="margin-top: 0; padding: 0.5rem 1rem; border-radius: var(--radius-md); background-color: var(--secondary); color: white; display: inline-flex; align-items: center; gap: 0.25rem;">
+            📊 Download Sales Report
+          </button>
+        </div>
+      </header>
+
+      <!-- Orders Directory Grid -->
+      <section class="admin-card">
+        <div class="admin-table-wrapper">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Order Number</th>
+                <th>Client Name</th>
+                <th>Items Ordered</th>
+                <th>Total Value</th>
+                <th>Update Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>#FL-98725</td>
+                <td>Jane Doe</td>
+                <td>Romantic Rose Bouquet x1</td>
+                <td>₹114.75</td>
+                <td>
+                  <select class="form-control" style="width: auto; padding: 0.25rem 0.5rem;" onchange="alert('Order status updated!')">
+                    <option value="pending" selected>Processing</option>
+                    <option value="shipped">Shipped</option>
+                    <option value="delivered">Delivered</option>
+                  </select>
+                </td>
+                <td><button class="btn btn-outline btn-sm" onclick="alert('Viewing order invoices...')">Invoices</button></td>
+              </tr>
+              <tr>
+                <td>#FL-95240</td>
+                <td>John Smith</td>
+                <td>Spring Tulip Basin x1</td>
+                <td>₹45.00</td>
+                <td>
+                  <select class="form-control" style="width: auto; padding: 0.25rem 0.5rem;" onchange="alert('Order status updated!')">
+                    <option value="pending">Processing</option>
+                    <option value="shipped" selected>Shipped</option>
+                    <option value="delivered">Delivered</option>
+                  </select>
+                </td>
+                <td><button class="btn btn-outline btn-sm" onclick="alert('Viewing order invoices...')">Invoices</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+    
+  </div>
+
+  <script src="../js/api.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>

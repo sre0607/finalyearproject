@@ -1,0 +1,161 @@
+<!-- 
+  Product-card.html - Shared Reusable Product Box Template
+  Purpose: Design structure for floral catalogs, search grids, and wishlist showcases.
+-->
+<div class="product-card hover-lift">
+  <div class="badge-discount">-15%</div>
+  <div class="card-image-wrapper">
+    <img src="assets/images/flowers/rose-bouquet.jpg" alt="Rose Bouquet" class="product-card-img" />
+    <div class="card-actions-overlay">
+      <button class="overlay-btn add-to-wishlist-btn" title="Add to Wishlist">❤️</button>
+      <button class="overlay-btn quick-view-btn" title="Quick View">👁️</button>
+    </div>
+  </div>
+  <div class="card-content">
+    <span class="card-category">Bouquets</span>
+    <h3 class="card-title"><a href="product-details.html?id=123">Blushing Romance Bouquet</a></h3>
+    <div class="card-rating">⭐⭐⭐⭐⭐ <span class="rating-text">(42)</span></div>
+    <div class="card-footer-price">
+      <div class="price-container">
+        <span class="price-old">₹45.00</span>
+        <span class="price-current">₹38.25</span>
+      </div>
+      <button class="btn btn-primary btn-sm add-to-cart-btn">🛒 Add</button>
+    </div>
+  </div>
+</div>
+
+<style>
+  .product-card {
+    background-color: var(--surface-color);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+    position: relative;
+  }
+
+  .badge-discount {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: var(--secondary);
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 0.25rem 0.5rem;
+    border-radius: var(--radius-sm);
+    z-index: 10;
+  }
+
+  .card-image-wrapper {
+    position: relative;
+    height: 250px;
+    overflow: hidden;
+    background-color: var(--bg-color);
+  }
+
+  .product-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition-slow);
+  }
+
+  .product-card:hover .product-card-img {
+    transform: scale(1.08);
+  }
+
+  .card-actions-overlay {
+    position: absolute;
+    bottom: -50px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: var(--space-sm);
+    padding: var(--space-md);
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.4));
+    transition: var(--transition-normal);
+  }
+
+  .product-card:hover .card-actions-overlay {
+    bottom: 0;
+  }
+
+  .overlay-btn {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background-color: var(--surface-color);
+    color: var(--text-primary);
+    box-shadow: var(--shadow-md);
+    cursor: pointer;
+    font-size: 1rem;
+    transition: var(--transition-fast);
+  }
+
+  .overlay-btn:hover {
+    background-color: var(--primary);
+    color: white;
+  }
+
+  .card-content {
+    padding: var(--space-md);
+  }
+
+  .card-category {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    font-weight: 600;
+  }
+
+  .card-title {
+    font-family: var(--font-primary);
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0.25rem 0 var(--space-sm);
+  }
+
+  .card-rating {
+    font-size: 0.85rem;
+    color: var(--accent);
+    margin-bottom: var(--space-md);
+  }
+
+  .rating-text {
+    color: var(--text-secondary);
+  }
+
+  .card-footer-price {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--border-color);
+    padding-top: var(--space-sm);
+  }
+
+  .price-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .price-old {
+    text-decoration: line-through;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+  }
+
+  .price-current {
+    font-weight: 700;
+    color: var(--secondary);
+    font-size: 1.15rem;
+  }
+
+  .btn-sm {
+    padding: 0.4rem 1rem !important;
+    font-size: 0.85rem;
+  }
+</style>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout Secure Payment - Finalize Flowers Order | Florish</title>
+  
+  <meta name="description" content="Enter shipping coordinates, pick preferred delivery slots, select card/UPI methods, and finalize purchases at Florish.">
+  
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/checkout.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/darkmode.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <div id="navbar-placeholder"></div>
+
+  <div id="header-placeholder"></div>
+
+  <main class="container">
+    <form class="checkout-container" id="checkout-form" onsubmit="event.preventDefault();">
+      
+      <!-- Left Column: Shipping Address & Billing Details -->
+      <section class="checkout-steps">
+        <div class="checkout-panel">
+          <h3 class="panel-title"><span>1.</span> Billing & Shipping Details</h3>
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label" for="txt-first-name">First Name *</label>
+              <input type="text" id="txt-first-name" class="form-control" required />
+              <span class="error-msg" id="err-txt-first-name" style="color: var(--error); font-size: 0.8rem; display: none; margin-top: 0.25rem;"></span>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="txt-last-name">Last Name *</label>
+              <input type="text" id="txt-last-name" class="form-control" required />
+              <span class="error-msg" id="err-txt-last-name" style="color: var(--error); font-size: 0.8rem; display: none; margin-top: 0.25rem;"></span>
+            </div>
+            <div class="form-group full-width">
+              <label class="form-label" for="txt-address">Street Address *</label>
+              <input type="text" id="txt-address" class="form-control" placeholder="House number and street name" required />
+              <span class="error-msg" id="err-txt-address" style="color: var(--error); font-size: 0.8rem; display: none; margin-top: 0.25rem;"></span>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="txt-city">City *</label>
+              <input type="text" id="txt-city" class="form-control" required />
+              <span class="error-msg" id="err-txt-city" style="color: var(--error); font-size: 0.8rem; display: none; margin-top: 0.25rem;"></span>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="txt-pincode">PIN Code / ZIP *</label>
+              <input type="text" id="txt-pincode" class="form-control" required />
+              <span class="error-msg" id="err-txt-pincode" style="color: var(--error); font-size: 0.8rem; display: none; margin-top: 0.25rem;"></span>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="txt-phone">Phone Number *</label>
+              <input type="tel" id="txt-phone" class="form-control" required />
+              <span class="error-msg" id="err-txt-phone" style="color: var(--error); font-size: 0.8rem; display: none; margin-top: 0.25rem;"></span>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="txt-email">Email Address *</label>
+              <input type="email" id="txt-email" class="form-control" required />
+              <span class="error-msg" id="err-txt-email" style="color: var(--error); font-size: 0.8rem; display: none; margin-top: 0.25rem;"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="checkout-panel">
+          <h3 class="panel-title"><span>2.</span> Payment Method</h3>
+          <div class="payment-methods">
+            <label class="payment-option active">
+              <input type="radio" name="payment_choice" value="cod" checked />
+              <div class="payment-option-label">
+                <span class="payment-label-title">Cash on Delivery (COD)</span>
+                <span class="payment-label-desc">Pay with cash when items arrive.</span>
+              </div>
+            </label>
+            <label class="payment-option">
+              <input type="radio" name="payment_choice" value="online" />
+              <div class="payment-option-label">
+                <span class="payment-label-title">Debit/Credit Card or UPI</span>
+                <span class="payment-label-desc">Secure instant payment via top local gateways.</span>
+              </div>
+            </label>
+          </div>
+        </div>
+      </section>
+
+      <!-- Right Column: Final Invoice Summary & Validation Submit Button -->
+      <aside class="summary-box">
+        <h3 class="summary-title">Your Order</h3>
+        <div id="checkout-items-list" style="margin-bottom: var(--space-lg);">
+          <!-- Populated by checkout.js with minimal product summary -->
+        </div>
+
+        <div class="summary-row">
+          <span>Subtotal</span>
+          <span id="summary-subtotal">₹0</span>
+        </div>
+        <div class="summary-row" id="summary-discount-row" style="display: none;">
+          <span>Promo Discount</span>
+          <span id="summary-discount" style="color: var(--success); font-weight: 600;">-₹0</span>
+        </div>
+        <div class="summary-row">
+          <span>Shipping Cost</span>
+          <span id="summary-shipping">Free</span>
+        </div>
+        <div class="summary-row total">
+          <span>Final Total</span>
+          <span id="summary-total">₹0</span>
+        </div>
+        
+        <div class="summary-row" id="summary-delivery-row" style="border-top: 1px dashed var(--border-color); padding-top: var(--space-sm); margin-top: var(--space-sm);">
+          <span style="font-size: 0.85rem; color: var(--text-secondary);">Est. Delivery</span>
+          <span id="summary-delivery-date" style="font-size: 0.85rem; font-weight: 600; color: var(--primary);">2&ndash;4 Days</span>
+        </div>
+
+        <button type="submit" class="btn btn-secondary animate-pulse" id="btn-place-order" style="width: 100%; margin-top: var(--space-lg);">
+          Confirm & Place Order
+        </button>
+      </aside>
+      
+    </form>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="js/api.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/checkout.js"></script>
+  <script src="js/validation.js"></script>
+  <script src="js/darkmode.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      fetch('components/header.html')
+        .then(res => res.text())
+        .then(html => {
+          const banner = document.getElementById('header-placeholder');
+          banner.innerHTML = html;
+          banner.querySelector('#page-title').textContent = 'Secure Checkout';
+          banner.querySelector('#breadcrumb-current').textContent = 'Checkout';
+        });
+
+      // Hook local style triggers for selected payment option radios
+      const options = document.querySelectorAll('.payment-option');
+      options.forEach(opt => {
+        const radio = opt.querySelector('input[type="radio"]');
+        if(radio) {
+          radio.addEventListener('change', () => {
+            options.forEach(o => o.classList.remove('active'));
+            if(radio.checked) opt.classList.add('active');
+          });
+        }
+      });
+    });
+  </script>
+  <!-- Online Payment Gateway Simulator Modal -->
+  <div id="payment-modal" class="modal-backdrop" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 2000; align-items: center; justify-content: center; backdrop-filter: blur(4px);">
+    <div class="modal-card" style="background: var(--surface-color); border: 1px solid var(--border-color); border-radius: var(--radius-lg); max-width: 480px; width: 90%; padding: var(--space-xl); box-shadow: var(--shadow-lg); position: relative;">
+      
+      <div style="text-align: center; margin-bottom: var(--space-lg);">
+        <span style="font-size: 2.5rem;">🔒</span>
+        <h3 style="font-size: 1.35rem; color: var(--primary); margin-top: 0.5rem; font-family: var(--font-primary);">Secure Online Payment</h3>
+        <p class="text-secondary" style="font-size: 0.85rem;">Simulator Gateway - No real money will be charged.</p>
+      </div>
+
+      <!-- Payment Tabs -->
+      <div style="display: flex; gap: 0.5rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem; margin-bottom: 1.5rem;">
+        <button type="button" class="tab-btn active" id="tab-card-btn" style="flex: 1; padding: 0.5rem; text-align: center; font-weight: 600; cursor: pointer; border-bottom: 2px solid var(--primary); color: var(--primary);">💳 Card</button>
+        <button type="button" class="tab-btn" id="tab-upi-btn" style="flex: 1; padding: 0.5rem; text-align: center; font-weight: 600; cursor: pointer; color: var(--text-secondary); border-bottom: none;">UPI</button>
+      </div>
+
+      <!-- Card Payment Form -->
+      <div id="payment-card-form">
+        <div class="form-group" style="margin-bottom: 1rem; text-align: left;">
+          <label class="form-label" for="txt-card-number" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.25rem;">Card Number *</label>
+          <input type="text" id="txt-card-number" class="form-control" placeholder="1234 5678 1234 5678" maxlength="19" style="border: 1px solid var(--border-color); width: 100%; padding: 0.5rem; border-radius: var(--radius-sm);" />
+        </div>
+        <div style="display: flex; gap: 1rem; margin-bottom: 1.5rem; text-align: left;">
+          <div class="form-group" style="flex: 1;">
+            <label class="form-label" for="txt-card-expiry" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.25rem;">Expiry Date *</label>
+            <input type="text" id="txt-card-expiry" class="form-control" placeholder="MM/YY" maxlength="5" style="border: 1px solid var(--border-color); width: 100%; padding: 0.5rem; border-radius: var(--radius-sm);" />
+          </div>
+          <div class="form-group" style="flex: 1;">
+            <label class="form-label" for="txt-card-cvv" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.25rem;">CVV *</label>
+            <input type="password" id="txt-card-cvv" class="form-control" placeholder="123" maxlength="3" style="border: 1px solid var(--border-color); width: 100%; padding: 0.5rem; border-radius: var(--radius-sm);" />
+          </div>
+        </div>
+      </div>
+
+      <!-- UPI Payment Form -->
+      <div id="payment-upi-form" style="display: none;">
+        <div class="form-group" style="margin-bottom: 1.5rem; text-align: left;">
+          <label class="form-label" for="txt-upi-id" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.25rem;">UPI ID (VPA) *</label>
+          <input type="text" id="txt-upi-id" class="form-control" placeholder="username@bank" style="border: 1px solid var(--border-color); width: 100%; padding: 0.5rem; border-radius: var(--radius-sm);" />
+        </div>
+      </div>
+
+      <!-- Payment Actions -->
+      <div style="display: flex; gap: var(--space-md);">
+        <button type="button" class="btn btn-outline" id="btn-cancel-payment" style="flex: 1; padding: 0.75rem;">Cancel</button>
+        <button type="button" class="btn btn-primary" id="btn-submit-payment" style="flex: 1; padding: 0.75rem;">Pay <span id="lbl-payment-amount">₹0</span></button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

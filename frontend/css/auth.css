@@ -1,0 +1,128 @@
+/*
+ * Auth.css - Authentication Panel Layout for Florish
+ * Purpose: Styling for login cards, registration overlays, security prompts, and validation alert highlights.
+ */
+
+.auth-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  padding: var(--space-xl) 0;
+  background: radial-gradient(circle at top right, var(--primary-light), transparent 60%);
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 480px;
+  background-color: var(--surface-color);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
+  padding: var(--space-xxl) var(--space-xl);
+  box-shadow: var(--shadow-premium);
+  text-align: center;
+  backdrop-filter: blur(20px);
+}
+
+.auth-logo {
+  font-family: var(--font-serif);
+  font-size: 2.25rem;
+  color: var(--primary);
+  margin-bottom: var(--space-sm);
+  display: inline-block;
+}
+
+.auth-subtitle {
+  color: var(--text-secondary);
+  margin-bottom: var(--space-xl);
+  font-size: 0.95rem;
+}
+
+.auth-form {
+  text-align: left;
+}
+
+.auth-footer {
+  margin-top: var(--space-xl);
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+
+.auth-footer a {
+  color: var(--secondary);
+  font-weight: 600;
+}
+
+.auth-footer a:hover {
+  text-decoration: underline;
+}
+
+/* Password helper text */
+.password-requirements {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: -0.5rem;
+  margin-bottom: var(--space-md);
+}
+
+/* Error/Success banners inside forms */
+.form-alert {
+  padding: 0.75rem var(--space-md);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-lg);
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.form-alert-error {
+  background-color: hsl(0, 100%, 96%);
+  color: var(--error);
+  border: 1px solid hsl(0, 100%, 90%);
+}
+
+.form-alert-success {
+  background-color: hsl(142, 69%, 96%);
+  color: var(--success);
+  border: 1px solid hsl(142, 69%, 90%);
+}
+
+/* Inline validation error messages styling */
+.error-msg {
+  color: var(--error);
+  font-size: 0.8rem;
+  margin-top: 0.35rem;
+  display: block;
+  font-weight: 500;
+  text-align: left;
+  animation: slideDown 0.2s ease-out forwards;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Invalid inputs visual states */
+.form-control.is-invalid {
+  border-color: var(--error) !important;
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1) !important;
+}
+
+/* Form inputs hover transitions */
+.form-control {
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.form-control:hover:not(.is-invalid) {
+  border-color: var(--text-muted);
+}
+
+/* Disabled button states for loading sequences */
+.btn:disabled {
+  opacity: 0.7 !important;
+  cursor: not-allowed !important;
+  transform: none !important;
+  box-shadow: none !important;
+}

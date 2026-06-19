@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop Floral Catalog - Fresh Flower Collections | Florish</title>
+  
+  <meta name="description" content="Browse our collections of freshly gathered premium flower arrangements, birthday bouquets, lilies, roses, and house plants at Florish.">
+  
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/shop.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/darkmode.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Reusable Header and Navigation Bar Components -->
+  <div id="navbar-placeholder"></div>
+
+  <!-- Shared Breadcrumb Header Banner -->
+  <div id="header-placeholder"></div>
+
+  <main class="container">
+    <div class="shop-container">
+      
+      <!-- Reusable Left Sidebar Filters Drawer -->
+      <aside class="filters-sidebar" id="sidebar-placeholder">
+        <!-- Will be loaded dynamically from components/sidebar.html or directly hardcoded for speed -->
+      </aside>
+
+      <!-- Shop Grid Dashboard -->
+      <section class="shop-content">
+        <!-- Mobile Filter Toggle Button -->
+        <button id="mobile-filter-toggle" class="btn btn-outline" style="display: none; width: 100%; margin-bottom: var(--space-md); justify-content: center; gap: 0.5rem; font-size: 0.95rem;">
+          🎛️ Filter & Sort Options
+        </button>
+
+        <!-- Controls row: Sort and Result details -->
+        <div class="shop-header">
+          <div class="results-count">
+            Showing <span id="results-range">1-9</span> of <span id="results-total">42</span> fresh items
+          </div>
+          <div class="shop-sorting">
+            <label for="sort-select">Sort By: </label>
+            <select id="sort-select" class="form-control" style="width: auto; display: inline-block;">
+              <option value="popularity">Popularity</option>
+              <option value="price-low">Price: Low to High</option>
+              <option value="price-high">Price: High to Low</option>
+              <option value="newest">Newest Arrivals</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Products List Area -->
+        <div class="products-grid" id="catalog-products-grid">
+          <!-- Populated by js/products.js and js/filter.js -->
+        </div>
+
+        <!-- Pagination Section -->
+        <div class="pagination">
+          <button class="page-btn active">1</button>
+          <button class="page-btn">2</button>
+          <button class="page-btn">3</button>
+          <button class="page-btn">»</button>
+        </div>
+      </section>
+      
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <!-- Frontend Javascript Modules -->
+  <script src="js/api.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/products.js"></script>
+  <script src="js/filter.js"></script>
+  <script src="js/search.js"></script>
+  <script src="js/darkmode.js"></script>
+  <script>
+    // Custom logic to load header, breadcrumbs, and sidebar components
+    document.addEventListener('DOMContentLoaded', () => {
+      // Dynamic load Sidebar component
+      fetch('components/sidebar.html')
+        .then(res => res.text())
+        .then(html => {
+          document.getElementById('sidebar-placeholder').innerHTML = html;
+          // Hook slider events once loaded
+          const slider = document.getElementById('price-range-slider');
+          const value = document.getElementById('price-slider-value');
+          if(slider && value) {
+            slider.addEventListener('input', () => { value.textContent = slider.value; });
+          }
+          // Dispatch custom sidebar loaded event for filter.js listener
+          document.dispatchEvent(new CustomEvent('sidebar-loaded'));
+        });
+
+      // Dynamic load Header page banner
+      fetch('components/header.html')
+        .then(res => res.text())
+        .then(html => {
+          const banner = document.getElementById('header-placeholder');
+          banner.innerHTML = html;
+          banner.querySelector('#page-title').textContent = 'Florish Shop Catalog';
+          banner.querySelector('#breadcrumb-current').textContent = 'Catalog';
+        });
+    });
+  </script>
+</body>
+</html>

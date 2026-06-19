@@ -1,0 +1,59 @@
+<!-- 
+  Header.html - Global Page Hero Breadcrumbs
+  Purpose: Displays context headers dynamically populated by the loading script.
+-->
+<header class="page-header">
+  <div class="container page-header-container">
+    <h1 id="page-title" class="page-header-title">Shop Catalog</h1>
+    <nav class="breadcrumbs">
+      <a href="index.html">Home</a>
+      <span class="divider">/</span>
+      <span id="breadcrumb-current" class="current">Shop</span>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .page-header {
+    background: linear-gradient(135deg, var(--primary-light), var(--surface-color));
+    padding: var(--space-xxl) 0;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .page-header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .page-header-title {
+    font-size: 2.25rem;
+    font-family: var(--font-serif);
+    color: var(--primary);
+  }
+
+  .breadcrumbs {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .breadcrumbs .divider {
+    color: var(--text-muted);
+  }
+
+  .breadcrumbs .current {
+    color: var(--primary);
+    font-weight: 600;
+  }
+
+  @media (max-width: 576px) {
+    .page-header-container {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--space-sm);
+    }
+  }
+</style>

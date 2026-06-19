@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Free Account - Join Florish Community</title>
+  
+  <meta name="description" content="Sign up for a new Florish client account. Get exclusive discount notifications, rapid single-click checkout, and birthday rewards.">
+  
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/auth.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/darkmode.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <div id="navbar-placeholder"></div>
+
+  <main class="auth-wrapper">
+    <div class="auth-card" style="max-width: 520px;">
+      <a href="index.html" class="auth-logo">🌱 Florish</a>
+      <p class="auth-subtitle">Register a new client profile</p>
+      
+      <form class="auth-form" id="register-form" novalidate>
+        <!-- Error notifications inside panels -->
+        <div id="auth-alert" style="display: none;"></div>
+
+        <div class="form-group">
+          <label class="form-label" for="reg-name">Full Name</label>
+          <input type="text" id="reg-name" class="form-control" placeholder="Sristi Singh" />
+          <div class="error-msg" id="err-reg-name" style="display: none;"></div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="reg-email">Email Address</label>
+          <input type="email" id="reg-email" class="form-control" placeholder="sristi@example.com" />
+          <div class="error-msg" id="err-reg-email" style="display: none;"></div>
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label" for="reg-password">Password</label>
+          <input type="password" id="reg-password" class="form-control" placeholder="At least 8 characters" />
+          <div class="error-msg" id="err-reg-password" style="display: none;"></div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="reg-confirm-password">Confirm Password</label>
+          <input type="password" id="reg-confirm-password" class="form-control" placeholder="Re-enter password" />
+          <div class="error-msg" id="err-reg-confirm-password" style="display: none;"></div>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: var(--space-sm);">
+          Register Profile
+        </button>
+      </form>
+
+      <div class="auth-footer">
+        Already registered? <a href="login.html">Sign In Here</a>
+      </div>
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="js/api.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/validation.js"></script>
+  <script src="js/darkmode.js"></script>
+</body>
+</html>

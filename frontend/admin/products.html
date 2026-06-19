@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manage Products - Florish Backoffice</title>
+  
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/admin.css">
+  <link rel="stylesheet" href="../css/darkmode.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <script src="../js/darkmode.js"></script>
+  <style>
+    /* Prevent layout flash before backend authorization check completes */
+    html, body { display: none; }
+  </style>
+  <script>
+    (async function() {
+      const token = localStorage.getItem('florish_token');
+      let user = null;
+      try { user = JSON.parse(localStorage.getItem('florish_user')); } catch(e) {}
+      
+      if (!token || !user || user.role !== 'admin') {
+        window.location.replace('login.html');
+        return;
+      }
+      
+      // Determine API URL (same logic as api.js)
+      const hostname = window.location.hostname;
+      const apiBase = (hostname === 'localhost' || hostname === '127.0.0.1' || hostname === '' || hostname.startsWith('192.168.') || hostname.startsWith('10.') || hostname.startsWith('172.16.'))
+        ? 'http://localhost:5000/api'
+        : 'https://finalproject-9pgj.onrender.com/api';
+      
+      try {
+        const response = await fetch(`${apiBase}/auth/profile`, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+          }
+        });
+        
+        if (response.ok) {
+          const profile = await response.json();
+          if (profile && profile.role === 'admin') {
+            // Keep local storage info updated
+            localStorage.setItem('florish_user', JSON.stringify({ name: profile.name, email: profile.email, role: profile.role }));
+            // Success - show page
+            document.documentElement.style.display = 'block';
+            if (document.body) document.body.style.display = 'block';
+            return;
+          }
+        }
+      } catch (err) {
+        console.error('Admin session validation failed:', err);
+      }
+      
+      // Redirect if unauthorized or fetch failed
+      localStorage.removeItem('florish_token');
+      localStorage.removeItem('florish_user');
+      window.location.replace('login.html');
+    })();
+  </script>
+</head>
+<body>
+
+  <div class="admin-layout">
+    
+    <!-- Sidebar Navigation Drawer -->
+    <aside class="admin-sidebar">
+      <div class="admin-logo">🌱 Florish Admin</div>
+      <nav class="admin-menu">
+        <a href="dashboard.html" class="admin-menu-link">📊 Dashboard</a>
+        <a href="products.html" class="admin-menu-link active">🌸 Inventory Items</a>
+        <a href="add-product.html" class="admin-menu-link">➕ Add Product</a>
+        <a href="orders.html" class="admin-menu-link">🛒 Client Orders</a>
+        <a href="users.html" class="admin-menu-link">👥 User Accounts</a>
+        <a href="settings.html" class="admin-menu-link">⚙️ Core Settings</a>
+        <a href="../index.html" class="admin-menu-link" style="margin-top: 5rem;">🏠 Public Site</a>
+      </nav>
+    </aside>
+
+    <!-- Main Content Workspace -->
+    <main class="admin-content">
+      <header class="admin-header">
+        <h1>Product Inventory</h1>
+        <a href="add-product.html" class="btn btn-secondary btn-sm">➕ Add New Item</a>
+      </header>
+
+      <!-- Products Spreadsheet Table -->
+      <section class="admin-card">
+        <div class="admin-table-wrapper">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Thumbnail</th>
+                <th>SKU</th>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><rect width='100%' height='100%' fill='%23f3f4f6'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='10' fill='%239ca3af'>No Image</text></svg>" style="width: 50px; height: 50px; object-fit: cover; border-radius: var(--radius-sm);" /></td>
+                <td>FL-ROSE-09</td>
+                <td>Blushing Romance Bouquet</td>
+                <td>Bouquets</td>
+                <td>₹38.25</td>
+                <td>
+                  <button class="btn btn-outline btn-sm" onclick="alert('Editing product details...')">Edit</button>
+                  <button class="btn btn-outline btn-sm" style="color: var(--error); border-color: var(--error);" onclick="confirm('Are you sure you want to delete this product?')">Delete</button>
+                </td>
+              </tr>
+              <tr>
+                <td><img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=100&auto=format&fit=crop" style="width: 50px; height: 50px; object-fit: cover; border-radius: var(--radius-sm);" /></td>
+                <td>FL-GOLD-21</td>
+                <td>Golden Sunrise Basin</td>
+                <td>Indoor Plants</td>
+                <td>₹29.99</td>
+                <td>
+                  <button class="btn btn-outline btn-sm" onclick="alert('Editing product details...')">Edit</button>
+                  <button class="btn btn-outline btn-sm" style="color: var(--error); border-color: var(--error);" onclick="confirm('Are you sure you want to delete this product?')">Delete</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+    
+  </div>
+
+  <script src="../js/api.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>
