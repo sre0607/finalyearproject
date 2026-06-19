@@ -5,52 +5,76 @@
 
 // Products.js - Dynamic Product Catalog Rendering and Interactions
 
-document.addEventListener('DOMContentLoaded', async () => {
-  // Auto-inject featured items on Homepage
+async function loadFeaturedProducts() {
   const featuredGrid = document.getElementById('featured-products-grid');
-  if (featuredGrid) {
-    // Show premium skeleton loaders
-    featuredGrid.innerHTML = `
-      <div class="skeleton-card"></div>
-      <div class="skeleton-card"></div>
-      <div class="skeleton-card"></div>
-      <div class="skeleton-card"></div>
-    `;
+  if (!featuredGrid) return;
 
-    try {
-      const allProducts = await api.get('/products');
-      const featuredItems = allProducts.filter(item => item.isFeatured);
-      renderProducts(featuredItems, featuredGrid);
-    } catch (err) {
-      console.error('Error loading featured products:', {
-        message: err.message,
-        stack: err.stack,
-        endpoint: '/products'
-      });
+  // Show premium skeleton loaders
+  featuredGrid.innerHTML = `
+    <div class="skeleton-card"></div>
+    <div class="skeleton-card"></div>
+    <div class="skeleton-card"></div>
+    <div class="skeleton-card"></div>
+  `;
+
+  try {
+    const allProducts = await api.get('/products');
+    
+    // Check if the response is valid
+    if (!Array.isArray(allProducts)) {
+      throw new Error('Response is not a valid list of products');
+    }
+
+    const featuredItems = allProducts.filter(item => item.isFeatured);
+
+    if (featuredItems.length === 0) {
+      // Empty state - do not show database error card
       featuredGrid.innerHTML = `
-        <div class="skeleton-card" style="opacity: 0.4; filter: grayscale(1);"></div>
-        <div class="skeleton-card" style="opacity: 0.4; filter: grayscale(1);"></div>
-        <div class="skeleton-card" style="opacity: 0.4; filter: grayscale(1);"></div>
-        <div class="skeleton-card" style="opacity: 0.4; filter: grayscale(1);"></div>
-        <div class="error-card" style="grid-column: 1/-1; padding: 2.5rem; text-align: center; background: var(--surface-color); border: 1px solid var(--border-color); border-radius: var(--radius-md); box-shadow: var(--shadow-md); margin-top: 1rem; position: relative; z-index: 10;">
+        <div style="grid-column: 1/-1; padding: 3rem 1rem; text-align: center; background: var(--surface-color); border: 1px solid var(--border-color); border-radius: var(--radius-md); max-width: 600px; margin: 1rem auto; width: 100%; box-shadow: var(--shadow-sm);">
           <div style="font-size: 2.5rem; margin-bottom: 1rem;">🌸</div>
-          <h3 style="color: var(--text-color); margin-bottom: 0.5rem; font-family: var(--font-header);">Could Not Load Featured Arrangements</h3>
-          <p style="color: var(--text-muted); margin-bottom: 1.5rem; max-width: 500px; margin-left: auto; margin-right: auto; line-height: 1.6;">
-            We're having trouble connecting to our florist database right now. Please check your connection or reload the page.
-          </p>
-          <button id="retry-featured-btn" class="btn btn-primary" style="padding: 0.75rem 2rem; border-radius: var(--radius-sm); font-weight: bold; cursor: pointer; transition: all 0.2s ease;">
-            🔄 Retry Loading
-          </button>
+          <h3 style="color: var(--text-color); margin-bottom: 0.5rem; font-family: var(--font-header);">No Featured Arrangements Available</h3>
+          <p style="color: var(--text-muted); margin-bottom: 0;">Our florists are currently preparing new seasonal featured creations. Please check back later!</p>
         </div>
       `;
-      const retryBtn = document.getElementById('retry-featured-btn');
-      if (retryBtn) {
-        retryBtn.addEventListener('click', () => {
-          window.location.reload();
-        });
-      }
+      return;
+    }
+
+    renderProducts(featuredItems, featuredGrid);
+  } catch (err) {
+    console.error('Error loading featured products:', {
+      message: err.message,
+      stack: err.stack,
+      endpoint: '/products'
+    });
+
+    featuredGrid.innerHTML = `
+      <div class="skeleton-card" style="opacity: 0.4; filter: grayscale(1);"></div>
+      <div class="skeleton-card" style="opacity: 0.4; filter: grayscale(1);"></div>
+      <div class="skeleton-card" style="opacity: 0.4; filter: grayscale(1);"></div>
+      <div class="skeleton-card" style="opacity: 0.4; filter: grayscale(1);"></div>
+      <div class="error-card" style="grid-column: 1/-1; padding: 2.5rem; text-align: center; background: var(--surface-color); border: 1px solid var(--border-color); border-radius: var(--radius-md); box-shadow: var(--shadow-md); margin-top: 1rem; position: relative; z-index: 10;">
+        <div style="font-size: 2.5rem; margin-bottom: 1rem;">🌸</div>
+        <h3 style="color: var(--text-color); margin-bottom: 0.5rem; font-family: var(--font-header);">Could Not Load Featured Arrangements</h3>
+        <p style="color: var(--text-muted); margin-bottom: 1.5rem; max-width: 500px; margin-left: auto; margin-right: auto; line-height: 1.6;">
+          We're having trouble connecting to our florist database right now. Please check your connection or reload the page.
+        </p>
+        <button id="retry-featured-btn" class="btn btn-primary" style="padding: 0.75rem 2rem; border-radius: var(--radius-sm); font-weight: bold; cursor: pointer; transition: all 0.2s ease;">
+          🔄 Retry Loading
+        </button>
+      </div>
+    `;
+
+    const retryBtn = document.getElementById('retry-featured-btn');
+    if (retryBtn) {
+      retryBtn.addEventListener('click', () => {
+        loadFeaturedProducts();
+      });
     }
   }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  loadFeaturedProducts();
 });
 
 /**
