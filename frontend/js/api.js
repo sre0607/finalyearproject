@@ -4,9 +4,8 @@
  */
 
 // Central API Config
-// In local dev, it uses localhost. In production, it defaults to your Render URL.
-const PRODUCTION_API_URL = 'https://finalproject-9pgj.onrender.com/api';
-
+// In local dev and fallback environments, it uses the local server on port 5000.
+// Stale/suspended production Render URL has been removed.
 const API_BASE_URL = localStorage.getItem('florish_api_url') || (
   (
     window.location.hostname === 'localhost' || 
@@ -14,10 +13,12 @@ const API_BASE_URL = localStorage.getItem('florish_api_url') || (
     window.location.hostname.startsWith('192.168.') || 
     window.location.hostname.startsWith('10.') || 
     window.location.hostname.startsWith('172.16.') || 
+    window.location.hostname.endsWith('.local') ||
+    window.location.hostname.includes('localhost') ||
     window.location.hostname === ''
   )
     ? 'http://localhost:5000/api'
-    : PRODUCTION_API_URL
+    : 'http://localhost:5000/api' // Fallback to local server as the default/correct backend URL
 );
 
 
@@ -61,7 +62,12 @@ class ApiClient {
       const response = await fetch(`${API_BASE_URL}${endpoint}`, config);
       clearTimeout(timeoutId);
 
-      const data = await response.json();
+      const contentType = response.headers.get('content-type') || '';
+      const isJson = contentType.includes('application/json');
+
+      console.log(`[DIAGNOSTICS] Final API URL: ${API_BASE_URL}${endpoint}`);
+      console.log(`[DIAGNOSTICS] Response Status: ${response.status}`);
+      console.log(`[DIAGNOSTICS] Content-Type: ${contentType}`);
 
       if (!response.ok) {
         if (response.status === 401) {
@@ -78,9 +84,30 @@ class ApiClient {
             window.location.reload();
           }
         }
-        throw new Error(data.message || `Request failed with status ${response.status}`);
+
+        let errMsg = `Request failed with status ${response.status}`;
+        if (isJson) {
+          try {
+            const data = await response.json();
+            errMsg = data.message || errMsg;
+          } catch (e) {}
+        } else {
+          if (response.status === 503) {
+            errMsg = 'The server is temporarily unavailable (503 Service Unavailable). It might be suspended, sleeping, or undergoing maintenance. Please try again later.';
+          } else if (contentType.includes('text/html')) {
+            errMsg = `Server returned an HTML error page (Status ${response.status}).`;
+          } else {
+            errMsg = `Server returned an invalid response (Status ${response.status}).`;
+          }
+        }
+        throw new Error(errMsg);
       }
 
+      if (!isJson) {
+        throw new Error(`Expected JSON response from server but received Content-Type: "${contentType}"`);
+      }
+
+      const data = await response.json();
       return data;
     } catch (error) {
       clearTimeout(timeoutId);
@@ -156,7 +183,8 @@ class ApiClient {
       });
       clearTimeout(timeoutId);
 
-      const data = await response.json();
+      const contentType = response.headers.get('content-type') || '';
+      const isJson = contentType.includes('application/json');
 
       if (!response.ok) {
         if (response.status === 401) {
@@ -173,9 +201,28 @@ class ApiClient {
             window.location.reload();
           }
         }
-        throw new Error(data.message || 'Image upload failed');
+
+        let errMsg = 'Image upload failed';
+        if (isJson) {
+          try {
+            const data = await response.json();
+            errMsg = data.message || errMsg;
+          } catch (e) {}
+        } else {
+          if (response.status === 503) {
+            errMsg = 'The server is temporarily unavailable (503 Service Unavailable). It might be suspended, sleeping, or undergoing maintenance. Please try again later.';
+          } else {
+            errMsg = `Upload request failed with status ${response.status}.`;
+          }
+        }
+        throw new Error(errMsg);
       }
 
+      if (!isJson) {
+        throw new Error(`Expected JSON response from upload server but received Content-Type: "${contentType}"`);
+      }
+
+      const data = await response.json();
       return data;
     } catch (error) {
       clearTimeout(timeoutId);

@@ -27,6 +27,9 @@ async function loadFeaturedProducts() {
 
     const featuredItems = allProducts.filter(item => item.isFeatured);
 
+    console.log(`[DIAGNOSTICS] Number of products returned: ${allProducts.length}`);
+    console.log(`[DIAGNOSTICS] Number of featured products returned: ${featuredItems.length}`);
+
     if (featuredItems.length === 0) {
       // Empty state - do not show database error card
       featuredGrid.innerHTML = `

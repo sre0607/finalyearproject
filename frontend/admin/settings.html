@@ -27,9 +27,9 @@
       
       // Determine API URL (same logic as api.js)
       const hostname = window.location.hostname;
-      const apiBase = (hostname === 'localhost' || hostname === '127.0.0.1' || hostname === '' || hostname.startsWith('192.168.') || hostname.startsWith('10.') || hostname.startsWith('172.16.'))
+      const apiBase = (hostname === 'localhost' || hostname === '127.0.0.1' || hostname === '' || hostname.startsWith('192.168.') || hostname.startsWith('10.') || hostname.startsWith('172.16.') || hostname.endsWith('.local') || hostname.includes('localhost'))
         ? 'http://localhost:5000/api'
-        : 'https://finalproject-9pgj.onrender.com/api';
+        : 'http://localhost:5000/api'; // Stale Render URL removed, fallback to local backend
       
       try {
         const response = await fetch(`${apiBase}/auth/profile`, {
