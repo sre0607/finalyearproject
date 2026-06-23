@@ -32,20 +32,7 @@ const connectDB = require('./config/db');
 // Initialize Express App
 const app = express();
 
-// Security Middlewares
-app.use(helmet({
-  crossOriginResourcePolicy: { policy: 'cross-origin' },
-  crossOriginEmbedderPolicy: false
-}));
-
-const mongoSanitize = require('express-mongo-sanitize');
-const { xssSanitizer } = require('./middleware/xssMiddleware');
-const { generalLimiter } = require('./middleware/rateLimitMiddleware');
-
-app.use(mongoSanitize());
-app.use(xssSanitizer);
-app.use('/api', generalLimiter);
-
+// 1. CORS Configuration (MUST be placed before other middlewares to handle preflight)
 const allowedOrigins = [
   'http://localhost:5500',
   'http://127.0.0.1:5500',
@@ -60,7 +47,7 @@ if (process.env.FRONTEND_URL) {
   allowedOrigins.push(process.env.FRONTEND_URL.replace(/\/$/, ''));
 }
 
-app.use(cors({
+const corsOptions = {
   origin: function (origin, callback) {
     // Allow requests with no origin (like mobile apps, postman, curl)
     if (!origin) {
@@ -107,8 +94,28 @@ app.use(cors({
     
     return callback(new Error('Not allowed by CORS'), false);
   },
-  credentials: true
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'Origin', 'Accept', 'X-Requested-With']
+};
+
+app.use(cors(corsOptions));
+// Handle explicit OPTIONS preflight for all routes
+app.options('*', cors(corsOptions));
+
+// Security Middlewares
+app.use(helmet({
+  crossOriginResourcePolicy: { policy: 'cross-origin' },
+  crossOriginEmbedderPolicy: false
 }));
+
+const mongoSanitize = require('express-mongo-sanitize');
+const { xssSanitizer } = require('./middleware/xssMiddleware');
+const { generalLimiter } = require('./middleware/rateLimitMiddleware');
+
+app.use(mongoSanitize());
+app.use(xssSanitizer);
+app.use('/api', generalLimiter);
 
 // HTTP Logger Middleware
 if (process.env.NODE_ENV === 'development' || !process.env.NODE_ENV) {
