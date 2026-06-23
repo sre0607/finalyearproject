@@ -4,8 +4,9 @@
  */
 
 // Central API Config
-// In local dev and fallback environments, it uses the local server on port 5000.
-// Stale/suspended production Render URL has been removed.
+// In local dev, it uses localhost. In production, it defaults to the live Render URL.
+const PRODUCTION_API_URL = 'https://finalproject-9pgj.onrender.com/api';
+
 const API_BASE_URL = localStorage.getItem('florish_api_url') || (
   (
     window.location.hostname === 'localhost' || 
@@ -18,7 +19,7 @@ const API_BASE_URL = localStorage.getItem('florish_api_url') || (
     window.location.hostname === ''
   )
     ? 'http://localhost:5000/api'
-    : 'http://localhost:5000/api' // Fallback to local server as the default/correct backend URL
+    : PRODUCTION_API_URL
 );
 
 

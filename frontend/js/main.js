@@ -54,7 +54,9 @@ Fallback Used: ${fallback}`);
 
   if (trimmed.startsWith('/uploads/') || trimmed.startsWith('uploads/')) {
     const base = trimmed.startsWith('/uploads/') ? trimmed : '/' + trimmed;
-    const apiBase = window.API_BASE_URL || (typeof API_BASE_URL !== 'undefined' ? API_BASE_URL : 'http://localhost:5000/api');
+    const localCheck = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.hostname === '' || window.location.hostname.startsWith('192.168.') || window.location.hostname.startsWith('10.') || window.location.hostname.startsWith('172.16.') || window.location.hostname.endsWith('.local') || window.location.hostname.includes('localhost');
+    const fallbackUrl = localCheck ? 'http://localhost:5000/api' : 'https://finalproject-9pgj.onrender.com/api';
+    const apiBase = window.API_BASE_URL || (typeof API_BASE_URL !== 'undefined' ? API_BASE_URL : fallbackUrl);
     const baseServerUrl = apiBase.replace('/api', '');
     resolvedUrl = `${baseServerUrl}${base}`;
   }
