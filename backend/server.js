@@ -52,7 +52,8 @@ const allowedOrigins = [
   'http://localhost:3000',
   'http://127.0.0.1:3000',
   'http://localhost:5000',
-  'http://127.0.0.1:5000'
+  'http://127.0.0.1:5000',
+  'https://finalyearproject-1-alx4.onrender.com'
 ];
 
 if (process.env.FRONTEND_URL) {
@@ -96,7 +97,7 @@ app.use(cors({
         (hostname.endsWith('.github.io') ||
          hostname.endsWith('.netlify.app') ||
          hostname.endsWith('.onrender.com')) &&
-        (hostname.includes('florish') || hostname.includes('finalproject'))
+        (hostname.includes('florish') || hostname.includes('finalproject') || hostname.includes('finalyearproject'))
       ) {
         return callback(null, true);
       }

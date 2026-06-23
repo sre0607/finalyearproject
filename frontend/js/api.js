@@ -5,7 +5,7 @@
 
 // Central API Config
 // In local dev, it uses localhost. In production, it defaults to the live Render URL.
-const PRODUCTION_API_URL = 'https://finalproject-9pgj.onrender.com/api';
+const PRODUCTION_API_URL = 'https://finalyearproject-qn8h.onrender.com/api';
 
 const API_BASE_URL = localStorage.getItem('florish_api_url') || (
   (
