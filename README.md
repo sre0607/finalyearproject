@@ -1,6 +1,6 @@
 # Florish - Premium Floral E-Commerce Website 🌸🌱
 
-Florish is a complete, decoupled full-stack Floral E-Commerce web application. It is designed with clean scalable architecture, specifically tailored as a comprehensive final year academic project (e.g. BCA/B.Sc. CS/MCA).
+Florish is a complete, decoupled full-stack Floral E-Commerce web application. It is designed with clean scalable architecture, specifically tailored as a comprehensive final year academic project (BCA).
 
 The system decouples a static frontend (HTML5, HSL-based CSS3 tokens, dynamic modular Javascript) from a Node.js + Express.js REST API backend connected to a MongoDB database, incorporating secure JWT authentication and Multer-based image file uploads.
 
@@ -170,3 +170,4 @@ Florish meets the rigorous evaluation rubrics for final year capstone requiremen
 - **Relational Integrity Constraints:** Database Schemas enforce unique SKUs, strict enum product categories, positive price bounds, and single compound reviews per customer.
 - **Security:** Complete encryption of authentication parameters using Bcrypt.
 - **Dynamic Extensibility:** Modular dynamic loading architecture on both the client (reusable template injection via vanilla JavaScript) and the server (modular routing structures with custom database middleware).
+---
